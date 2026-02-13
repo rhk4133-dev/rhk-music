@@ -4,28 +4,42 @@
   <title>RHK MUSIC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
 
+<!-- LOGIN SCREEN -->
+<div id="loginBox" class="login">
+  <h2>RHK MUSIC</h2>
+  <input type="text" id="username" placeholder="Enter Name">
+  <button onclick="login()">Enter</button>
+</div>
+
 <h1 class="title">RHK MUSIC</h1>
+
+<div class="tabs">
+  <button onclick="showAll()">All Songs</button>
+  <button onclick="showFav()">Favorites</button>
+</div>
 
 <div class="grid" id="songGrid"></div>
 
-<!-- Hidden YouTube Player -->
 <div id="youtubePlayer"></div>
 
-<!-- Bottom Mini Player -->
+<!-- MINI PLAYER -->
 <div class="mini-player glass">
-  <div class="mini-info">
-    <span id="miniTitle">No song playing</span>
+  <div id="miniTitle">No song playing</div>
+
+  <div class="equalizer">
+    <span></span><span></span><span></span><span></span>
   </div>
 
   <input type="range" id="progress" value="0">
 
   <div class="controls">
     <button onclick="prevSong()">⏮</button>
-    <button onclick="togglePlay()">▶ / ⏸</button>
+    <button onclick="togglePlay()">▶</button>
     <button onclick="nextSong()">⏭</button>
     <button onclick="likeSong()">❤️</button>
   </div>
