@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>RHK MUSIC</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- YouTube API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
+
 <body>
 
 <!-- LOGIN SCREEN -->
@@ -16,37 +26,62 @@
   <button onclick="login()">Enter</button>
 </div>
 
-<h1 class="title">RHK MUSIC</h1>
+<!-- MAIN APP -->
+<div id="app" style="display:none;">
 
-<div class="tabs">
-  <button onclick="showAll()">All Songs</button>
-  <button onclick="showFav()">Favorites</button>
-</div>
+  <h1 class="title">RHK MUSIC</h1>
 
-<div class="grid" id="songGrid"></div>
-
-<div id="youtubePlayer"></div>
-
-<!-- MINI PLAYER -->
-<div class="mini-player glass">
-  <div id="miniTitle">No song playing</div>
-
-  <div class="equalizer">
-    <span></span><span></span><span></span><span></span>
+  <!-- Tabs -->
+  <div class="tabs">
+    <button onclick="showAll()">All Songs</button>
+    <button onclick="showFav()">Favorites ❤️</button>
   </div>
 
-  <input type="range" id="progress" value="0">
+  <!-- Song List -->
+  <div id="songList"></div>
 
-  <div class="controls">
-    <button onclick="prevSong()">⏮</button>
-    <button onclick="togglePlay()">▶</button>
-    <button onclick="nextSong()">⏭</button>
-    <button onclick="likeSong()">❤️</button>
+  <!-- Player -->
+  <div class="player">
+
+    <div id="player"></div>
+
+    <div class="controls">
+      <button onclick="prevSong()">⏮</button>
+      <button onclick="playPause()">▶️ / ⏸</button>
+      <button onclick="nextSong()">⏭</button>
+    </div>
+
+    <!-- Progress Bar -->
+    <input type="range" id="progress" value="0" min="0" max="100">
+
+    <!-- Volume -->
+    <input type="range" id="volume" min="0" max="100" value="100">
+
+    <!-- Equalizer Animation -->
+    <div class="equalizer">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
   </div>
 
-  <input type="range" id="volume" min="0" max="100" value="100">
 </div>
 
-<script src="script.js"></script>
+<!-- JS -->
+<script src="app.js"></script>
+
+<!-- Service Worker -->
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker Registered"));
+  });
+}
+</script>
+
 </body>
 </html>
