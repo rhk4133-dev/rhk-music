@@ -1,87 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>RHK MUSIC</title>
-
+  <title>RHK Neon Music</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
 
   <!-- YouTube API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
-
 <body>
 
-<!-- LOGIN SCREEN -->
-<div id="loginBox" class="login">
-  <h2>RHK MUSIC</h2>
-  <input type="text" id="username" placeholder="Enter Name">
-  <button onclick="login()">Enter</button>
-</div>
+<h1 class="title">🎵 RHK NEON MUSIC</h1>
 
-<!-- MAIN APP -->
-<div id="app" style="display:none;">
-
-  <h1 class="title">RHK MUSIC</h1>
-
-  <!-- Tabs -->
-  <div class="tabs">
-    <button onclick="showAll()">All Songs</button>
-    <button onclick="showFav()">Favorites ❤️</button>
-  </div>
+<div class="container">
 
   <!-- Song List -->
-  <div id="songList"></div>
+  <div class="song-list">
+    <button onclick="loadSong('dQw4w9WgXcQ')">Song 1</button>
+    <button onclick="loadSong('9bZkp7q19f0')">Song 2</button>
+    <button onclick="loadSong('3tmd-ClpJxA')">Song 3</button>
+  </div>
 
   <!-- Player -->
-  <div class="player">
+  <div id="player"></div>
 
-    <div id="player"></div>
-
-    <div class="controls">
-      <button onclick="prevSong()">⏮</button>
-      <button onclick="playPause()">▶️ / ⏸</button>
-      <button onclick="nextSong()">⏭</button>
-    </div>
-
-    <!-- Progress Bar -->
-    <input type="range" id="progress" value="0" min="0" max="100">
-
-    <!-- Volume -->
-    <input type="range" id="volume" min="0" max="100" value="100">
-
-    <!-- Equalizer Animation -->
-    <div class="equalizer">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
+  <!-- Controls -->
+  <div class="controls">
+    <button onclick="playSong()">▶</button>
+    <button onclick="pauseSong()">⏸</button>
   </div>
 
 </div>
 
-<!-- JS -->
 <script src="script.js"></script>
-
-<!-- Service Worker -->
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker Registered"));
-  });
-}
-</script>
 
 </body>
 </html>
