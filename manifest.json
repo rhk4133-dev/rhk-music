@@ -1,8 +1,11 @@
 {
-  "name": "RHK Music",
-  "short_name": "RHK",
-  "start_url": ".",
+  "name": "RHK Music Player",
+  "short_name": "RHK Music",
+  "description": "RHK Music is a premium web music player with playlists, favorites and smooth experience.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0f0f0f",
   "theme_color": "#1db954",
   "icons": [
