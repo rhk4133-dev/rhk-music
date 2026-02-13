@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RHK Neon Music</title>
+  <title>RHK Music</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
-
-  <!-- YouTube API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
 
-<h1 class="title">🎵 RHK NEON MUSIC</h1>
+<header>
+  <h1>🎵 RHK MUSIC</h1>
+</header>
 
-<div class="container">
+<input type="text" id="searchBar" placeholder="🔍 Search song..." class="search-bar">
 
-  <!-- Song List -->
-  <div class="song-list">
-    <button onclick="loadSong('dQw4w9WgXcQ')">Song 1</button>
-    <button onclick="loadSong('9bZkp7q19f0')">Song 2</button>
-    <button onclick="loadSong('3tmd-ClpJxA')">Song 3</button>
+<div class="playlist" id="songList"></div>
+
+<!-- Mini Player -->
+<div class="mini-player" onclick="openPlayer()">
+  <img id="miniCover">
+  <div>
+    <p id="miniTitle">Select Song</p>
   </div>
-
-  <!-- Player -->
-  <div id="player"></div>
-
-  <!-- Controls -->
-  <div class="controls">
-    <button onclick="playSong()">▶</button>
-    <button onclick="pauseSong()">⏸</button>
-  </div>
-
+  <button id="miniPlay">▶</button>
 </div>
 
-<script src="script.js"></script>
+<!-- Full Player -->
+<div class="full-player" id="fullPlayer">
+  <div class="player-content">
+    <img id="cover" class="cover">
+    <h2 id="title"></h2>
 
+    <div class="controls">
+      <button onclick="shuffleSongs()">🔀</button>
+      <button onclick="prevSong()">⏮</button>
+      <button onclick="togglePlay()" id="playBtn">▶</button>
+      <button onclick="nextSong()">⏭</button>
+      <button onclick="repeatMode()">🔁</button>
+    </div>
+
+    <button class="close-btn" onclick="closePlayer()">⬇ Close</button>
+  </div>
+</div>
+
+<div id="loader" class="loader">Loading...</div>
+<div id="youtubePlayer"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
