@@ -9,6 +9,7 @@ body{
   background:#0f0f0f;
   color:white;
   padding:15px;
+  padding-bottom:180px;
 }
 
 .title{
@@ -82,6 +83,36 @@ body{
   font-size:14px;
 }
 
-.play-btn:active{
-  transform:scale(0.95);
+/* MINI PLAYER */
+
+.mini-player{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:15px;
+  backdrop-filter:blur(15px);
+  background:rgba(255,255,255,0.05);
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin:10px 0;
+}
+
+.controls button{
+  background:#1db954;
+  border:none;
+  padding:8px 12px;
+  border-radius:50%;
+  color:white;
+  font-size:16px;
+}
+
+#progress,
+#volume{
+  width:100%;
 }
