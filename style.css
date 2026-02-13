@@ -1,0 +1,87 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:#0f0f0f;
+  color:white;
+  padding:15px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:20px;
+  font-size:26px;
+  color:#1db954;
+  letter-spacing:2px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.card{
+  background:#1c1c1c;
+  border-radius:18px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  background:#252525;
+}
+
+.disc{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  margin:auto;
+  background-size:cover;
+  background-position:center;
+  margin-bottom:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.7);
+}
+
+.disc.playing{
+  animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+.song-name{
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+}
+
+.play-btn{
+  background:#1db954;
+  border:none;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.play-btn:active{
+  transform:scale(0.95);
+}
