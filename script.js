@@ -1,7 +1,5 @@
-// Replace this with your Google Sheet URL (the one linked to your Form)
 var publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/1LAhLPELqlfM_I8Lz8ChMqywjWcLoS-jge4PO6eAeruc/edit?usp=sharing";
 
-// Load Tabletop and fetch sheet data
 window.onload = function() {
     Tabletop.init({
         key: publicSpreadsheetUrl,
@@ -10,18 +8,16 @@ window.onload = function() {
     });
 };
 
-// Function to display teams on the website
 function showTeams(data, tabletop) {
     var container = document.getElementById("teamsList");
-    container.innerHTML = ""; // Clear existing content
+    container.innerHTML = "";
 
-    if (data.length === 0) {
+    if(data.length === 0) {
         container.innerHTML = "No teams registered yet.";
         return;
     }
 
     data.forEach(team => {
-        // Create a card for each team
         var div = document.createElement("div");
         div.className = "teamBox";
         div.innerHTML = `
