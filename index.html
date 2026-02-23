@@ -1,50 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>RHK Music</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://www.youtube.com/iframe_api"></script>
+    <meta charset="UTF-8">
+    <title>Divine Esport Tournament</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>🎵 RHK MUSIC</h1>
-</header>
+<div class="overlay">
+    <h1 class="title">DIVINE ESPORT</h1>
 
-<input type="text" id="searchBar" placeholder="🔍 Search song..." class="search-bar">
+    <div class="container">
+        <h2>Free Fire Tournament Registration</h2>
 
-<div class="playlist" id="songList"></div>
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ul>
+                <li>Each team must have exactly 4 members.</li>
+                <li>Enter correct Free Fire ID.</li>
+                <li>No ID changes allowed after submission.</li>
+                <li>Be online 15 minutes before match time.</li>
+            </ul>
+        </div>
 
-<!-- Mini Player -->
-<div class="mini-player" onclick="openPlayer()">
-  <img id="miniCover">
-  <div>
-    <p id="miniTitle">Select Song</p>
-  </div>
-  <button id="miniPlay">▶</button>
-</div>
+        <form id="registrationForm">
+            <input type="text" id="teamName" placeholder="Team Name" required>
 
-<!-- Full Player -->
-<div class="full-player" id="fullPlayer">
-  <div class="player-content">
-    <img id="cover" class="cover">
-    <h2 id="title"></h2>
+            <h3>Team Members</h3>
 
-    <div class="controls">
-      <button onclick="shuffleSongs()">🔀</button>
-      <button onclick="prevSong()">⏮</button>
-      <button onclick="togglePlay()" id="playBtn">▶</button>
-      <button onclick="nextSong()">⏭</button>
-      <button onclick="repeatMode()">🔁</button>
+            <div class="member">
+                <input type="text" placeholder="Player 1 Name" required>
+                <input type="number" placeholder="Player 1 Free Fire ID" required>
+            </div>
+
+            <div class="member">
+                <input type="text" placeholder="Player 2 Name" required>
+                <input type="number" placeholder="Player 2 Free Fire ID" required>
+            </div>
+
+            <div class="member">
+                <input type="text" placeholder="Player 3 Name" required>
+                <input type="number" placeholder="Player 3 Free Fire ID" required>
+            </div>
+
+            <div class="member">
+                <input type="text" placeholder="Player 4 Name" required>
+                <input type="number" placeholder="Player 4 Free Fire ID" required>
+            </div>
+
+            <button type="submit">Register Team</button>
+        </form>
+
+        <div id="successMessage"></div>
     </div>
-
-    <button class="close-btn" onclick="closePlayer()">⬇ Close</button>
-  </div>
 </div>
-
-<div id="loader" class="loader">Loading...</div>
-<div id="youtubePlayer"></div>
 
 <script src="script.js"></script>
 </body>
