@@ -1,57 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Divine Esport Tournament</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Esport Tournament</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 </head>
 <body>
 
 <div class="overlay">
     <h1 class="title">DIVINE ESPORT</h1>
 
-    <div class="container">
-        <h2>Free Fire Tournament Registration</h2>
+    <!-- Registration Button -->
+    <div class="card">
+        <h2>Register Your Team</h2>
+        <p>Click below to register for the tournament</p>
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA" target="_blank">
+            <button>Register Now</button>
+        </a>
+    </div>
 
-        <div class="instructions">
-            <h3>Instructions:</h3>
-            <ul>
-                <li>Each team must have exactly 4 members.</li>
-                <li>Enter correct Free Fire ID.</li>
-                <li>No ID changes allowed after submission.</li>
-                <li>Be online 15 minutes before match time.</li>
-            </ul>
-        </div>
-
-        <form id="registrationForm">
-            <input type="text" id="teamName" placeholder="Team Name" required>
-
-            <h3>Team Members</h3>
-
-            <div class="member">
-                <input type="text" placeholder="Player 1 Name" required>
-                <input type="number" placeholder="Player 1 Free Fire ID" required>
-            </div>
-
-            <div class="member">
-                <input type="text" placeholder="Player 2 Name" required>
-                <input type="number" placeholder="Player 2 Free Fire ID" required>
-            </div>
-
-            <div class="member">
-                <input type="text" placeholder="Player 3 Name" required>
-                <input type="number" placeholder="Player 3 Free Fire ID" required>
-            </div>
-
-            <div class="member">
-                <input type="text" placeholder="Player 4 Name" required>
-                <input type="number" placeholder="Player 4 Free Fire ID" required>
-            </div>
-
-            <button type="submit">Register Team</button>
-        </form>
-
-        <div id="successMessage"></div>
+    <!-- Registered Teams -->
+    <div class="card">
+        <h2>Registered Teams</h2>
+        <div id="teamsList">Loading...</div>
     </div>
 </div>
 
