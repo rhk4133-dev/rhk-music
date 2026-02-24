@@ -1,57 +1,165 @@
-body {
+/* Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, black, #111, #1a1a1a);
-    color: white;
+    overflow-x: hidden;
+    background: black;
 }
 
-.container {
-    padding: 20px;
-    text-align: center;
+/* 🌌 Animated Moving Background */
+.background-animation {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #000000, #111111, #1a1a1a, #000000);
+    animation: moveBg 12s linear infinite;
+    z-index: -1;
 }
 
-h1 {
+@keyframes moveBg {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-25%, -25%); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Overlay */
+.overlay {
+    background: rgba(0,0,0,0.85);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* 🏆 Title */
+.title {
     color: gold;
-    text-shadow: 0 0 15px gold;
+    font-size: 42px;
+    text-align: center;
+    text-shadow: 0 0 20px gold, 0 0 40px orange;
+    margin-bottom: 20px;
 }
 
+/* ⏳ Timer */
+.timer {
+    color: cyan;
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px cyan;
+}
+
+/* Card Design */
 .card {
-    background: #111;
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 10px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
+    border-radius: 12px;
+    padding: 30px;
+    width: 95%;
+    max-width: 520px;
+    text-align: center;
     box-shadow: 0 0 20px gold;
+    margin-top: 20px;
 }
 
-input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
+/* 🔥 Instruction Text */
+.instruction {
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px gold, 0 0 20px red;
+    animation: glow 1.5s infinite alternate;
 }
 
-button {
-    padding: 10px 20px;
-    background: gold;
-    border: none;
+@keyframes glow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 25px red; }
+}
+
+/* 🔴 Subscribe Button */
+#subscribeBtn {
+    display: inline-block;
+    background: #FF0000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    animation: pulse 1.5s infinite;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: orange;
+#subscribeBtn:hover {
+    background: #cc0000;
+    transform: scale(1.1);
 }
 
-.dashboard, #adminList {
-    margin-top: 30px;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
-.team-card {
-    background: #222;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 8px;
+/* 🔐 Verification Text */
+.verification {
+    margin-top: 20px;
+    color: yellow;
+    font-weight: bold;
+    display: none;
+}
+
+/* 🟢 Register Button */
+.registerBtn {
+    display: inline-block;
+    background: #00ffcc;
+    color: black;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.registerBtn:hover {
+    background: #00ccaa;
+    transform: scale(1.1);
+}
+
+/* 📊 Tournament Status */
+.card h2 {
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px gold;
+}
+
+.card p {
+    font-size: 18px;
+    margin: 8px 0;
+    padding: 8px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .instruction {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 20px;
+    }
 }
