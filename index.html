@@ -1,72 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divine Esport Tournament</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="script.js" defer></script>
+    <title>RHK Esports Tournament</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="background-animation"></div>
+<h1>🔥 RHK ESPORTS TOURNAMENT 🔥</h1>
 
-<div class="overlay">
-    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
+<p class="instruction">
+    Subscribe the channel to unlock Registration and Tournament Status
+</p>
 
-    <!-- Countdown -->
-    <div class="timer">
-        Registration Ends In:
-        <span id="countdown">00:00:00</span>
+<button class="button subscribe" onclick="subscribe()">Subscribe Now</button>
+<button class="button register" id="registerBtn">Register Now</button>
+<button class="button statusBtn" id="statusBtn" onclick="showStatus()">Tournament Status</button>
+
+<div class="section" id="statusSection">
+
+    <!-- ===== EDIT STATUS HERE ===== -->
+    <div class="statusBox open">
+        🟢 STATUS: REGISTRATION OPEN
     </div>
 
-    <!-- Subscribe Section -->
-    <div class="card" id="subscribeSection">
-        <p class="instruction">
-            SUBSCRIBE THE CHANNEL TO SHOW THE TOURNAMENT STATUS  
-            AND REGISTRATION BUTTON
-        </p>
+    <!-- ===== EDIT DATE HERE ===== -->
+    <p>📅 Registration: 28-02-2026 to 06-03-2026</p>
 
-        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
-           target="_blank"
-           rel="noopener"
-           id="subscribeBtn">
-           SUBSCRIBE
-        </a>
+    <div class="countdown" id="countdown"></div>
 
-        <div id="verification" class="verification">
-            Verifying Subscription...
-        </div>
+    <!-- ===== EDIT SLOT SYSTEM HERE ===== -->
+    <div class="slots">
+        Total Slots: 20 <br>
+        Filled Slots: 12 <br>
+        Slots Left: 8
     </div>
 
-    <!-- Hidden After Subscribe -->
-    <div id="afterSubscribe" style="display:none; width:100%; max-width:520px;">
+    <!-- ===== EDIT TEAM LIST HERE ===== -->
+    <div class="teamBox">
+        <h3>✅ Accepted Teams</h3>
+        <ul>
+            <li>RHK Warriors</li>
+            <li>Fire Squad</li>
+            <li>Alpha Kings</li>
+        </ul>
 
-        <!-- Register Button -->
-        <div class="card">
-            <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-               target="_blank"
-               class="registerBtn show">
-               REGISTER NOW
-            </a>
-        </div>
-
-        <!-- Tournament Status -->
-        <div class="card">
-            <h2 style="color:gold;">TOURNAMENT STATUS</h2>
-
-            <!-- YOU CAN EDIT BELOW THIS -->
-            <p>Team Alpha -  Accepted</p>
-            <p>Team Dragon -  Rejected</p>
-            <p>Team Legend -  Pending</p>
-            <!-- EDIT ABOVE THIS -->
-
-        </div>
-
+        <h3>❌ Rejected Teams</h3>
+        <ul>
+            <li>Noob Army</li>
+        </ul>
     </div>
 
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
