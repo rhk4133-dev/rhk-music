@@ -1,111 +1,65 @@
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    background: black;
+    margin:0;
+    font-family:Arial;
+    background:black;
 }
 
-/* Animated Moving Background */
-.background-animation {
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #000000, #111111, #1a1a1a, #000000);
-    animation: moveBg 10s linear infinite;
-    z-index: -1;
+.overlay{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
 
-@keyframes moveBg {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(-25%,-25%); }
-    100% { transform: translate(0,0); }
+.title{
+    color:gold;
+    font-size:40px;
+    margin-bottom:30px;
 }
 
-.overlay {
-    background: rgba(0,0,0,0.85);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+.card{
+    background:#111;
+    padding:30px;
+    border:2px solid gold;
+    border-radius:10px;
+    text-align:center;
+    width:90%;
+    max-width:500px;
 }
 
-.title {
-    color: gold;
-    font-size: 42px;
-    text-shadow: 0 0 20px gold;
-    margin-bottom: 20px;
+.instruction{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
-.timer {
-    color: cyan;
-    font-size: 20px;
-    margin-bottom: 30px;
+#youtubeBtn{
+    background:red;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
 }
 
-.card {
-    background: rgba(0,0,0,0.6);
-    border: 2px solid gold;
-    border-radius: 12px;
-    padding: 30px;
-    width: 95%;
-    max-width: 520px;
-    text-align: center;
-    box-shadow: 0 0 20px gold;
+.proofBtn{
+    background:orange;
+    color:black;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.instruction {
-    color: white;
-    font-size: 22px;
-    font-weight: 900;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px gold, 0 0 20px red;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 25px red; }
-}
-
-#subscribeBtn {
-    display: inline-block;
-    background: #FF0000;
-    color: white;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-
-.verification {
-    margin-top: 20px;
-    color: yellow;
-    display: none;
-}
-
-.registerBtn {
-    display: inline-block;
-    background: #00ffcc;
-    color: black;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.registerBtn.show {
-    opacity: 1;
+.registerBtn{
+    background:cyan;
+    color:black;
+    padding:15px 30px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
 }
