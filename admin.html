@@ -12,6 +12,13 @@
 
     <h1 class="title">Admin Panel</h1>
 
+    <label>Tournament Status</label>
+    <select id="status">
+        <option value="Coming Soon">Coming Soon</option>
+        <option value="Registration Open">Registration Open</option>
+        <option value="Closed">Registration Closed</option>
+    </select>
+
     <label>Registration End Date</label>
     <input type="datetime-local" id="endDate">
 
@@ -21,8 +28,6 @@
     <button class="btn save-btn" onclick="saveData()">
         Save Settings
     </button>
-
-    <a href="index.html" class="admin-link">Go to Home</a>
 
 </div>
 
