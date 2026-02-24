@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DIVINE ESPORTS - Free Fire</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Divine Esport</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h1 class="logo">DIVINE ESPORTS</h1>
+    <h1 class="title">🔥 DIVINE ESPORT 🔥</h1>
+    <p class="subtitle">Free Fire Tournament</p>
 
-    <div class="live-badge">🔴 LIVE TOURNAMENT</div>
-
-    <a href="live.html" class="big-btn">🔥 WATCH LIVE</a>
-
-    <div class="countdown-box">
-        <h2>Match Countdown</h2>
-        <div id="countdown"></div>
+    <!-- Subscribe Section -->
+    <div id="subscribeSection">
+        <button class="btn subscribe-btn" onclick="subscribeChannel()">
+            🔔 SUBSCRIBE TO UNLOCK
+        </button>
     </div>
 
-    <div class="status-box">
-        <h2>Tournament Status</h2>
-
-        <p><b>Slots:</b> <span id="slots"></span></p>
-        <p><b>Registration:</b> <span id="registration"></span></p>
-        <p><b>Selected Teams:</b> <span id="selected"></span></p>
-        <p><b>Rejected Teams:</b> <span id="rejected"></span></p>
-
+    <!-- Register Section (after subscribe) -->
+    <div id="registerSection" class="hidden">
+        <button class="btn register-btn" onclick="registerNow()">
+            📝 REGISTER NOW
+        </button>
     </div>
+
+    <!-- Live Button (Always Visible) -->
+    <button class="btn live-btn" onclick="watchLive()">
+        🔴 WATCH LIVE
+    </button>
+
+    <a href="admin.html" class="admin-link">Admin Panel</a>
 
 </div>
 
