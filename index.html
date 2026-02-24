@@ -9,46 +9,25 @@
 </head>
 <body>
 
-<div class="overlay">
+<div class="container">
+    <h1>DIVINE ESPORT TOURNAMENT</h1>
 
-<h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
+    <div class="card">
+        <h2>Team Registration</h2>
 
-<!-- Subscribe Section -->
-<div class="card" id="subscribeSection">
+        <input type="text" id="teamName" placeholder="Team Name" required>
+        <input type="text" id="leaderName" placeholder="Leader Name" required>
+        <input type="text" id="youtubeName" placeholder="Your YouTube Name" required>
 
-<p class="instruction">
-SUBSCRIBE TO OUR YOUTUBE CHANNEL
-</p>
+        <button onclick="registerTeam()">Submit Registration</button>
 
-<a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
-   target="_blank"
-   id="youtubeBtn">
-   SUBSCRIBE
-</a>
+        <div id="statusMessage"></div>
+    </div>
 
-<br><br>
-
-<button id="proofBtn" class="proofBtn">
-I HAVE SUBSCRIBED
-</button>
-
-</div>
-
-<!-- Register Section -->
-<div class="card" id="registerSection" style="display:none;">
-
-<p class="instruction">
-SUBSCRIPTION VERIFIED ✅ <br>
-CLICK BELOW TO COMPLETE REGISTRATION
-</p>
-
-<a href="https://forms.gle/YOUR_FINAL_DETAILS_FORM"
-   target="_blank"
-   class="registerBtn">
-   REGISTER NOW
-</a>
-
-</div>
+    <div class="dashboard">
+        <h2>Team Status Dashboard</h2>
+        <div id="teamList"></div>
+    </div>
 
 </div>
 
