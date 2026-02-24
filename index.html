@@ -1,58 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esport Tournament</title>
 <link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="background-animation"></div>
-
 <div class="overlay">
-    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
-    <!-- Countdown Timer -->
-    <div class="timer">
-        Registration Ends In:
-        <span id="countdown">00:00:00</span>
-    </div>
+<h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
-    <!-- Subscribe Section -->
-    <div class="card" id="subscribeSection">
-        <p class="instruction">
-            SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL <br>
-            TO UNLOCK REGISTRATION
-        </p>
+<!-- Subscribe Section -->
+<div class="card" id="subscribeSection">
 
-        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
-           target="_blank"
-           rel="noopener"
-           id="subscribeBtn">
-           SUBSCRIBE
-        </a>
+<p class="instruction">
+SUBSCRIBE TO OUR YOUTUBE CHANNEL
+</p>
 
-        <div id="verification" class="verification">
-            Verifying Subscription...
-        </div>
-    </div>
+<a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
+   target="_blank"
+   id="youtubeBtn">
+   SUBSCRIBE
+</a>
 
-    <!-- Register Section -->
-    <div class="card" id="registerSection" style="display:none;">
-        <p class="instruction">
-            ✅ SUBSCRIPTION VERIFIED <br>
-            NOW REGISTER YOUR TEAM
-        </p>
+<br><br>
 
-        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-           target="_blank"
-           class="registerBtn">
-           REGISTER NOW
-        </a>
-    </div>
+<button id="proofBtn" class="proofBtn">
+I HAVE SUBSCRIBED
+</button>
+
+</div>
+
+<!-- Register Section -->
+<div class="card" id="registerSection" style="display:none;">
+
+<p class="instruction">
+SUBSCRIPTION VERIFIED ✅ <br>
+CLICK BELOW TO COMPLETE REGISTRATION
+</p>
+
+<a href="https://forms.gle/YOUR_FINAL_DETAILS_FORM"
+   target="_blank"
+   class="registerBtn">
+   REGISTER NOW
+</a>
+
+</div>
 
 </div>
 
