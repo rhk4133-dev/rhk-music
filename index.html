@@ -1,32 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esport Tournament</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="container">
-    <h1>DIVINE ESPORT TOURNAMENT</h1>
+<div class="background-animation"></div>
 
-    <div class="card">
-        <h2>Team Registration</h2>
+<div class="overlay">
+    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
-        <input type="text" id="teamName" placeholder="Team Name" required>
-        <input type="text" id="leaderName" placeholder="Leader Name" required>
-        <input type="text" id="youtubeName" placeholder="Your YouTube Name" required>
-
-        <button onclick="registerTeam()">Submit Registration</button>
-
-        <div id="statusMessage"></div>
+    <!-- Countdown -->
+    <div class="timer">
+        Registration Ends In:
+        <span id="countdown">00:00:00</span>
     </div>
 
-    <div class="dashboard">
-        <h2>Team Status Dashboard</h2>
-        <div id="teamList"></div>
+    <!-- Subscribe Section -->
+    <div class="card" id="subscribeSection">
+        <p class="instruction">
+            SUBSCRIBE THE CHANNEL TO SHOW THE TOURNAMENT STATUS  
+            AND REGISTRATION BUTTON
+        </p>
+
+        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
+           target="_blank"
+           rel="noopener"
+           id="subscribeBtn">
+           SUBSCRIBE
+        </a>
+
+        <div id="verification" class="verification">
+            Verifying Subscription...
+        </div>
+    </div>
+
+    <!-- Hidden After Subscribe -->
+    <div id="afterSubscribe" style="display:none; width:100%; max-width:520px;">
+
+        <!-- Register Button -->
+        <div class="card">
+            <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+               target="_blank"
+               class="registerBtn show">
+               REGISTER NOW
+            </a>
+        </div>
+
+        <!-- Tournament Status -->
+        <div class="card">
+            <h2 style="color:gold;">TOURNAMENT STATUS</h2>
+
+            <!-- YOU CAN EDIT BELOW THIS -->
+            <p>Team Alpha - ✅ Accepted</p>
+            <p>Team Dragon - ❌ Rejected</p>
+            <p>Team Legend - ⏳ Pending</p>
+            <!-- EDIT ABOVE THIS -->
+
+        </div>
+
     </div>
 
 </div>
