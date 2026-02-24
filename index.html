@@ -5,13 +5,23 @@
 <title>Divine Esport</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
+
+<div id="loader">
+    <h1>DIVINE ESPORT</h1>
+</div>
+
+<div id="tsparticles"></div>
 
 <div class="container">
 
     <h1 class="title">🔥 DIVINE ESPORT 🔥</h1>
     <p class="subtitle">Free Fire Tournament</p>
+
+    <div class="status" id="tournamentStatus">Checking Status...</div>
 
     <!-- Subscribe Section -->
     <div id="subscribeSection">
@@ -20,14 +30,14 @@
         </button>
     </div>
 
-    <!-- Register Section (after subscribe) -->
+    <!-- Register Section -->
     <div id="registerSection" class="hidden">
-        <button class="btn register-btn" onclick="registerNow()">
-            📝 REGISTER NOW
-        </button>
+        <a href="form.html" class="btn register-btn">
+            📝 REGISTER PLAYER
+        </a>
     </div>
 
-    <!-- Live Button (Always Visible) -->
+    <!-- Live Button -->
     <button class="btn live-btn" onclick="watchLive()">
         🔴 WATCH LIVE
     </button>
@@ -36,6 +46,5 @@
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
