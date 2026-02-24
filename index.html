@@ -1,83 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINE ESPORT | Free Fire</title>
-
-<link rel="stylesheet" href="style.css">
-
-<!-- Fire Particles -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-<!-- Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script src="script.js" defer></script>
+    <title>DIVINE ESPORTS - Free Fire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div id="loader">
-    <h1>DIVINE ESPORT</h1>
-</div>
-
-<div id="tsparticles"></div>
 
 <div class="container">
 
-    <h1 class="brand">DIVINE ESPORT</h1>
-    <div class="live-badge">LIVE TOURNAMENT</div>
-    <p class="tagline">Where Legends Rise 🔥</p>
+    <h1 class="logo">DIVINE ESPORTS</h1>
+
+    <div class="live-badge">🔴 LIVE TOURNAMENT</div>
+
+    <a href="live.html" class="big-btn">🔥 WATCH LIVE</a>
 
     <div class="countdown-box">
-        <span>Registration Ends In</span>
-        <div id="countdown">Loading...</div>
+        <h2>Match Countdown</h2>
+        <div id="countdown"></div>
     </div>
 
-    <!-- SUBSCRIBE SECTION -->
-    <div class="card" id="subscribeSection">
-        <h2>Unlock Registration</h2>
-        <p class="instruction">
-            Subscribe to our official YouTube channel to unlock team registration.
-        </p>
+    <div class="status-box">
+        <h2>Tournament Status</h2>
 
-        <a href="https://youtube.com/@divineesport-q9f"
-           target="_blank"
-           class="btn red"
-           id="subscribeBtn">
-           Subscribe Now
-        </a>
+        <p><b>Slots:</b> <span id="slots"></span></p>
+        <p><b>Registration:</b> <span id="registration"></span></p>
+        <p><b>Selected Teams:</b> <span id="selected"></span></p>
+        <p><b>Rejected Teams:</b> <span id="rejected"></span></p>
 
-        <div id="verification" class="verification"></div>
-    </div>
-
-    <!-- REGISTER SECTION -->
-    <div class="card hidden" id="registerSection">
-        <h2>Subscription Verified ✅</h2>
-        <p class="instruction">
-            You are now part of Divine. Register your squad and make history.
-        </p>
-
-        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-           target="_blank"
-           class="btn gold">
-           Register Team
-        </a>
-    </div>
-
-    <div class="links">
-        <a href="live.html">Watch Live</a>
-        <a href="admin.html">Admin Panel</a>
-    </div>
-
-    <div class="dream-section">
-        "This is not just a tournament.  
-        This is the beginning of a dream."
-        <span>— Founder, Divine Esport</span>
     </div>
 
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
