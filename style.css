@@ -2,121 +2,116 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body{
-    background:black;
+    background: linear-gradient(135deg,#0f0f0f,#111827,#000000);
     color:white;
-    overflow-x:hidden;
-}
-
-/* Animated Background */
-.background-animation{
-    position:fixed;
-    width:200%;
-    height:200%;
-    background:linear-gradient(45deg,#000,#111,#1a1a1a,#000);
-    animation:moveBg 12s linear infinite;
-    z-index:-1;
-}
-
-@keyframes moveBg{
-    0%{transform:translate(0,0);}
-    50%{transform:translate(-25%,-25%);}
-    100%{transform:translate(0,0);}
-}
-
-.overlay{
-    background:rgba(0,0,0,0.85);
     min-height:100vh;
+}
+
+header{
     display:flex;
-    flex-direction:column;
+    justify-content:space-between;
     align-items:center;
-    padding:30px 15px;
-    text-align:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
 }
 
-.title{
+.logo{
     color:gold;
-    font-size:clamp(24px,5vw,42px);
-    text-shadow:0 0 15px gold;
-    margin-bottom:20px;
+    font-size:28px;
+    letter-spacing:2px;
 }
 
-.timer{
-    color:cyan;
-    font-size:clamp(16px,4vw,20px);
-    margin-bottom:25px;
-}
-
-.card{
-    background:rgba(0,0,0,0.7);
-    border:2px solid gold;
-    border-radius:12px;
-    padding:25px;
-    width:100%;
-    max-width:520px;
-    margin-bottom:25px;
-    box-shadow:0 0 20px gold;
-}
-
-.instruction{
-    font-size:clamp(16px,4vw,22px);
-    font-weight:900;
-    margin-bottom:20px;
-    text-transform:uppercase;
-    text-shadow:0 0 10px gold;
-}
-
-.mainBtn{
-    display:inline-block;
-    background:red;
+nav a{
     color:white;
-    padding:12px 25px;
-    font-size:clamp(14px,4vw,20px);
-    font-weight:bold;
-    border-radius:6px;
+    margin-left:20px;
     text-decoration:none;
     transition:0.3s;
 }
 
-.mainBtn:hover{
-    transform:scale(1.05);
+nav a:hover{
+    color:gold;
 }
 
-.registerBtn{
-    background:#00ffcc;
-    color:black;
+.hero{
+    text-align:center;
+    padding:100px 20px;
 }
 
-.verification{
-    margin-top:15px;
-    color:yellow;
-    display:none;
-}
-
-.statusText{
-    font-size:clamp(16px,4vw,20px);
-    font-weight:bold;
-    color:lime;
+.hero h2{
+    font-size:40px;
     margin-bottom:10px;
 }
 
-.infoText{
-    font-size:clamp(14px,4vw,18px);
-    margin-bottom:15px;
+.hero p{
+    margin-bottom:20px;
+    color:#ccc;
 }
 
-.teamSection{
-    text-align:left;
+.btn{
+    padding:12px 25px;
+    background:linear-gradient(to right,gold,orange);
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.countdown-section{
+    text-align:center;
+    padding:50px;
+}
+
+#countdown{
+    font-size:28px;
     margin-top:15px;
+    color:gold;
 }
 
-.teamSection h3{
-    margin-bottom:5px;
+.container{
+    padding:50px;
+    text-align:center;
 }
 
-.teamSection ul{
-    padding-left:20px;
+.card{
+    background:rgba(255,255,255,0.05);
+    margin:20px auto;
+    padding:20px;
+    width:300px;
+    border-radius:15px;
+    backdrop-filter:blur(8px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.team-list{
+    list-style:none;
+    margin-top:20px;
+}
+
+.team-list li{
+    background:rgba(255,255,255,0.05);
+    padding:15px;
+    margin:10px auto;
+    width:300px;
+    border-radius:10px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+    background:rgba(0,0,0,0.6);
 }
