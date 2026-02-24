@@ -2,116 +2,144 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body{
-    background: linear-gradient(135deg,#0f0f0f,#111827,#000000);
+    background:#0a0a0a;
     color:white;
     min-height:100vh;
+    overflow-x:hidden;
 }
 
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-}
-
-.logo{
-    color:gold;
-    font-size:28px;
-    letter-spacing:2px;
-}
-
-nav a{
-    color:white;
-    margin-left:20px;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:gold;
-}
-
-.hero{
-    text-align:center;
-    padding:100px 20px;
-}
-
-.hero h2{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    margin-bottom:20px;
-    color:#ccc;
-}
-
-.btn{
-    padding:12px 25px;
-    background:linear-gradient(to right,gold,orange);
-    color:black;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:scale(1.05);
-}
-
-.countdown-section{
-    text-align:center;
-    padding:50px;
-}
-
-#countdown{
-    font-size:28px;
-    margin-top:15px;
-    color:gold;
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: radial-gradient(circle at 20% 20%, #1a1a1a, #000);
+    z-index:-1;
 }
 
 .container{
-    padding:50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 20px;
     text-align:center;
 }
 
-.card{
+.brand{
+    font-size:28px;
+    color:gold;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+
+.tagline{
+    color:#aaa;
+    margin-bottom:30px;
+}
+
+.countdown-box{
     background:rgba(255,255,255,0.05);
-    margin:20px auto;
-    padding:20px;
-    width:300px;
-    border-radius:15px;
-    backdrop-filter:blur(8px);
-    transition:0.3s;
+    padding:15px 25px;
+    border-radius:12px;
+    margin-bottom:30px;
+    backdrop-filter:blur(10px);
+}
+
+#countdown{
+    font-size:22px;
+    margin-top:8px;
+    color:#00ffff;
+}
+
+.card{
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
+    border-radius:16px;
+    padding:30px;
+    width:100%;
+    max-width:400px;
+    margin-bottom:25px;
+    box-shadow:0 0 30px rgba(255,215,0,0.15);
+    transition:0.4s;
 }
 
 .card:hover{
     transform:translateY(-5px);
 }
 
-.team-list{
-    list-style:none;
-    margin-top:20px;
+.hidden{
+    display:none;
 }
 
-.team-list li{
-    background:rgba(255,255,255,0.05);
-    padding:15px;
-    margin:10px auto;
-    width:300px;
-    border-radius:10px;
+h2{
+    margin-bottom:15px;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    margin-top:50px;
-    background:rgba(0,0,0,0.6);
+.instruction{
+    color:#ccc;
+    margin-bottom:20px;
+    font-size:15px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.red{
+    background:#ff0000;
+    color:white;
+}
+
+.gold{
+    background:linear-gradient(to right,gold,orange);
+    color:black;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.verification{
+    margin-top:15px;
+    color:yellow;
+    font-size:14px;
+}
+
+.dream-section{
+    margin-top:40px;
+    max-width:500px;
+    color:#aaa;
+    font-style:italic;
+    line-height:1.6;
+}
+
+.dream-section span{
+    display:block;
+    margin-top:10px;
+    color:gold;
+}
+
+/* Desktop */
+
+@media(min-width:768px){
+
+    .brand{
+        font-size:40px;
+    }
+
+    #countdown{
+        font-size:28px;
+    }
+
+    .card{
+        max-width:500px;
+    }
 }
