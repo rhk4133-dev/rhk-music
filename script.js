@@ -1,27 +1,26 @@
-// Links for both YouTube channels
-const channel1 = 'https://youtube.com/@divineesport-q9f?si=twJteqWfwudbAPyf';
-const channel2 = 'https://youtube.com/@divineesport-q9f?si=twJteqWfwudbAPyf'; // second channel if different
+// Your YouTube channel link
+const youtubeChannel = 'https://youtube.com/@divineesport-q9f?si=twJteqWfwudbAPyf';
 
 window.addEventListener('DOMContentLoaded', function() {
     const registerCard = document.getElementById('registerCard');
+    const subscribeCard = document.getElementById('subscribeCard');
     const subscribeBtn = document.getElementById('subscribeBtn');
 
-    // If already clicked before, show register button
+    // If already clicked before, show register button directly
     if (localStorage.getItem('subscribed') === 'true') {
         registerCard.style.display = 'block';
-        document.getElementById('subscribeCard').style.display = 'none';
+        subscribeCard.style.display = 'none';
     }
 
     subscribeBtn.addEventListener('click', function() {
-        // Open both channels in new tabs
-        window.open(channel1, '_blank');
-        window.open(channel2, '_blank');
+        // Open YouTube channel in a new tab
+        window.open(youtubeChannel, '_blank');
 
-        // Mark as subscribed
+        // Save state in localStorage
         localStorage.setItem('subscribed', 'true');
 
-        // Show register card and hide subscribe card
+        // Hide subscribe card and show register card
+        subscribeCard.style.display = 'none';
         registerCard.style.display = 'block';
-        document.getElementById('subscribeCard').style.display = 'none';
     });
 });
