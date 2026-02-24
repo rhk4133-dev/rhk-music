@@ -1,97 +1,76 @@
-/* Background and overlay */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: url('img1.jpg') no-repeat center center/cover;
+    background-size: cover;
 }
 
 .overlay {
-    background: rgba(0, 0, 0, 0.7); /* dark overlay for neon effect */
+    background: rgba(0,0,0,0.6);
     min-height: 100vh;
-    padding: 20px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Title with neon glow */
 .title {
     text-align: center;
     font-size: 48px;
-    color: #39ff14; /* neon green */
-    text-shadow:
-        0 0 5px #39ff14,
-        0 0 10px #39ff14,
-        0 0 20px #39ff14,
-        0 0 40px #0fa;
+    color: gold;
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFA500;
     margin-bottom: 30px;
 }
 
-/* Cards for registration and teams */
 .card {
-    background: rgba(0, 0, 0, 0.2);
-    border: 2px solid #39ff14;
-    border-radius: 15px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid gold;
+    border-radius: 12px;
     padding: 20px;
     width: 90%;
     max-width: 500px;
     margin-bottom: 20px;
     color: #fff;
-    backdrop-filter: blur(8px);
 }
 
-/* Neon headers inside cards */
 .card h2 {
     text-align: center;
-    color: #ff00ff; /* neon pink */
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
-    margin-bottom: 15px;
+    color: gold;
+    margin-bottom: 12px;
 }
 
-/* Register button */
 button {
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(45deg, #ff00ff, #39ff14);
+    padding: 14px;
+    background: gold;
     border: none;
     border-radius: 8px;
-    color: white;
+    color: #000;
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 16px;
+    margin-top: 10px;
     transition: 0.3s;
 }
 
 button:hover {
-    background: linear-gradient(45deg, #39ff14, #ff00ff);
-    box-shadow: 0 0 20px #ff00ff, 0 0 30px #39ff14;
+    background: #FFC700;
+    box-shadow: 0 0 10px gold, 0 0 20px gold;
 }
 
-/* Each team box */
-.teamBox {
-    background: rgba(0,0,0,0.3);
-    border: 1px solid #ff00ff;
-    border-radius: 10px;
-    padding: 12px;
-    margin-top: 10px;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 0 0 3px #39ff14;
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
-/* Mobile responsiveness */
+li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
 @media (max-width: 600px) {
-    .title {
-        font-size: 36px;
-    }
-    .card {
-        width: 95%;
-        padding: 15px;
-    }
-    button {
-        padding: 12px;
-        font-size: 14px;
-    }
+    .title { font-size: 36px; }
+    .card { width: 95%; padding: 15px; }
+    button { padding: 12px; font-size: 14px; }
 }
