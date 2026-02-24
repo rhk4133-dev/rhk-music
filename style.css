@@ -1,165 +1,94 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    background: black;
+body{
+    background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#000);
+    background-size:400% 400%;
+    animation:bgMove 10s infinite alternate;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
-/* 🌌 Animated Moving Background */
-.background-animation {
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #000000, #111111, #1a1a1a, #000000);
-    animation: moveBg 12s linear infinite;
-    z-index: -1;
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
 }
 
-@keyframes moveBg {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-25%, -25%); }
-    100% { transform: translate(0, 0); }
+h1{
+    margin-bottom:20px;
+    font-size:30px;
+    color:#00f2ff;
 }
 
-/* Overlay */
-.overlay {
-    background: rgba(0,0,0,0.85);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+.instruction{
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
-/* 🏆 Title */
-.title {
-    color: gold;
-    font-size: 42px;
-    text-align: center;
-    text-shadow: 0 0 20px gold, 0 0 40px orange;
-    margin-bottom: 20px;
+.button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* ⏳ Timer */
-.timer {
-    color: cyan;
-    font-size: 20px;
-    margin-bottom: 30px;
-    text-shadow: 0 0 10px cyan;
+.subscribe{
+    background:#ff0000;
+    color:white;
 }
 
-/* Card Design */
-.card {
-    background: rgba(0,0,0,0.6);
-    border: 2px solid gold;
-    border-radius: 12px;
-    padding: 30px;
-    width: 95%;
-    max-width: 520px;
-    text-align: center;
-    box-shadow: 0 0 20px gold;
-    margin-top: 20px;
+.register{
+    background:#00c853;
+    color:white;
+    display:none;
 }
 
-/* 🔥 Instruction Text */
-.instruction {
-    color: white;
-    font-size: 22px;
-    font-weight: 900;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px gold, 0 0 20px red;
-    animation: glow 1.5s infinite alternate;
+.statusBtn{
+    background:#2979ff;
+    color:white;
+    display:none;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 25px red; }
+.button:hover{
+    transform:scale(1.1);
 }
 
-/* 🔴 Subscribe Button */
-#subscribeBtn {
-    display: inline-block;
-    background: #FF0000;
-    color: white;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none;
-    animation: pulse 1.5s infinite;
-    transition: 0.3s;
+.section{
+    margin-top:30px;
+    display:none;
 }
 
-#subscribeBtn:hover {
-    background: #cc0000;
-    transform: scale(1.1);
+.statusBox{
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+    font-weight:bold;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+.open{ background:#00c853; }
+.closed{ background:#d50000; }
+.live{ background:#ff9100; }
+.coming{ background:#2962ff; }
+
+.countdown{
+    font-size:22px;
+    margin-top:10px;
 }
 
-/* 🔐 Verification Text */
-.verification {
-    margin-top: 20px;
-    color: yellow;
-    font-weight: bold;
-    display: none;
+.slots{
+    margin-top:15px;
 }
 
-/* 🟢 Register Button */
-.registerBtn {
-    display: inline-block;
-    background: #00ffcc;
-    color: black;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.registerBtn:hover {
-    background: #00ccaa;
-    transform: scale(1.1);
-}
-
-/* 📊 Tournament Status */
-.card h2 {
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px gold;
-}
-
-.card p {
-    font-size: 18px;
-    margin: 8px 0;
-    padding: 8px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 6px;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .title {
-        font-size: 30px;
-    }
-
-    .instruction {
-        font-size: 18px;
-    }
-
-    .card {
-        padding: 20px;
-    }
+.teamBox{
+    margin-top:20px;
+    text-align:left;
+    display:inline-block;
 }
