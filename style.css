@@ -1,3 +1,4 @@
+/* Body and background */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -6,7 +7,7 @@ body {
 }
 
 .overlay {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.6); /* dark overlay for readability */
     min-height: 100vh;
     padding: 30px 20px;
     display: flex;
@@ -18,12 +19,12 @@ body {
     text-align: center;
     font-size: 48px;
     color: gold;
-    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFA500;
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
     margin-bottom: 30px;
 }
 
 .card {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.3);
     border: 1px solid gold;
     border-radius: 12px;
     padding: 20px;
@@ -39,10 +40,16 @@ body {
     margin-bottom: 12px;
 }
 
+/* Instructions color distinct from gold */
+.instruction {
+    color: #ffd; /* light yellow for readability */
+}
+
+/* Button styling */
 button {
     width: 100%;
     padding: 14px;
-    background: gold;
+    background: #ff9900; /* distinct orange for visibility */
     border: none;
     border-radius: 8px;
     color: #000;
@@ -55,8 +62,18 @@ button {
 }
 
 button:hover {
-    background: #FFC700;
+    background: #ffc04d;
     box-shadow: 0 0 10px gold, 0 0 20px gold;
+}
+
+.registerBtn {
+    background: #00ccff; /* distinct color for register button */
+    color: #000;
+}
+
+.registerBtn:hover {
+    background: #33ddff;
+    box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
 }
 
 ul {
