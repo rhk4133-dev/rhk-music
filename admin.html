@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Panel - Divine Esports</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h1 class="logo">⚙ ADMIN PANEL</h1>
+    <h1 class="title">Admin Panel</h1>
 
-    <div class="admin-box">
+    <label>Registration End Date</label>
+    <input type="datetime-local" id="endDate">
 
-        <input type="text" id="liveLink" placeholder="YouTube Embed Link">
-        <input type="datetime-local" id="dateTime">
+    <label>Live Stream Link</label>
+    <input type="text" id="liveLink" placeholder="YouTube live link">
 
-        <input type="text" id="slotsInput" placeholder="Slots (25/48)">
-        <input type="text" id="regInput" placeholder="Registration Status">
-        <input type="text" id="selectedInput" placeholder="Selected Teams">
-        <input type="text" id="rejectedInput" placeholder="Rejected Teams">
+    <button class="btn save-btn" onclick="saveData()">
+        Save Settings
+    </button>
 
-        <button onclick="saveData()" class="big-btn">💾 SAVE</button>
-
-    </div>
-
-    <br>
-    <a href="index.html" class="big-btn">⬅ Back Home</a>
+    <a href="index.html" class="admin-link">Go to Home</a>
 
 </div>
 
