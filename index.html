@@ -1,109 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divine Esport Tournament</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="script.js" defer></script>
+    <title>DIVINE ESPORT | Free Fire Tournament</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="background-animation"></div>
+<header>
+    <h1 class="logo">DIVINE ESPORT</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="slots.html">Slots</a>
+        <a href="teams.html">Teams</a>
+    </nav>
+</header>
 
-<div class="overlay">
+<section class="hero">
+    <h2>FREE FIRE TOURNAMENT 2026</h2>
+    <p>Where Legends Rise 🔥</p>
+    <a href="slots.html" class="btn">View Slots</a>
+</section>
 
-    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
+<section class="countdown-section">
+    <h3>Tournament Starts In</h3>
+    <div id="countdown"></div>
+</section>
 
-    <!-- Countdown -->
-    <div class="timer">
-        Registration Ends In:
-        <span id="countdown">Loading...</span>
-    </div>
+<footer>
+    <p>© 2026 DIVINE ESPORT | All Rights Reserved</p>
+</footer>
 
-    <!-- Subscribe Section -->
-    <div class="card" id="subscribeSection">
-
-        <p class="instruction">
-            Subscribe to the Divine YouTube Channel <br>
-            to Unlock Registration
-        </p>
-
-        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
-           target="_blank"
-           rel="noopener"
-           id="subscribeBtn"
-           class="mainBtn">
-           SUBSCRIBE
-        </a>
-
-        <div id="verification" class="verification">
-            Verifying Subscription...
-        </div>
-
-    </div>
-
-    <!-- Register Section -->
-    <div class="card" id="registerSection" style="display:none;">
-
-        <p class="instruction">
-            ✅ Subscription Verified <br>
-            Register Your Team Now
-        </p>
-
-        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-           target="_blank"
-           class="mainBtn registerBtn">
-           REGISTER NOW
-        </a>
-
-    </div>
-
-    <!-- Tournament Status -->
-    <div class="card" id="statusSection" style="display:none;">
-
-        <p class="instruction">Tournament Status</p>
-
-        <!-- 🔥 EDIT STATUS TEXT + COLOR -->
-        <p id="statusText" class="statusText">
-            🟢 REGISTRATION OPEN
-        </p>
-
-        <!-- 🔥 EDIT DATE -->
-        <p class="infoText">
-            Date: 28-02-2026 to 06-03-2026
-        </p>
-
-        <!-- 🔥 EDIT SLOT NUMBERS -->
-        <div class="infoText">
-            Total Slots: <span id="totalSlots">20</span> <br>
-            Filled Slots: <span id="filledSlots">12</span> <br>
-            Slots Left: <span id="slotsLeft"></span>
-        </div>
-
-        <!-- 🔥 EDIT SELECTED TEAMS -->
-        <div class="teamSection">
-            <h3>✅ Selected Teams</h3>
-            <ul>
-                <li>Divine Warriors</li>
-                <li>Alpha Squad</li>
-            </ul>
-        </div>
-
-        <!-- 🔥 EDIT REJECTED TEAMS -->
-        <div class="teamSection">
-            <h3>❌ Rejected Teams</h3>
-            <ul>
-                <li>Noob Army</li>
-            </ul>
-        </div>
-
-    </div>
-
-</div>
-
+<script src="script.js"></script>
 </body>
 </html>
