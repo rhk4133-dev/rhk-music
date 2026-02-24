@@ -1,46 +1,54 @@
-// =======================
-// EDIT HERE ONLY
-// =======================
+document.addEventListener("DOMContentLoaded", function(){
 
-// Countdown Dates
-const startDate = new Date("Feb 28, 2026 00:00:00").getTime();
-const endDate = new Date("Feb 06, 2026 00:00:00").getTime();
+    const subscribeBtn = document.getElementById("subscribeBtn");
+    const subscribeSection = document.getElementById("subscribeSection");
+    const registerSection = document.getElementById("registerSection");
+    const verification = document.getElementById("verification");
 
-// Slot Information
-const slotDateValue = "28 February 2026";
-const slotTimeValue = "6:00 PM IST";
-const slotStatusValue = "COMING SOON"; // OPEN / CLOSED / COMING SOON
+    subscribeBtn.addEventListener("click", function(){
 
-// =======================
-// Countdown Logic
-// =======================
+        verification.innerHTML = "Verifying subscription...";
 
-const countdownElement = document.getElementById("countdown");
+        setTimeout(() => {
 
-if(countdownElement){
+            verification.innerHTML = "Subscription Verified ✅";
+
+            confetti({
+                particleCount: 120,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(()=>{
+                subscribeSection.style.display="none";
+                registerSection.classList.remove("hidden");
+            },1500);
+
+        },2000);
+    });
+
+    // 🔥 Countdown (Editable Date)
+
+    const endTime = new Date("February 28, 2026 23:59:59").getTime();
+
     setInterval(function(){
+
         const now = new Date().getTime();
-        const distance = startDate - now;
+        const distance = endTime - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if(distance < 0){
+            document.getElementById("countdown").innerHTML="REGISTRATION CLOSED";
+            return;
+        }
 
-        countdownElement.innerHTML =
-        days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
+        const days = Math.floor(distance / (1000*60*60*24));
+        const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+        const seconds = Math.floor((distance % (1000*60))/1000);
+
+        document.getElementById("countdown").innerHTML =
+        days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+
     },1000);
-}
 
-// =======================
-// Slot Display
-// =======================
-
-const slotDate = document.getElementById("slotDate");
-const slotTime = document.getElementById("slotTime");
-const slotStatus = document.getElementById("slotStatus");
-
-if(slotDate) slotDate.innerText = slotDateValue;
-if(slotTime) slotTime.innerText = slotTimeValue;
-if(slotStatus) slotStatus.innerText = slotStatusValue;
+});
