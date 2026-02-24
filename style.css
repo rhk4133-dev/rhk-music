@@ -1,99 +1,111 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: url('img1.jpg') no-repeat center center/cover;
-    background-size: cover;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: black;
+}
+
+/* Animated Moving Background */
+.background-animation {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #000000, #111111, #1a1a1a, #000000);
+    animation: moveBg 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-25%,-25%); }
+    100% { transform: translate(0,0); }
 }
 
 .overlay {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.85);
     min-height: 100vh;
-    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 40px 20px;
 }
 
 .title {
-    text-align: center;
-    font-size: 48px;
     color: gold;
-    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
+    font-size: 42px;
+    text-shadow: 0 0 20px gold;
+    margin-bottom: 20px;
+}
+
+.timer {
+    color: cyan;
+    font-size: 20px;
     margin-bottom: 30px;
 }
 
 .card {
-    background: rgba(0,0,0,0.3);
-    border: 1px solid gold;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
     border-radius: 12px;
-    padding: 20px;
-    width: 90%;
-    max-width: 500px;
-    margin-bottom: 20px;
+    padding: 30px;
+    width: 95%;
+    max-width: 520px;
     text-align: center;
+    box-shadow: 0 0 20px gold;
 }
 
 .instruction {
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 20px;
-    line-height: 1.4;
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px gold, 0 0 20px red;
+    animation: glow 1.5s infinite alternate;
 }
 
-/* Subscribe button like YouTube + pulse animation */
+@keyframes glow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 25px red; }
+}
+
 #subscribeBtn {
-    background-color: #FF0000;
-    color: #fff;
+    display: inline-block;
+    background: #FF0000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
     font-weight: bold;
-    font-size: 18px;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
+    border-radius: 6px;
+    text-decoration: none;
     animation: pulse 1.5s infinite;
-}
-
-#subscribeBtn:hover {
-    background-color: #cc0000;
-    box-shadow: 0 0 10px #ff0000;
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
 
-/* Register button fades in */
+.verification {
+    margin-top: 20px;
+    color: yellow;
+    display: none;
+}
+
 .registerBtn {
-    background: #00ccff;
-    color: #000;
+    display: inline-block;
+    background: #00ffcc;
+    color: black;
+    padding: 15px 30px;
+    font-size: 20px;
     font-weight: bold;
-    font-size: 18px;
-    padding: 14px 20px;
     border-radius: 6px;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
-.registerBtn.visible {
+.registerBtn.show {
     opacity: 1;
-}
-
-.registerBtn:hover {
-    background: #33ddff;
-    box-shadow: 0 0 10px #00ccff;
-}
-
-@media (max-width: 600px) {
-    .title { font-size: 36px; }
-    .instruction { font-size: 16px; }
-    #subscribeBtn, .registerBtn { font-size: 16px; padding: 12px; }
 }
