@@ -1,50 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Divine Esport</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script src="script.js" defer></script>
-</head>
 <body>
 
-<div id="loader">
-    <h1>DIVINE ESPORT</h1>
-</div>
-
-<div id="tsparticles"></div>
+<div id="particles-js"></div>
 
 <div class="container">
 
-    <h1 class="title">🔥 DIVINE ESPORT 🔥</h1>
-    <p class="subtitle">Free Fire Tournament</p>
+    <header class="hero">
+        <h1 class="brand">DIVINE ESPORT</h1>
+        <p class="tagline">Official Free Fire Tournament Arena</p>
+        <div class="status-badge">REGISTRATIONS OPEN</div>
+    </header>
 
-    <div class="status" id="tournamentStatus">Checking Status...</div>
+    <section class="tournament-info">
+        <div class="info-box">
+            <span>Game</span>
+            <strong>Free Fire</strong>
+        </div>
+        <div class="info-box">
+            <span>Mode</span>
+            <strong>Squad (4v4)</strong>
+        </div>
+        <div class="info-box">
+            <span>Entry</span>
+            <strong>Free</strong>
+        </div>
+    </section>
 
-    <!-- Subscribe Section -->
-    <div id="subscribeSection">
-        <button class="btn subscribe-btn" onclick="subscribeChannel()">
-            🔔 SUBSCRIBE TO UNLOCK
-        </button>
+    <div class="card" id="subscribeSection">
+        <h2>Unlock Registration</h2>
+        <p class="instruction">
+            Subscribe to our official YouTube channel  
+            to verify eligibility.
+        </p>
+
+        <a href="https://youtube.com/@divineesport-q9f"
+           target="_blank"
+           class="btn red"
+           id="subscribeBtn">
+           Subscribe & Verify
+        </a>
+
+        <div id="verification" class="verification"></div>
     </div>
 
-    <!-- Register Section -->
-    <div id="registerSection" class="hidden">
-        <a href="form.html" class="btn register-btn">
-            📝 REGISTER PLAYER
+    <div class="card hidden" id="registerSection">
+        <h2>Access Granted</h2>
+        <p class="instruction">
+            You are verified. Register your squad now.
+        </p>
+
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+           target="_blank"
+           class="btn gold">
+           Register Team
         </a>
     </div>
 
-    <!-- Live Button -->
-    <button class="btn live-btn" onclick="watchLive()">
-        🔴 WATCH LIVE
-    </button>
-
-    <a href="admin.html" class="admin-link">Admin Panel</a>
-
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="script.js" defer></script>
+
 </body>
-</html>
