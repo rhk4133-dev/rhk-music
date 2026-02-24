@@ -1,73 +1,53 @@
-document.addEventListener("DOMContentLoaded", function(){
+// Default values
+if (!localStorage.getItem("liveLink")) {
+    localStorage.setItem("liveLink", "https://www.youtube.com/embed/dQw4w9WgXcQ");
+    localStorage.setItem("slots", "25 / 48");
+    localStorage.setItem("registration", "Open");
+    localStorage.setItem("selected", "18");
+    localStorage.setItem("rejected", "5");
+    localStorage.setItem("dateTime", "2026-02-28T18:00");
+}
 
-// 🔥 Fire Particles
-tsParticles.load("tsparticles", {
-    particles: {
-        number:{value:60},
-        color:{value:["#ff0000","#ff8800","#ffaa00"]},
-        shape:{type:"circle"},
-        size:{value:3},
-        move:{
-            enable:true,
-            speed:2,
-            direction:"top",
-            outModes:{default:"out"}
+// Load Live Page
+if (document.getElementById("liveFrame")) {
+    document.getElementById("liveFrame").src =
+        localStorage.getItem("liveLink");
+}
+
+// Load Status
+if (document.getElementById("slots")) {
+    document.getElementById("slots").innerText =
+        localStorage.getItem("slots");
+
+    document.getElementById("registration").innerText =
+        localStorage.getItem("registration");
+
+    document.getElementById("selected").innerText =
+        localStorage.getItem("selected");
+
+    document.getElementById("rejected").innerText =
+        localStorage.getItem("rejected");
+}
+
+// Countdown
+if (document.getElementById("countdown")) {
+
+    var target = new Date(localStorage.getItem("dateTime")).getTime();
+
+    setInterval(function() {
+        var now = new Date().getTime();
+        var distance = target - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+            days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+        if (distance < 0) {
+            document.getElementById("countdown").innerHTML = "🔥 LIVE NOW";
         }
-    }
-});
-
-// Subscribe Logic
-const subscribeBtn = document.getElementById("subscribeBtn");
-const subscribeSection = document.getElementById("subscribeSection");
-const registerSection = document.getElementById("registerSection");
-const verification = document.getElementById("verification");
-
-subscribeBtn.addEventListener("click", function(){
-
-    verification.innerHTML="Verifying...";
-
-    setTimeout(()=>{
-
-        verification.innerHTML="Subscription Verified ✅";
-
-        confetti({
-            particleCount:120,
-            spread:90,
-            origin:{y:0.6}
-        });
-
-        setTimeout(()=>{
-            subscribeSection.style.display="none";
-            registerSection.classList.remove("hidden");
-        },1500);
-
-    },2000);
-});
-
-// Admin Editable Countdown
-const savedDate = localStorage.getItem("endDate");
-const endTime = savedDate 
-    ? new Date(savedDate).getTime()
-    : new Date("February 28, 2026 23:59:59").getTime();
-
-setInterval(function(){
-
-    const now = new Date().getTime();
-    const distance = endTime - now;
-
-    if(distance < 0){
-        document.getElementById("countdown").innerHTML="REGISTRATION CLOSED";
-        return;
-    }
-
-    const days=Math.floor(distance/(1000*60*60*24));
-    const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-    const seconds=Math.floor((distance%(1000*60))/1000);
-
-    document.getElementById("countdown").innerHTML=
-    days+"d "+hours+"h "+minutes+"m "+seconds+"s";
-
-},1000);
-
-});
+    }, 1000);
+}
