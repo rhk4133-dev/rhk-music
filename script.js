@@ -1,33 +1,27 @@
-var publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/1LAhLPELqlfM_I8Lz8ChMqywjWcLoS-jge4PO6eAeruc/edit?usp=sharing";
+// Links for both YouTube channels
+const channel1 = 'https://youtube.com/@divineesport-q9f?si=twJteqWfwudbAPyf';
+const channel2 = 'https://youtube.com/@divineesport-q9f?si=twJteqWfwudbAPyf'; // second channel if different
 
-window.onload = function() {
-    Tabletop.init({
-        key: publicSpreadsheetUrl,
-        simpleSheet: true,
-        callback: showTeams
-    });
-};
+window.addEventListener('DOMContentLoaded', function() {
+    const registerCard = document.getElementById('registerCard');
+    const subscribeBtn = document.getElementById('subscribeBtn');
 
-function showTeams(data, tabletop) {
-    var container = document.getElementById("teamsList");
-    container.innerHTML = "";
-
-    if(data.length === 0) {
-        container.innerHTML = "No teams registered yet.";
-        return;
+    // If already clicked before, show register button
+    if (localStorage.getItem('subscribed') === 'true') {
+        registerCard.style.display = 'block';
+        document.getElementById('subscribeCard').style.display = 'none';
     }
 
-    data.forEach(team => {
-        var div = document.createElement("div");
-        div.className = "teamBox";
-        div.innerHTML = `
-            <strong>Team: ${team['Team Name']}</strong><br>
-            Player 1: ${team['Player 1 Name']}<br>
-            Player 2: ${team['Player 2 Name']}<br>
-            Player 3: ${team['Player 3 Name']}<br>
-            Player 4: ${team['Player 4 Name']}<br>
-            Leader Mobile: ${team['Squad Leader Mobile Number']}
-        `;
-        container.appendChild(div);
+    subscribeBtn.addEventListener('click', function() {
+        // Open both channels in new tabs
+        window.open(channel1, '_blank');
+        window.open(channel2, '_blank');
+
+        // Mark as subscribed
+        localStorage.setItem('subscribed', 'true');
+
+        // Show register card and hide subscribe card
+        registerCard.style.display = 'block';
+        document.getElementById('subscribeCard').style.display = 'none';
     });
-}
+});
