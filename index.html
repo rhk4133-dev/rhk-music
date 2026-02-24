@@ -5,33 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esport Tournament</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js" defer></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="background-animation"></div>
 
 <div class="overlay">
     <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
+    <!-- Countdown Timer -->
+    <div class="timer">
+        Registration Ends In:
+        <span id="countdown">00:00:00</span>
+    </div>
+
     <!-- Subscribe Section -->
-    <div class="card" id="subscribeCard">
+    <div class="card" id="subscribeSection">
         <p class="instruction">
-            SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL AND RETURN TO THIS PAGE TO REGISTER
+            SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL <br>
+            TO UNLOCK REGISTRATION
         </p>
-        <button id="subscribeBtn">
-            <i class="fa fa-bell"></i> SUBSCRIBE
-        </button>
+
+        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
+           target="_blank"
+           rel="noopener"
+           id="subscribeBtn">
+           SUBSCRIBE
+        </a>
+
+        <div id="verification" class="verification">
+            Verifying Subscription...
+        </div>
     </div>
 
     <!-- Register Section -->
-    <div class="card" id="registerCard" style="display:none;">
+    <div class="card" id="registerSection" style="display:none;">
         <p class="instruction">
-            Thank you for subscribing! Now register your team.
+            ✅ SUBSCRIPTION VERIFIED <br>
+            NOW REGISTER YOUR TEAM
         </p>
-        <a href="https://forms.gle/1HebsCJwGdaJzVnRA" target="_blank">
-            <button class="registerBtn">Register Now</button>
+
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+           target="_blank"
+           class="registerBtn">
+           REGISTER NOW
         </a>
     </div>
+
 </div>
 
 </body>
