@@ -1,31 +1,76 @@
-function subscribe(){
-    alert("Thank you for subscribing!");
-    document.getElementById("registerBtn").style.display="inline-block";
-    document.getElementById("statusBtn").style.display="inline-block";
-}
+document.addEventListener("DOMContentLoaded", function () {
 
-function showStatus(){
-    document.getElementById("statusSection").style.display="block";
-}
+    const subscribeBtn = document.getElementById("subscribeBtn");
+    const subscribeSection = document.getElementById("subscribeSection");
+    const registerSection = document.getElementById("registerSection");
+    const registerBtn = document.querySelector(".registerBtn");
+    const verification = document.getElementById("verification");
+    const statusSection = document.getElementById("statusSection");
 
-/* COUNTDOWN SYSTEM */
-var countDownDate = new Date("March 6, 2026 23:59:59").getTime();
+    const totalSlots = document.getElementById("totalSlots");
+    const filledSlots = document.getElementById("filledSlots");
+    const slotsLeft = document.getElementById("slotsLeft");
 
-var x = setInterval(function(){
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
+    // 🔊 Sound
+    const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
 
-    var days = Math.floor(distance / (1000*60*60*24));
-    var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    var seconds = Math.floor((distance % (1000*60)) / 1000);
+    // 🔥 Calculate Slots Left Automatically
+    slotsLeft.innerText = totalSlots.innerText - filledSlots.innerText;
 
-    document.getElementById("countdown").innerHTML =
-    "⏳ Closes In: " + days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-
-    if(distance < 0){
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "REGISTRATION CLOSED";
+    // 🔥 If already subscribed
+    if (localStorage.getItem("subscribed") === "true") {
+        unlockSections();
     }
-},1000);
+
+    subscribeBtn.addEventListener("click", function () {
+        clickSound.play();
+        localStorage.setItem("subscribed", "true");
+    });
+
+    // Detect return to page
+    window.addEventListener("focus", function () {
+        if (localStorage.getItem("subscribed") === "true") {
+
+            verification.style.display = "block";
+            verification.innerHTML = "Subscription Verified ✅";
+
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(() => {
+                unlockSections();
+            }, 1500);
+        }
+    });
+
+    function unlockSections() {
+        subscribeSection.style.display = "none";
+        registerSection.style.display = "block";
+        registerBtn.classList.add("show");
+        statusSection.style.display = "block";
+    }
+
+    // ⏳ EDIT COUNTDOWN DATE HERE
+    const endTime = new Date("March 6, 2026 23:59:59").getTime();
+
+    const timer = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+            hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "REGISTRATION CLOSED";
+        }
+    }, 1000);
+
+});
