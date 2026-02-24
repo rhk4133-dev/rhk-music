@@ -1,59 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>RHK Esports Tournament</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Esport Tournament</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js" defer></script>
 </head>
-
 <body>
 
-<h1>🔥 RHK ESPORTS TOURNAMENT 🔥</h1>
+<div class="background-animation"></div>
 
-<p class="instruction">
-    Subscribe the channel to unlock Registration and Tournament Status
-</p>
+<div class="overlay">
+    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
-<button class="button subscribe" onclick="subscribe()">Subscribe Now</button>
-<button class="button register" id="registerBtn">Register Now</button>
-<button class="button statusBtn" id="statusBtn" onclick="showStatus()">Tournament Status</button>
-
-<div class="section" id="statusSection">
-
-    <!-- ===== EDIT STATUS HERE ===== -->
-    <div class="statusBox open">
-        🟢 STATUS: REGISTRATION OPEN
+    <!-- Countdown Timer -->
+    <div class="timer">
+        Registration Ends In:
+        <span id="countdown">00:00:00</span>
     </div>
 
-    <!-- ===== EDIT DATE HERE ===== -->
-    <p>📅 Registration: 28-02-2026 to 06-03-2026</p>
+    <!-- Subscribe Section -->
+    <div class="card" id="subscribeSection">
+        <p class="instruction">
+            SUBSCRIBE TO THE DIVINE YOUTUBE CHANNEL <br>
+            TO UNLOCK REGISTRATION
+        </p>
 
-    <div class="countdown" id="countdown"></div>
+        <a href="https://youtube.com/@divineesport-q9f?si=SdeeFXXjebKsIl-T"
+           target="_blank"
+           rel="noopener"
+           id="subscribeBtn">
+           SUBSCRIBE
+        </a>
 
-    <!-- ===== EDIT SLOT SYSTEM HERE ===== -->
-    <div class="slots">
-        Total Slots: 20 <br>
-        Filled Slots: 12 <br>
-        Slots Left: 8
+        <div id="verification" class="verification">
+            Verifying Subscription...
+        </div>
     </div>
 
-    <!-- ===== EDIT TEAM LIST HERE ===== -->
-    <div class="teamBox">
-        <h3>✅ Accepted Teams</h3>
-        <ul>
-            <li>RHK Warriors</li>
-            <li>Fire Squad</li>
-            <li>Alpha Kings</li>
+    <!-- Register Section -->
+    <div class="card" id="registerSection" style="display:none;">
+        <p class="instruction">
+            ✅ SUBSCRIPTION VERIFIED <br>
+            NOW REGISTER YOUR TEAM
+        </p>
+
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+           target="_blank"
+           class="registerBtn">
+           REGISTER NOW
+        </a>
+    </div>
+
+    <!-- Tournament Status Section -->
+    <div class="card" id="statusSection" style="display:none; margin-top:20px;">
+        <p class="instruction">TOURNAMENT STATUS</p>
+
+        <!-- 🔥 EDIT STATUS HERE -->
+        <p id="statusText" style="font-size:20px; font-weight:bold; color:lime;">
+            🟢 REGISTRATION OPEN
+        </p>
+
+        <!-- 🔥 EDIT DATE HERE -->
+        <p style="color:white;">
+            Date: 28-02-2026 to 06-03-2026
+        </p>
+
+        <!-- 🔥 EDIT SLOT NUMBERS HERE -->
+        <p style="color:white;">
+            Total Slots: <span id="totalSlots">20</span> <br>
+            Filled Slots: <span id="filledSlots">12</span> <br>
+            Slots Left: <span id="slotsLeft"></span>
+        </p>
+
+        <!-- 🔥 EDIT SELECTED TEAMS HERE -->
+        <p style="color:lime; font-weight:bold;">✅ Selected Teams</p>
+        <ul style="color:white;">
+            <li>Divine Warriors</li>
+            <li>Alpha Squad</li>
         </ul>
 
-        <h3>❌ Rejected Teams</h3>
-        <ul>
+        <!-- 🔥 EDIT REJECTED TEAMS HERE -->
+        <p style="color:red; font-weight:bold;">❌ Rejected Teams</p>
+        <ul style="color:white;">
             <li>Noob Army</li>
         </ul>
     </div>
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
