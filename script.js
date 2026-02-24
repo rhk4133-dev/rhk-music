@@ -1,22 +1,89 @@
-document.addEventListener("DOMContentLoaded", function(){
-
-const proofBtn = document.getElementById("proofBtn");
-const subscribeSection = document.getElementById("subscribeSection");
-const registerSection = document.getElementById("registerSection");
-
-// Open Screenshot Upload Form
-proofBtn.addEventListener("click", function(){
-
-window.open("https://forms.gle/YOUR_SCREENSHOT_UPLOAD_FORM","_blank");
-
+document.addEventListener("DOMContentLoaded", function () {
+    displayTeams();
+    displayAdmin();
 });
 
-// Check if user returned with verified link
-const params = new URLSearchParams(window.location.search);
+function registerTeam() {
+    const teamName = document.getElementById("teamName").value;
+    const leaderName = document.getElementById("leaderName").value;
+    const youtubeName = document.getElementById("youtubeName").value;
 
-if(params.get("verified") === "true"){
-subscribeSection.style.display="none";
-registerSection.style.display="block";
+    if (!teamName || !leaderName || !youtubeName) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const team = {
+        id: Date.now(),
+        teamName,
+        leaderName,
+        youtubeName,
+        status: "Verification Pending"
+    };
+
+    let teams = JSON.parse(localStorage.getItem("teams")) || [];
+    teams.push(team);
+    localStorage.setItem("teams", JSON.stringify(teams));
+
+    document.getElementById("statusMessage").innerHTML =
+        "✅ Registration Submitted! Status: Verification Pending";
+
+    displayTeams();
 }
 
-});
+function displayTeams() {
+    const teamList = document.getElementById("teamList");
+    if (!teamList) return;
+
+    let teams = JSON.parse(localStorage.getItem("teams")) || [];
+    teamList.innerHTML = "";
+
+    teams.forEach(team => {
+        teamList.innerHTML += `
+            <div class="team-card">
+                <strong>${team.teamName}</strong><br>
+                Leader: ${team.leaderName}<br>
+                Status: <span style="color:yellow">${team.status}</span>
+            </div>
+        `;
+    });
+}
+
+function displayAdmin() {
+    const adminList = document.getElementById("adminList");
+    if (!adminList) return;
+
+    let teams = JSON.parse(localStorage.getItem("teams")) || [];
+    adminList.innerHTML = "";
+
+    teams.forEach(team => {
+        adminList.innerHTML += `
+            <div class="team-card">
+                <strong>${team.teamName}</strong><br>
+                Leader: ${team.leaderName}<br>
+                YouTube: ${team.youtubeName}<br>
+                Status: ${team.status}<br><br>
+                <button onclick="approveTeam(${team.id})">Approve</button>
+                <button onclick="rejectTeam(${team.id})">Reject</button>
+            </div>
+        `;
+    });
+}
+
+function approveTeam(id) {
+    let teams = JSON.parse(localStorage.getItem("teams")) || [];
+    teams = teams.map(team =>
+        team.id === id ? { ...team, status: "Approved ✅" } : team
+    );
+    localStorage.setItem("teams", JSON.stringify(teams));
+    displayAdmin();
+}
+
+function rejectTeam(id) {
+    let teams = JSON.parse(localStorage.getItem("teams")) || [];
+    teams = teams.map(team =>
+        team.id === id ? { ...team, status: "Rejected ❌" } : team
+    );
+    localStorage.setItem("teams", JSON.stringify(teams));
+    displayAdmin();
+}
