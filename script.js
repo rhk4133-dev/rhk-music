@@ -1,70 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
+// =======================
+// EDIT HERE ONLY
+// =======================
 
-    const subscribeBtn = document.getElementById("subscribeBtn");
-    const subscribeSection = document.getElementById("subscribeSection");
-    const registerSection = document.getElementById("registerSection");
-    const statusSection = document.getElementById("statusSection");
-    const verification = document.getElementById("verification");
+// Countdown Dates
+const startDate = new Date("Feb 28, 2026 00:00:00").getTime();
+const endDate = new Date("Feb 06, 2026 00:00:00").getTime();
 
-    const totalSlots = document.getElementById("totalSlots");
-    const filledSlots = document.getElementById("filledSlots");
-    const slotsLeft = document.getElementById("slotsLeft");
+// Slot Information
+const slotDateValue = "28 February 2026";
+const slotTimeValue = "6:00 PM IST";
+const slotStatusValue = "COMING SOON"; // OPEN / CLOSED / COMING SOON
 
-    // 🔥 Auto calculate slots left
-    slotsLeft.innerText = totalSlots.innerText - filledSlots.innerText;
+// =======================
+// Countdown Logic
+// =======================
 
-    const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+const countdownElement = document.getElementById("countdown");
 
-    // If already subscribed
-    if(localStorage.getItem("subscribed") === "true"){
-        unlock();
-    }
-
-    subscribeBtn.addEventListener("click", function(){
-        clickSound.play();
-        localStorage.setItem("subscribed","true");
-    });
-
-    window.addEventListener("focus", function(){
-        if(localStorage.getItem("subscribed") === "true"){
-            verification.style.display="block";
-            verification.innerHTML="Subscription Verified ✅";
-
-            confetti({
-                particleCount:150,
-                spread:100,
-                origin:{y:0.6}
-            });
-
-            setTimeout(unlock,1500);
-        }
-    });
-
-    function unlock(){
-        subscribeSection.style.display="none";
-        registerSection.style.display="block";
-        statusSection.style.display="block";
-    }
-
-    // ⏳ EDIT COUNTDOWN DATE HERE
-    const endTime = new Date("March 6, 2026 23:59:59").getTime();
-
-    const timer = setInterval(function(){
+if(countdownElement){
+    setInterval(function(){
         const now = new Date().getTime();
-        const distance = endTime - now;
+        const distance = startDate - now;
 
-        const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-        const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-        const seconds = Math.floor((distance % (1000*60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("countdown").innerHTML =
-            hours+"h "+minutes+"m "+seconds+"s";
-
-        if(distance < 0){
-            clearInterval(timer);
-            document.getElementById("countdown").innerHTML="REGISTRATION CLOSED";
-        }
-
+        countdownElement.innerHTML =
+        days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
     },1000);
+}
 
-});
+// =======================
+// Slot Display
+// =======================
+
+const slotDate = document.getElementById("slotDate");
+const slotTime = document.getElementById("slotTime");
+const slotStatus = document.getElementById("slotStatus");
+
+if(slotDate) slotDate.innerText = slotDateValue;
+if(slotTime) slotTime.innerText = slotTimeValue;
+if(slotStatus) slotStatus.innerText = slotStatusValue;
