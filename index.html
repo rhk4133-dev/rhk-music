@@ -1,23 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINE ESPORT | Free Fire Tournament</title>
+<title>DIVINE ESPORT | Free Fire</title>
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Fire Particles -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<!-- Confetti -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script src="script.js" defer></script>
 </head>
+
 <body>
 
-<div class="background"></div>
+<div id="loader">
+    <h1>DIVINE ESPORT</h1>
+</div>
+
+<div id="tsparticles"></div>
 
 <div class="container">
 
     <h1 class="brand">DIVINE ESPORT</h1>
+    <div class="live-badge">LIVE TOURNAMENT</div>
     <p class="tagline">Where Legends Rise 🔥</p>
 
     <div class="countdown-box">
@@ -25,11 +35,11 @@
         <div id="countdown">Loading...</div>
     </div>
 
+    <!-- SUBSCRIBE SECTION -->
     <div class="card" id="subscribeSection">
-        <h2>Unlock Tournament Registration</h2>
+        <h2>Unlock Registration</h2>
         <p class="instruction">
-            Subscribe to our official YouTube channel  
-            and support the dream.
+            Subscribe to our official YouTube channel to unlock team registration.
         </p>
 
         <a href="https://youtube.com/@divineesport-q9f"
@@ -42,26 +52,28 @@
         <div id="verification" class="verification"></div>
     </div>
 
+    <!-- REGISTER SECTION -->
     <div class="card hidden" id="registerSection">
-        <h2>Subscription Confirmed</h2>
+        <h2>Subscription Verified ✅</h2>
         <p class="instruction">
-            You are now part of the Divine family.  
-            Register your team and make history.
+            You are now part of Divine. Register your squad and make history.
         </p>
 
         <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
            target="_blank"
            class="btn gold">
-           Register Your Team
+           Register Team
         </a>
     </div>
 
-    <div class="dream-section">
-        <p>
-            "This is not just a tournament.  
-            This is the beginning of a dream."
-        </p>
+    <div class="links">
+        <a href="live.html">Watch Live</a>
+        <a href="admin.html">Admin Panel</a>
+    </div>
 
+    <div class="dream-section">
+        "This is not just a tournament.  
+        This is the beginning of a dream."
         <span>— Founder, Divine Esport</span>
     </div>
 
