@@ -1,53 +1,26 @@
-// Default values
-if (!localStorage.getItem("liveLink")) {
-    localStorage.setItem("liveLink", "https://www.youtube.com/embed/dQw4w9WgXcQ");
-    localStorage.setItem("slots", "25 / 48");
-    localStorage.setItem("registration", "Open");
-    localStorage.setItem("selected", "18");
-    localStorage.setItem("rejected", "5");
-    localStorage.setItem("dateTime", "2026-02-28T18:00");
+const channelLink = "https://youtube.com/@divineesport-q9f?si=otP4qXVZKPzSm4iF";
+const registerLink = "https://docs.google.com/forms/d/e/1FAIpQLSfgdPjGZI7yXtoB3JhlwgROcZP1Yyg-brh3_EePQ5aOhsBN7w/viewform";
+const livePage = "live.html";
+
+function subscribeChannel() {
+    window.open(channelLink, "_blank");
+    localStorage.setItem("subscribed", "true");
+
+    document.getElementById("subscribeSection").style.display = "none";
+    document.getElementById("registerSection").classList.remove("hidden");
 }
 
-// Load Live Page
-if (document.getElementById("liveFrame")) {
-    document.getElementById("liveFrame").src =
-        localStorage.getItem("liveLink");
+function registerNow() {
+    window.open(registerLink, "_blank");
 }
 
-// Load Status
-if (document.getElementById("slots")) {
-    document.getElementById("slots").innerText =
-        localStorage.getItem("slots");
-
-    document.getElementById("registration").innerText =
-        localStorage.getItem("registration");
-
-    document.getElementById("selected").innerText =
-        localStorage.getItem("selected");
-
-    document.getElementById("rejected").innerText =
-        localStorage.getItem("rejected");
+function watchLive() {
+    window.location.href = livePage;
 }
 
-// Countdown
-if (document.getElementById("countdown")) {
-
-    var target = new Date(localStorage.getItem("dateTime")).getTime();
-
-    setInterval(function() {
-        var now = new Date().getTime();
-        var distance = target - now;
-
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-
-        if (distance < 0) {
-            document.getElementById("countdown").innerHTML = "🔥 LIVE NOW";
-        }
-    }, 1000);
-}
+window.onload = function(){
+    if(localStorage.getItem("subscribed") === "true"){
+        document.getElementById("subscribeSection").style.display = "none";
+        document.getElementById("registerSection").classList.remove("hidden");
+    }
+};
