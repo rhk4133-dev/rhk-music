@@ -5,29 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esport Tournament</title>
 <link rel="stylesheet" href="style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
 
 <div class="overlay">
-    <h1 class="title">DIVINE ESPORT</h1>
+    <h1 class="title">DIVINE ESPORT TOURNAMENT</h1>
 
-    <!-- Registration Button -->
-    <div class="card">
+    <div class="card" id="subscribeCard">
+        <h2>Subscribe Before Registering</h2>
+        <p>You must subscribe to our YouTube channels before registering for the tournament.</p>
+        <button id="subscribeBtn">Subscribe to Divine YouTube</button>
+    </div>
+
+    <div class="card" id="registerCard" style="display:none;">
         <h2>Register Your Team</h2>
-        <p>Click below to register for the tournament</p>
+        <p>Click the button below to register via Google Form.</p>
         <a href="https://forms.gle/1HebsCJwGdaJzVnRA" target="_blank">
             <button>Register Now</button>
         </a>
     </div>
 
-    <!-- Registered Teams -->
     <div class="card">
-        <h2>Registered Teams</h2>
-        <div id="teamsList">Loading...</div>
+        <h2>Tournament Instructions</h2>
+        <ul>
+            <li>Each team must have exactly 4 players.</li>
+            <li>Provide Player names and Squad Leader mobile number correctly.</li>
+            <li>Use your real Free Fire IDs.</li>
+            <li>Registration is open until the given deadline.</li>
+            <li>Follow the tournament rules strictly.</li>
+        </ul>
     </div>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
