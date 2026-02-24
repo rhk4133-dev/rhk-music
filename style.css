@@ -1,94 +1,111 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: black;
 }
 
-body{
-    background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#000);
-    background-size:400% 400%;
-    animation:bgMove 10s infinite alternate;
-    color:white;
-    text-align:center;
-    padding:20px;
+/* Animated Moving Background */
+.background-animation {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #000000, #111111, #1a1a1a, #000000);
+    animation: moveBg 10s linear infinite;
+    z-index: -1;
 }
 
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    100%{background-position:100% 50%;}
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-25%,-25%); }
+    100% { transform: translate(0,0); }
 }
 
-h1{
-    margin-bottom:20px;
-    font-size:30px;
-    color:#00f2ff;
+.overlay {
+    background: rgba(0,0,0,0.85);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
 }
 
-.instruction{
-    font-weight:bold;
-    margin-bottom:15px;
+.title {
+    color: gold;
+    font-size: 42px;
+    text-shadow: 0 0 20px gold;
+    margin-bottom: 20px;
 }
 
-.button{
-    padding:12px 25px;
-    margin:10px;
-    border:none;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.3s;
+.timer {
+    color: cyan;
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
-.subscribe{
-    background:#ff0000;
-    color:white;
+.card {
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
+    border-radius: 12px;
+    padding: 30px;
+    width: 95%;
+    max-width: 520px;
+    text-align: center;
+    box-shadow: 0 0 20px gold;
 }
 
-.register{
-    background:#00c853;
-    color:white;
-    display:none;
+.instruction {
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px gold, 0 0 20px red;
+    animation: glow 1.5s infinite alternate;
 }
 
-.statusBtn{
-    background:#2979ff;
-    color:white;
-    display:none;
+@keyframes glow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 25px red; }
 }
 
-.button:hover{
-    transform:scale(1.1);
+#subscribeBtn {
+    display: inline-block;
+    background: #FF0000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    animation: pulse 1.5s infinite;
 }
 
-.section{
-    margin-top:30px;
-    display:none;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
 }
 
-.statusBox{
-    padding:15px;
-    border-radius:10px;
-    margin:15px 0;
-    font-weight:bold;
+.verification {
+    margin-top: 20px;
+    color: yellow;
+    display: none;
 }
 
-.open{ background:#00c853; }
-.closed{ background:#d50000; }
-.live{ background:#ff9100; }
-.coming{ background:#2962ff; }
-
-.countdown{
-    font-size:22px;
-    margin-top:10px;
+.registerBtn {
+    display: inline-block;
+    background: #00ffcc;
+    color: black;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-.slots{
-    margin-top:15px;
-}
-
-.teamBox{
-    margin-top:20px;
-    text-align:left;
-    display:inline-block;
+.registerBtn.show {
+    opacity: 1;
 }
