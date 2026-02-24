@@ -41,8 +41,9 @@ body {
     line-height: 1.4;
 }
 
+/* Subscribe button like YouTube + pulse animation */
 #subscribeBtn {
-    background-color: #FF0000; /* YouTube red */
+    background-color: #FF0000;
     color: #fff;
     font-weight: bold;
     font-size: 18px;
@@ -54,6 +55,7 @@ body {
     align-items: center;
     gap: 8px;
     transition: 0.3s;
+    animation: pulse 1.5s infinite;
 }
 
 #subscribeBtn:hover {
@@ -61,8 +63,15 @@ body {
     box-shadow: 0 0 10px #ff0000;
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Register button fades in */
 .registerBtn {
-    background: #00ccff; /* distinct color */
+    background: #00ccff;
     color: #000;
     font-weight: bold;
     font-size: 18px;
@@ -70,7 +79,12 @@ body {
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.registerBtn.visible {
+    opacity: 1;
 }
 
 .registerBtn:hover {
