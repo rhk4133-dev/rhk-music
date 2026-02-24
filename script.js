@@ -1,89 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-    displayTeams();
-    displayAdmin();
+
+    const subscribeBtn = document.getElementById("subscribeBtn");
+    const verification = document.getElementById("verification");
+    const afterSubscribe = document.getElementById("afterSubscribe");
+
+    const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+
+    subscribeBtn.addEventListener("click", function () {
+
+        clickSound.play();
+
+        verification.style.display = "block";
+
+        setTimeout(() => {
+            verification.innerHTML = "Subscription Verified ✅";
+
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(() => {
+                document.getElementById("subscribeSection").style.display = "none";
+                afterSubscribe.style.display = "block";
+            }, 1500);
+
+        }, 2000);
+    });
+
+    // Countdown Timer
+    const endTime = new Date().getTime() + (2 * 60 * 60 * 1000);
+
+    const timer = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+            hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "REGISTRATION CLOSED";
+        }
+    }, 1000);
+
 });
-
-function registerTeam() {
-    const teamName = document.getElementById("teamName").value;
-    const leaderName = document.getElementById("leaderName").value;
-    const youtubeName = document.getElementById("youtubeName").value;
-
-    if (!teamName || !leaderName || !youtubeName) {
-        alert("Please fill all fields");
-        return;
-    }
-
-    const team = {
-        id: Date.now(),
-        teamName,
-        leaderName,
-        youtubeName,
-        status: "Verification Pending"
-    };
-
-    let teams = JSON.parse(localStorage.getItem("teams")) || [];
-    teams.push(team);
-    localStorage.setItem("teams", JSON.stringify(teams));
-
-    document.getElementById("statusMessage").innerHTML =
-        "✅ Registration Submitted! Status: Verification Pending";
-
-    displayTeams();
-}
-
-function displayTeams() {
-    const teamList = document.getElementById("teamList");
-    if (!teamList) return;
-
-    let teams = JSON.parse(localStorage.getItem("teams")) || [];
-    teamList.innerHTML = "";
-
-    teams.forEach(team => {
-        teamList.innerHTML += `
-            <div class="team-card">
-                <strong>${team.teamName}</strong><br>
-                Leader: ${team.leaderName}<br>
-                Status: <span style="color:yellow">${team.status}</span>
-            </div>
-        `;
-    });
-}
-
-function displayAdmin() {
-    const adminList = document.getElementById("adminList");
-    if (!adminList) return;
-
-    let teams = JSON.parse(localStorage.getItem("teams")) || [];
-    adminList.innerHTML = "";
-
-    teams.forEach(team => {
-        adminList.innerHTML += `
-            <div class="team-card">
-                <strong>${team.teamName}</strong><br>
-                Leader: ${team.leaderName}<br>
-                YouTube: ${team.youtubeName}<br>
-                Status: ${team.status}<br><br>
-                <button onclick="approveTeam(${team.id})">Approve</button>
-                <button onclick="rejectTeam(${team.id})">Reject</button>
-            </div>
-        `;
-    });
-}
-
-function approveTeam(id) {
-    let teams = JSON.parse(localStorage.getItem("teams")) || [];
-    teams = teams.map(team =>
-        team.id === id ? { ...team, status: "Approved ✅" } : team
-    );
-    localStorage.setItem("teams", JSON.stringify(teams));
-    displayAdmin();
-}
-
-function rejectTeam(id) {
-    let teams = JSON.parse(localStorage.getItem("teams")) || [];
-    teams = teams.map(team =>
-        team.id === id ? { ...team, status: "Rejected ❌" } : team
-    );
-    localStorage.setItem("teams", JSON.stringify(teams));
-    displayAdmin();
-}
