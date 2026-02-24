@@ -1,51 +1,71 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DIVINE ESPORT | Free Fire Tournament</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIVINE ESPORT | Free Fire Tournament</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
 
-<header>
-    <h1 class="logo">DIVINE ESPORT</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="slots.html">Slots</a>
-        <a href="teams.html">Teams</a>
-    </nav>
-</header>
+<div class="background"></div>
 
-<section class="hero">
-    <h2>FREE FIRE TOURNAMENT 2026</h2>
-    <p>Where Legends Rise 🔥</p>
+<div class="container">
 
-    <div class="button-group">
-        <a href="slots.html" class="btn gold">View Slots</a>
+    <h1 class="brand">DIVINE ESPORT</h1>
+    <p class="tagline">Where Legends Rise 🔥</p>
 
-        <a href="https://youtube.com/@divineesport-q9f?si=otP4qXVZKPzSm4iF" 
-           target="_blank" 
-           class="btn red">
-           Subscribe Channel
+    <div class="countdown-box">
+        <span>Registration Ends In</span>
+        <div id="countdown">Loading...</div>
+    </div>
+
+    <div class="card" id="subscribeSection">
+        <h2>Unlock Tournament Registration</h2>
+        <p class="instruction">
+            Subscribe to our official YouTube channel  
+            and support the dream.
+        </p>
+
+        <a href="https://youtube.com/@divineesport-q9f"
+           target="_blank"
+           class="btn red"
+           id="subscribeBtn">
+           Subscribe Now
         </a>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgdPjGZI7yXtoB3JhlwgROcZP1Yyg-brh3_EePQ5aOhsBN7w/viewform?usp=sharing&ouid=116790698234145472648" 
-           target="_blank" 
-           class="btn blue">
-           Register Now
+        <div id="verification" class="verification"></div>
+    </div>
+
+    <div class="card hidden" id="registerSection">
+        <h2>Subscription Confirmed</h2>
+        <p class="instruction">
+            You are now part of the Divine family.  
+            Register your team and make history.
+        </p>
+
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+           target="_blank"
+           class="btn gold">
+           Register Your Team
         </a>
     </div>
-</section>
 
-<section class="countdown-section">
-    <h3>Tournament Starts In</h3>
-    <div id="countdown"></div>
-</section>
+    <div class="dream-section">
+        <p>
+            "This is not just a tournament.  
+            This is the beginning of a dream."
+        </p>
 
-<footer>
-    <p>© 2026 DIVINE ESPORT | All Rights Reserved</p>
-</footer>
+        <span>— Founder, Divine Esport</span>
+    </div>
 
-<script src="script.js"></script>
+</div>
+
 </body>
 </html>
