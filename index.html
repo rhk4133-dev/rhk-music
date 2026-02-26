@@ -1,68 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>SkillSpark | Build Your Future</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RHK Music</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1 class="logo">SkillSpark</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="container">
+    <h1>RHK Music 🎵</h1>
+    <button onclick="googleLogin()">Login with Google</button>
 
-  <section class="hero">
-    <h2>Hello, I'm <span>Your Name</span></h2>
-    <p>I create modern websites and digital experiences.</p>
-    <button onclick="scrollToSection()">Explore More</button>
-  </section>
+    <div id="userInfo"></div>
+  </div>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I am a passionate developer who loves building clean and modern websites.</p>
-  </section>
-
-  <section id="skills" class="section dark">
-    <h2>My Skills</h2>
-    <div class="skill-box">
-      <div>HTML</div>
-      <div>CSS</div>
-      <div>JavaScript</div>
-      <div>UI Design</div>
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-container">
-      <div class="project-card">Portfolio Website</div>
-      <div class="project-card">Landing Page Design</div>
-      <div class="project-card">Mini Web App</div>
-    </div>
-  </section>
-
-  <section id="contact" class="section dark">
-    <h2>Contact Me</h2>
-    <form onsubmit="sendMessage(event)">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p id="successMsg"></p>
-  </section>
-
-  <footer>
-    <p>© 2026 SkillSpark. All Rights Reserved.</p>
-  </footer>
+  <!-- Firebase SDK (Compat for WebView) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
   <script src="script.js"></script>
+
 </body>
 </html>
