@@ -7,22 +7,28 @@ body {
 }
 
 .container {
-  margin-top: 100px;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+h1 {
+  font-size: 26px;
 }
 
 button {
-  padding: 12px 25px;
+  padding: 14px 25px;
   font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   background: #ff3c78;
   color: white;
-  transition: 0.3s;
+  width: 90%;
+  max-width: 300px;
 }
 
-button:hover {
-  background: #ff1e5a;
+button:active {
+  opacity: 0.8;
 }
 
 #userInfo {
