@@ -1,142 +1,129 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-body{
-    background:#0b0f1a;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
+body {
+  scroll-behavior: smooth;
 }
 
-#particles-js{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
+header {
+  background: #111;
+  color: white;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:50px 20px;
-    text-align:center;
+header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
-.hero{
-    margin-top:30px;
+header nav a:hover {
+  color: #00ffcc;
 }
 
-.brand{
-    font-size:32px;
-    color:gold;
-    letter-spacing:3px;
-    text-shadow:0 0 15px rgba(255,215,0,0.4);
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #00ffcc, #0066ff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
 }
 
-.tagline{
-    margin-top:8px;
-    color:#aaa;
+.hero span {
+  color: yellow;
 }
 
-.status-badge{
-    margin-top:15px;
-    display:inline-block;
-    padding:6px 14px;
-    border-radius:20px;
-    background:rgba(0,255,150,0.15);
-    color:#00ff99;
-    font-size:12px;
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.tournament-info{
-    display:flex;
-    gap:15px;
-    margin:40px 0;
-    flex-wrap:wrap;
-    justify-content:center;
+.section {
+  padding: 80px 20px;
+  text-align: center;
 }
 
-.info-box{
-    background:rgba(255,255,255,0.05);
-    padding:15px;
-    border-radius:12px;
-    min-width:100px;
-    border:1px solid rgba(255,215,0,0.2);
+.dark {
+  background: #111;
+  color: white;
 }
 
-.info-box span{
-    font-size:11px;
-    color:#aaa;
+.skill-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-.info-box strong{
-    display:block;
-    margin-top:5px;
-    color:gold;
+.skill-box div {
+  background: #00ffcc;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(20px);
-    border-radius:18px;
-    padding:30px;
-    width:100%;
-    max-width:420px;
-    margin-bottom:25px;
-    border:1px solid rgba(255,215,0,0.2);
-    box-shadow:0 0 30px rgba(255,215,0,0.08);
-    transition:0.3s;
+.project-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.project-card {
+  background: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  width: 200px;
+  transition: 0.3s;
 }
 
-.hidden{
-    display:none;
+.project-card:hover {
+  transform: scale(1.05);
 }
 
-.instruction{
-    color:#ccc;
-    margin:15px 0 25px 0;
-    font-size:14px;
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:30px;
-    font-weight:bold;
-    text-decoration:none;
-    transition:0.3s;
+form input, form textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
-.red{
-    background:#ff0000;
-    color:white;
+form button {
+  padding: 10px;
+  border: none;
+  background: #00ffcc;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.gold{
-    background:linear-gradient(to right,gold,orange);
-    color:black;
-}
-
-.btn:hover{
-    transform:scale(1.07);
-}
-
-.verification{
-    margin-top:15px;
-    font-size:14px;
-}
-
-@media(min-width:768px){
-    .brand{
-        font-size:46px;
-    }
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
 }
