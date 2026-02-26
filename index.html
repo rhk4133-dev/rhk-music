@@ -1,77 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINE ESPORT | Free Fire Tournament</title>
-
-<link rel="stylesheet" href="style.css">
-
-<!-- Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<!-- Particles -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-<script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>SkillSpark | Build Your Future</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="particles-js"></div>
+  <header>
+    <h1 class="logo">SkillSpark</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<div class="container">
+  <section class="hero">
+    <h2>Hello, I'm <span>Your Name</span></h2>
+    <p>I create modern websites and digital experiences.</p>
+    <button onclick="scrollToSection()">Explore More</button>
+  </section>
 
-    <header class="hero">
-        <h1 class="brand">DIVINE ESPORT</h1>
-        <p class="tagline">Official Free Fire Tournament Arena</p>
-        <div class="status-badge">REGISTRATIONS OPEN</div>
-    </header>
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I am a passionate developer who loves building clean and modern websites.</p>
+  </section>
 
-    <section class="tournament-info">
-        <div class="info-box">
-            <span>Game</span>
-            <strong>Free Fire</strong>
-        </div>
-        <div class="info-box">
-            <span>Mode</span>
-            <strong>Squad (4v4)</strong>
-        </div>
-        <div class="info-box">
-            <span>Entry</span>
-            <strong>Free</strong>
-        </div>
-    </section>
-
-    <div class="card" id="subscribeSection">
-        <h2>Unlock Registration</h2>
-        <p class="instruction">
-            Subscribe to our official YouTube channel to verify eligibility.
-        </p>
-
-        <a href="https://youtube.com/@divineesport-q9f"
-           target="_blank"
-           class="btn red"
-           id="subscribeBtn">
-           Subscribe & Verify
-        </a>
-
-        <div id="verification" class="verification"></div>
+  <section id="skills" class="section dark">
+    <h2>My Skills</h2>
+    <div class="skill-box">
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>JavaScript</div>
+      <div>UI Design</div>
     </div>
+  </section>
 
-    <div class="card hidden" id="registerSection">
-        <h2>Access Granted</h2>
-        <p class="instruction">
-            You are verified. Register your squad now.
-        </p>
-
-        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-           target="_blank"
-           class="btn gold">
-           Register Team
-        </a>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="project-container">
+      <div class="project-card">Portfolio Website</div>
+      <div class="project-card">Landing Page Design</div>
+      <div class="project-card">Mini Web App</div>
     </div>
+  </section>
 
-</div>
+  <section id="contact" class="section dark">
+    <h2>Contact Me</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="successMsg"></p>
+  </section>
 
+  <footer>
+    <p>© 2026 SkillSpark. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
