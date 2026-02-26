@@ -1,3 +1,6 @@
+
+console.log("Script Loaded");
+
 // Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyD3pPazcbgwOgZiwolUOIBs2hLt-A-iUR8",
@@ -8,33 +11,22 @@ const firebaseConfig = {
   appId: "1:626824224864:web:3bbfd5e9ea8f6e50e305"
 };
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Google Login (Redirect Method)
-function googleLogin() {
+// Redirect login (MOBILE SAFE)
+document.getElementById("loginBtn").addEventListener("click", function () {
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithRedirect(provider);
-}
+});
 
-// After Redirect Return
+// After redirect return
 auth.getRedirectResult().then((result) => {
   if (result.user) {
-    const user = result.user;
-
-    db.collection("users").doc(user.uid).set({
-      name: user.displayName,
-      email: user.email,
-      photo: user.photoURL,
-      uid: user.uid
-    });
-
-    document.getElementById("userInfo").innerHTML = `
-      <p>Welcome, ${user.displayName}</p>
-      <img src="${user.photoURL}" width="80" style="border-radius:50%">
-    `;
+    saveUser(result.user);
   }
 }).catch((error) => {
   console.log(error.message);
@@ -43,9 +35,24 @@ auth.getRedirectResult().then((result) => {
 // Keep user logged in
 auth.onAuthStateChanged((user) => {
   if (user) {
-    document.getElementById("userInfo").innerHTML = `
-      <p>Welcome back, ${user.displayName}</p>
-      <img src="${user.photoURL}" width="80" style="border-radius:50%">
-    `;
+    showUser(user);
   }
 });
+
+function saveUser(user) {
+  db.collection("users").doc(user.uid).set({
+    name: user.displayName,
+    email: user.email,
+    photo: user.photoURL,
+    uid: user.uid
+  });
+
+  showUser(user);
+}
+
+function showUser(user) {
+  document.getElementById("userInfo").innerHTML = `
+    <p>Welcome, ${user.displayName}</p>
+    <img src="${user.photoURL}" width="80" style="border-radius:50%">
+  `;
+}
