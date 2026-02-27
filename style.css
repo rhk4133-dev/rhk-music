@@ -40,7 +40,6 @@ body{
     color:#9ca3af;
     margin-bottom:50px;
     font-size:15px;
-    letter-spacing:1px;
 }
 
 .card{
@@ -56,26 +55,18 @@ body{
     transition:0.3s ease;
 }
 
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 0 50px rgba(255,215,0,0.15);
-}
-
 .hidden{
     display:none;
 }
 
 h2{
     margin-bottom:18px;
-    font-weight:600;
-    letter-spacing:1px;
 }
 
 .instruction{
     color:#cbd5e1;
     margin-bottom:25px;
     font-size:14px;
-    line-height:1.6;
 }
 
 .btn{
@@ -85,7 +76,6 @@ h2{
     font-weight:600;
     text-decoration:none;
     transition:0.3s ease;
-    letter-spacing:0.5px;
 }
 
 .red{
@@ -97,7 +87,6 @@ h2{
 .gold{
     background:linear-gradient(to right,gold,orange);
     color:black;
-    box-shadow:0 0 20px rgba(255,215,0,0.4);
 }
 
 .btn:hover{
@@ -107,8 +96,6 @@ h2{
 .verification{
     margin-top:18px;
     color:#22c55e;
-    font-size:14px;
-    font-weight:500;
 }
 
 .dream-section{
@@ -116,25 +103,26 @@ h2{
     max-width:500px;
     color:#9ca3af;
     font-style:italic;
-    line-height:1.7;
-    font-size:14px;
 }
 
-.dream-section span{
-    display:block;
-    margin-top:12px;
-    color:gold;
-    font-style:normal;
-    font-weight:600;
+/* 🪳 Cockroach Style */
+
+.cockroach{
+    position:fixed;
+    font-size:40px;
+    left:-100px;
+    bottom:20px;
+    z-index:999;
+    transition: all 4s linear;
 }
 
-@media(min-width:768px){
+/* Shake Subscribe Button */
 
-    .brand{
-        font-size:48px;
-    }
+.shake{
+    animation:shake 0.5s infinite alternate;
+}
 
-    .card{
-        max-width:500px;
-    }
+@keyframes shake{
+    from{ transform:translateX(-3px); }
+    to{ transform:translateX(3px); }
 }
