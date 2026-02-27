@@ -6,27 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const verification = document.getElementById("verification");
     const bgMusic = document.getElementById("bgMusic");
 
-    // Play music when user clicks anywhere (browser policy safe)
-    document.body.addEventListener("click", function () {
-        bgMusic.play().catch(() => {});
-    }, { once: true });
-
-    // When Subscribe button clicked
     subscribeBtn.addEventListener("click", function () {
 
-        localStorage.setItem("subscribed", "true");
+        // 🎵 Play music
+        bgMusic.play().catch(() => {});
 
-    });
+        verification.innerHTML = "Verifying subscription...";
 
-    // Detect when user comes back to page
-    window.addEventListener("focus", function () {
-
-        if (localStorage.getItem("subscribed") === "true") {
+        setTimeout(() => {
 
             verification.innerHTML = "Subscription Verified ✔";
 
+            // Confetti Effect
             confetti({
-                particleCount: 120,
+                particleCount: 100,
                 spread: 80,
                 origin: { y: 0.6 }
             });
@@ -34,11 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 subscribeSection.style.display = "none";
                 registerSection.classList.remove("hidden");
-            }, 1000);
+            }, 1500);
 
-        }
+        }, 2000);
 
     });
 
 });
-
