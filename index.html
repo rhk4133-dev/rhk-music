@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>DIVINE ESPORT | Battle Arena</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>DIVINE ESPORT | Free Fire Tournament</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="container">
+    <!-- Background Music -->
+    <audio id="bgMusic" src="music.mp3" loop></audio>
 
-    <h1 class="brand">DIVINE ESPORT</h1>
-    <p class="tagline">Elite Free Fire Tournament</p>
+    <div class="background"></div>
 
-    <div class="card">
-        <h2>ENTER THE ARENA</h2>
+    <div class="container">
 
-        <a href="#"
-           class="btn red"
-           id="subscribeBtn">
-           🚀 DEPLOY NOW
-        </a>
+        <h1 class="brand">DIVINE ESPORT</h1>
+        <p class="tagline">Professional Free Fire Tournament Platform</p>
 
-        <div id="verification" class="verification"></div>
+        <!-- Subscribe Section -->
+        <div class="card" id="subscribeSection">
+            <h2>Unlock Tournament Registration</h2>
+
+            <p class="instruction">
+                Subscribe to our official YouTube channel
+                to access tournament registration.
+            </p>
+
+            <a href="https://youtube.com/@divineesport-q9f"
+               target="_blank"
+               class="btn red"
+               id="subscribeBtn">
+               Subscribe on YouTube
+            </a>
+
+            <div id="verification" class="verification"></div>
+        </div>
+
+        <!-- Register Section -->
+        <div class="card hidden" id="registerSection">
+            <h2>Subscription Confirmed</h2>
+
+            <p class="instruction">
+                Your access has been unlocked.
+                Proceed to complete your team registration.
+            </p>
+
+            <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+               target="_blank"
+               class="btn gold">
+               Register Your Team
+            </a>
+        </div>
+
+        <div class="dream-section">
+            <p>
+                "Excellence is not a goal.
+                It is a standard."
+            </p>
+            <span>— Divine Esport Management</span>
+        </div>
+
     </div>
-
-</div>
 
 </body>
 </html>
