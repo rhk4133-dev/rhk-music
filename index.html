@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>DIVINE ESPORT | Free Fire Tournament</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>DIVINE ESPORT | Battle Arena</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <!-- Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-    <script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
 
-    <div class="background"></div>
+<!-- 🔥 Intro Screen -->
+<div id="introScreen">
+    <h1 class="intro-title">DIVINE ESPORT</h1>
+    <p class="intro-sub">BATTLE INITIATING...</p>
+</div>
 
-    <div class="container">
+<!-- 🔥 Fire Particles -->
+<canvas id="fireCanvas"></canvas>
 
-        <h1 class="brand">DIVINE ESPORT</h1>
-        <p class="tagline">Elite Battle Tournament Platform</p>
+<div class="container hidden" id="mainContent">
 
-        <!-- Subscribe Section -->
-        <div class="card" id="subscribeSection">
-            <h2>Enter The Battleground</h2>
+    <h1 class="brand">DIVINE ESPORT</h1>
+    <p class="tagline">Elite Free Fire Tournament</p>
 
-            <p class="instruction">
-                Tap Subscribe to Deploy Into The Tournament Arena 🔥
-            </p>
+    <!-- Subscribe Section -->
+    <div class="card" id="subscribeSection">
+        <h2>ENTER THE ARENA</h2>
 
-            <a href="https://youtube.com/@divineesport-q9f"
-               target="_blank"
-               class="btn red pulse"
-               id="subscribeBtn">
-               🚀 TAP TO DEPLOY
-            </a>
+        <p class="instruction">
+            Press Deploy to unlock tournament access ⚔
+        </p>
 
-            <div id="verification" class="verification"></div>
-        </div>
+        <a href="https://youtube.com/@divineesport-q9f"
+           target="_blank"
+           class="btn red pulse"
+           id="subscribeBtn">
+           🚀 DEPLOY NOW
+        </a>
 
-        <!-- Register Section -->
-        <div class="card hidden fadeIn" id="registerSection">
-            <h2>Access Granted 🛡</h2>
-
-            <p class="instruction">
-                You are now cleared for battle.
-                Complete your squad registration below.
-            </p>
-
-            <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-               target="_blank"
-               class="btn gold">
-               🏆 REGISTER YOUR SQUAD
-            </a>
-        </div>
-
+        <div id="verification" class="verification"></div>
     </div>
+
+    <!-- Register Section -->
+    <div class="card hidden" id="registerSection">
+        <h2>RANK UNLOCKED 🛡</h2>
+
+        <div class="rank-badge">ELITE</div>
+
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+           target="_blank"
+           class="btn gold">
+           🏆 REGISTER SQUAD
+        </a>
+    </div>
+
+</div>
 
 </body>
 </html>
