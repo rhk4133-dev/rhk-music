@@ -1,81 +1,48 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-const subscribeBtn = document.getElementById("subscribeBtn");
-const subscribeSection = document.getElementById("subscribeSection");
-const registerSection = document.getElementById("registerSection");
-const verification = document.getElementById("verification");
-const bgMusic = document.getElementById("bgMusic");
-const slots = document.getElementById("slots");
-const players = document.getElementById("players");
-const countdown = document.getElementById("countdown");
-const musicToggle = document.getElementById("musicToggle");
-const sheetTable = document.getElementById("sheetTable");
-
-let totalSlots = 50;
-let totalPlayers = 0;
-
-if(slots){
-setInterval(()=>{
-if(totalSlots>10){
-totalSlots--;
-totalPlayers+=4;
-slots.textContent=totalSlots;
-players.textContent=totalPlayers;
-}
-},4000);
+// Join button
+function joinNow() {
+    alert("Entry Successful! Entry Fee ₹0");
 }
 
-if(countdown){
-const eventDate=new Date("March 5, 2026 18:00:00").getTime();
-setInterval(()=>{
-const now=new Date().getTime();
-const distance=eventDate-now;
-const days=Math.floor(distance/(1000*60*60*24));
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-countdown.textContent=days+"d "+hours+"h "+minutes+"m";
-},1000);
+// Admin login
+function checkAdmin() {
+    const pass = document.getElementById("adminPass").value;
+    if(pass === "divine123") {
+        document.getElementById("adminContent").style.display = "block";
+    } else {
+        alert("Wrong Password");
+    }
 }
 
-subscribeBtn?.addEventListener("click",function(){
-bgMusic.play().catch(()=>{});
-verification.innerHTML="Verifying subscription...";
-setTimeout(()=>{
-verification.innerHTML="Subscription Verified ✔";
-confetti({particleCount:150,spread:90,origin:{y:0.6}});
-setTimeout(()=>{
-subscribeSection.style.display="none";
-registerSection.classList.remove("hidden");
-},1500);
-},2000);
-});
-
-musicToggle?.addEventListener("click",function(){
-if(bgMusic.paused){
-bgMusic.play();
-musicToggle.innerHTML="🔊";
-}else{
-bgMusic.pause();
-musicToggle.innerHTML="🔇";
-}
-});
-
-/* GOOGLE SHEET LIVE LOAD */
-if(sheetTable){
+// Load Google Sheet
 fetch("https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w/gviz/tq?tqx=out:csv")
-.then(res=>res.text())
-.then(data=>{
-const rows=data.trim().split("\n");
-rows.forEach((row,index)=>{
-const tr=document.createElement("tr");
-row.split(",").forEach(col=>{
-const cell=document.createElement(index===0?"th":"td");
-cell.textContent=col.replace(/"/g,"");
-tr.appendChild(cell);
-});
-sheetTable.appendChild(tr);
-});
-});
-}
+.then(res => res.text())
+.then(data => {
+
+    const table = document.getElementById("leaderboardTable");
+    if(!table) return;
+
+    const rows = data.trim().split("\n").map(row => row.split(","));
+
+    const header = rows.shift();
+
+    rows.sort((a,b) => parseInt(b[3]) - parseInt(a[3])); // Sort by Points column
+
+    const thead = document.createElement("tr");
+    thead.innerHTML = "<th>Rank</th>" + header.map(h => `<th>${h}</th>`).join("");
+    table.appendChild(thead);
+
+    rows.forEach((row,index) => {
+
+        const tr = document.createElement("tr");
+
+        if(index === 0) tr.classList.add("gold");
+        if(index === 1) tr.classList.add("silver");
+        if(index === 2) tr.classList.add("bronze");
+
+        tr.innerHTML = `<td>${index+1}</td>` + 
+            row.map(col => `<td>${col.replace(/"/g,"")}</td>`).join("");
+
+        table.appendChild(tr);
+    });
 
 });
