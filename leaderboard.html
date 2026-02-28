@@ -1,34 +1,27 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Leaderboard | Divine Esport</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard - Divine Esport</title>
 <link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="background"></div>
-
-<div class="container fade-in">
-
-<h1 class="brand">DIVINE ESPORT</h1>
-<p class="tagline">Live Tournament Leaderboard</p>
-
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="leaderboard.html">Leaderboard</a>
-<a href="results.html">Results</a>
-</nav>
+<header>
+    <h1>Leaderboard</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="results.html">Results</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+</header>
 
 <div class="card">
-<h2>Live Leaderboard</h2>
-<table class="leaderboard" id="sheetTable"></table>
+    <h2>Live Leaderboard</h2>
+    <table id="leaderboardTable" class="leaderboard"></table>
 </div>
 
-</div>
-
+<script src="script.js"></script>
 </body>
 </html>
