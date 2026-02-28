@@ -1,93 +1,81 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f0f1b;
+    background: #0f0f0f;
     color: white;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: #1a1a2e;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.hero {
+header {
+    background: #111;
+    padding: 15px;
     text-align: center;
-    padding: 100px 20px;
 }
 
-.btn {
-    background: gold;
-    padding: 10px 20px;
-    color: black;
+nav a {
+    color: gold;
+    margin: 0 10px;
     text-decoration: none;
-    border-radius: 5px;
+    font-weight: bold;
 }
 
-.container {
-    padding: 40px;
-    text-align: center;
+.card {
+    background: #1a1a1a;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
 }
 
 .table-container {
+    width: 100%;
     overflow-x: auto;
-    margin-top: 20px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px;
+    min-width: 400px;
 }
 
 th, td {
-    padding: 12px;
-    border: 1px solid #444;
+    padding: 10px;
     text-align: center;
+    border-bottom: 1px solid #333;
 }
 
 th {
-    background: #16213e;
-}
-
-tr:nth-child(even) {
-    background: #1a1a2e;
+    background: #222;
+    color: gold;
 }
 
 /* Top 3 Highlight */
 .gold {
-    background: gold !important;
+    background: linear-gradient(90deg, gold, orange);
     color: black;
     font-weight: bold;
 }
 
 .silver {
-    background: silver !important;
+    background: linear-gradient(90deg, #c0c0c0, #e0e0e0);
     color: black;
     font-weight: bold;
 }
 
 .bronze {
-    background: #cd7f32 !important;
+    background: linear-gradient(90deg, #cd7f32, #e6a15c);
     color: black;
     font-weight: bold;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #1a1a2e;
+/* Mobile */
+@media(max-width:600px){
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .card {
+        margin: 10px;
+        padding: 15px;
+    }
 }
