@@ -2,14 +2,13 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family:"Segoe UI", Arial, sans-serif;
 }
 
 body{
     background:#0b0f1a;
     color:white;
     min-height:100vh;
-    overflow-x:hidden;
 }
 
 .background{
@@ -38,9 +37,24 @@ body{
 
 .tagline{
     color:#9ca3af;
-    margin-bottom:50px;
+    margin-bottom:20px;
     font-size:15px;
-    letter-spacing:1px;
+}
+
+.nav{
+    margin:20px 0 40px;
+}
+
+.nav a{
+    color:gold;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.nav a:hover{
+    color:white;
 }
 
 .card{
@@ -49,33 +63,19 @@ body{
     border-radius:18px;
     padding:35px;
     width:100%;
-    max-width:420px;
+    max-width:500px;
     margin-bottom:30px;
     border:1px solid rgba(255,215,0,0.2);
-    box-shadow:0 0 40px rgba(255,215,0,0.08);
-    transition:0.3s ease;
-}
-
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 0 50px rgba(255,215,0,0.15);
 }
 
 .hidden{
     display:none;
 }
 
-h2{
-    margin-bottom:18px;
-    font-weight:600;
-    letter-spacing:1px;
-}
-
-.instruction{
+.info{
+    margin:8px 0;
     color:#cbd5e1;
-    margin-bottom:25px;
     font-size:14px;
-    line-height:1.6;
 }
 
 .btn{
@@ -84,73 +84,38 @@ h2{
     border-radius:30px;
     font-weight:600;
     text-decoration:none;
-    transition:0.3s ease;
-    letter-spacing:0.5px;
+    transition:0.3s;
 }
 
 .red{
     background:#ff0000;
     color:white;
-    box-shadow:0 0 20px rgba(255,0,0,0.4);
 }
 
 .gold{
     background:linear-gradient(to right,gold,orange);
     color:black;
-    box-shadow:0 0 20px rgba(255,215,0,0.4);
-}
-
-.btn:hover{
-    transform:scale(1.07);
 }
 
 .verification{
     margin-top:18px;
     color:#22c55e;
-    font-size:14px;
-    font-weight:500;
 }
 
-.dream-section{
-    margin-top:50px;
-    max-width:500px;
-    color:#9ca3af;
-    font-style:italic;
-    line-height:1.7;
-    font-size:14px;
+.leaderboard{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
 }
 
-.dream-section span{
-    display:block;
-    margin-top:12px;
+.leaderboard th,
+.leaderboard td{
+    padding:12px;
+    border-bottom:1px solid rgba(255,215,0,0.2);
+}
+
+.leaderboard th{
     color:gold;
-    font-style:normal;
-    font-weight:600;
-}
-
-@media(min-width:768px){
-
-    .brand{
-        font-size:48px;
-    }
-
-    .card{
-        max-width:500px;
-    }
-}
-.info{
-    margin:8px 0;
-    color:#cbd5e1;
-    font-size:14px;
-}
-
-.fade-in{
-    animation:fadeIn 1.2s ease-in;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
 }
 
 .music-btn{
@@ -162,44 +127,13 @@ h2{
     padding:12px;
     border-radius:50%;
     cursor:pointer;
-    font-size:18px;
-    box-shadow:0 0 20px rgba(255,215,0,0.5);
 }
 
-.whatsapp-btn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    padding:14px;
-    border-radius:50%;
-    font-size:20px;
-    box-shadow:0 0 20px rgba(37,211,102,0.6);
-}
-/* 🔥 Low Slot Pulse */
-@keyframes pulseWarning {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.fade-in{
+    animation:fadeIn 1.2s ease-in;
 }
 
-#slots {
-    transition: 0.3s ease;
-}
-
-/* 🚨 Important Glow */
-.card:hover {
-    border: 1px solid gold;
-}
-
-/* 🔥 Button Glow Animation */
-.red {
-    animation: glowRed 2s infinite alternate;
-}
-
-@keyframes glowRed {
-    from { box-shadow: 0 0 10px rgba(255,0,0,0.5); }
-    to { box-shadow: 0 0 25px rgba(255,0,0,0.9); }
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
