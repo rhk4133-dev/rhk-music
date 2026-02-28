@@ -1,129 +1,54 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Segoe UI", Arial, sans-serif;
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f0f0f;
+    color:white;
+    text-align:center;
 }
 
-body{
-background:#0b0f1a;
-color:white;
-min-height:100vh;
+header {
+    background:#111;
+    padding:15px;
 }
 
-.background{
-position:fixed;
-width:100%;
-height:100%;
-background: radial-gradient(circle at top, #111827, #000000 70%);
-z-index:-1;
+nav a {
+    color:white;
+    margin:10px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.container{
-display:flex;
-flex-direction:column;
-align-items:center;
-padding:60px 20px;
-text-align:center;
+.hero {
+    padding:60px 20px;
 }
 
-.brand{
-font-size:34px;
-color:gold;
-letter-spacing:3px;
-margin-bottom:8px;
-text-shadow:0 0 15px rgba(255,215,0,0.4);
+button {
+    padding:10px 20px;
+    background:red;
+    border:none;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
 }
 
-.tagline{
-color:#9ca3af;
-margin-bottom:20px;
-font-size:15px;
+.card {
+    margin:40px auto;
+    padding:20px;
+    width:80%;
+    background:#1a1a1a;
+    border-radius:10px;
 }
 
-.nav{
-margin:20px 0 40px;
+table {
+    width:100%;
+    border-collapse:collapse;
 }
 
-.nav a{
-color:gold;
-text-decoration:none;
-margin:0 15px;
-font-weight:600;
-transition:0.3s;
+th, td {
+    padding:10px;
+    border:1px solid #333;
 }
 
-.nav a:hover{
-color:white;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(20px);
-border-radius:18px;
-padding:35px;
-width:100%;
-max-width:500px;
-margin-bottom:30px;
-border:1px solid rgba(255,215,0,0.2);
-}
-
-.hidden{display:none;}
-
-.info{
-margin:8px 0;
-color:#cbd5e1;
-font-size:14px;
-}
-
-.btn{
-display:inline-block;
-padding:14px 28px;
-border-radius:30px;
-font-weight:600;
-text-decoration:none;
-transition:0.3s;
-}
-
-.red{background:#ff0000;color:white;}
-.gold{background:linear-gradient(to right,gold,orange);color:black;}
-
-.verification{
-margin-top:18px;
-color:#22c55e;
-}
-
-.leaderboard{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-.leaderboard th,
-.leaderboard td{
-padding:12px;
-border-bottom:1px solid rgba(255,215,0,0.2);
-text-align:center;
-}
-
-.leaderboard th{color:gold;}
-
-.music-btn{
-position:fixed;
-bottom:20px;
-left:20px;
-background:gold;
-border:none;
-padding:12px;
-border-radius:50%;
-cursor:pointer;
-}
-
-.fade-in{
-animation:fadeIn 1.2s ease-in;
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
+.gold { background:gold; color:black; }
+.silver { background:silver; color:black; }
+.bronze { background:#cd7f32; color:black; }
