@@ -5,73 +5,95 @@
     <title>DIVINE ESPORT | Free Fire Tournament</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Confetti Library -->
+    <!-- Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- JS -->
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <div class="background"></div>
+<div class="background"></div>
 
-    <div class="container">
+<div class="container fade-in">
 
-        <h1 class="brand">DIVINE ESPORT</h1>
-        <p class="tagline">Professional Free Fire Tournament Platform</p>
+    <h1 class="brand">DIVINE ESPORT</h1>
+    <p class="tagline">Professional Free Fire Tournament Platform</p>
 
-        <!-- Subscribe Section -->
-        <div class="card" id="subscribeSection">
-            <h2>Unlock Tournament Registration</h2>
-
-            <p class="instruction">
-                Subscribe to our official YouTube channel
-                to access tournament registration.
-            </p>
-
-            <a href="https://youtube.com/@divineesport-q9f"
-               target="_blank"
-               class="btn red"
-               id="subscribeBtn">
-               Subscribe on YouTube
-            </a>
-
-            <div id="verification" class="verification"></div>
-        </div>
-
-        <!-- Register Section -->
-        <div class="card hidden" id="registerSection">
-            <h2>Subscription Confirmed</h2>
-
-            <p class="instruction">
-                Your access has been unlocked.
-                Proceed to complete your team registration.
-            </p>
-
-            <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-               target="_blank"
-               class="btn gold">
-               Register Your Team
-            </a>
-        </div>
-
-        <!-- Quote Section -->
-        <div class="dream-section">
-            <p>
-                "Excellence is not a goal.
-                It is a standard."
-            </p>
-
-            <span>— Divine Esport Management</span>
-        </div>
-
+    <!-- 🔥 Tournament Info -->
+    <div class="card">
+        <h2>Upcoming Tournament</h2>
+        <p class="info">📅 Date: 5 March 2026</p>
+        <p class="info">💰 Prize Pool: ₹5,000</p>
+        <p class="info">👥 Slots Left: <span id="slots">50</span> / 50</p>
+        <p class="info">⏳ Registration Closes Soon</p>
     </div>
 
-    <!-- 🎵 Background Music -->
-    <audio id="bgMusic" src="music.mp3"></audio>
+    <!-- Subscribe Section -->
+    <div class="card" id="subscribeSection">
+        <h2>Unlock Tournament Registration</h2>
+
+        <p class="instruction">
+            Subscribe to our official YouTube channel
+            to access tournament registration.
+        </p>
+
+        <a href="https://youtube.com/@divineesport-q9f"
+           target="_blank"
+           class="btn red"
+           id="subscribeBtn">
+           Subscribe on YouTube
+        </a>
+
+        <div id="verification" class="verification"></div>
+    </div>
+
+    <!-- Register Section -->
+    <div class="card hidden" id="registerSection">
+        <h2>Subscription Confirmed</h2>
+
+        <p class="instruction">
+            Your access has been unlocked.
+            Proceed to complete your team registration.
+        </p>
+
+        <a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+           target="_blank"
+           class="btn gold">
+           Register Your Team
+        </a>
+    </div>
+
+    <!-- 🏆 Winners Section -->
+    <div class="card">
+        <h2>Last Tournament Winners</h2>
+        <p class="info">🥇 Team Shadow Kings</p>
+        <p class="info">🎯 MVP: Raghav HK</p>
+        <p class="info">🏆 48 Kills Victory</p>
+    </div>
+
+    <!-- Quote Section -->
+    <div class="dream-section">
+        <p>
+            "Excellence is not a goal.
+            It is a standard."
+        </p>
+        <span>— Divine Esport Management</span>
+    </div>
+
+</div>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" src="music.mp3"></audio>
+
+<!-- 🔊 Music Toggle -->
+<button id="musicToggle" class="music-btn">🔊</button>
+
+<!-- 📱 WhatsApp Support -->
+<a href="https://wa.me/919999999999"
+   target="_blank"
+   class="whatsapp-btn">💬</a>
 
 </body>
 </html>
