@@ -1,55 +1,52 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    background: #0f0f0f;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f1b;
     color: white;
-}
-
-header {
-    background: linear-gradient(90deg, #ff0000, #990000);
-    padding: 15px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
 }
 
 nav {
-    text-align: center;
-    background: #111;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #1a1a2e;
 }
 
-nav a {
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav a:hover {
-    color: gold;
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.btn {
+    background: gold;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .container {
-    padding: 20px;
+    padding: 40px;
     text-align: center;
 }
 
-.card {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px red;
+.table-container {
     overflow-x: auto;
+    margin-top: 20px;
 }
 
-/* TABLE FIX */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -58,40 +55,39 @@ table {
 
 th, td {
     padding: 12px;
-    border-bottom: 1px solid #333;
+    border: 1px solid #444;
+    text-align: center;
 }
 
 th {
-    background: #222;
-    color: gold;
+    background: #16213e;
 }
 
-tr:hover {
-    background: #222;
+tr:nth-child(even) {
+    background: #1a1a2e;
 }
 
-/* TOP 3 COLORS */
+/* Top 3 Highlight */
 .gold {
-    background: linear-gradient(90deg, gold, #b8860b);
+    background: gold !important;
     color: black;
     font-weight: bold;
 }
 
 .silver {
-    background: linear-gradient(90deg, silver, #aaa);
+    background: silver !important;
     color: black;
     font-weight: bold;
 }
 
 .bronze {
-    background: linear-gradient(90deg, #cd7f32, #a0522d);
-    color: white;
+    background: #cd7f32 !important;
+    color: black;
     font-weight: bold;
 }
 
 footer {
     text-align: center;
     padding: 15px;
-    background: #111;
-    margin-top: 20px;
+    background: #1a1a2e;
 }
