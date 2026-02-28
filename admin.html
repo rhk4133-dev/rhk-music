@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel - Divine Esport</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Admin Panel</h1>
+</header>
+
+<div class="card">
+    <h2>Update Google Sheet</h2>
+    <p>Login Required</p>
+
+    <input type="password" id="adminPass" placeholder="Enter Admin Password">
+    <button onclick="checkAdmin()">Login</button>
+
+    <div id="adminContent" style="display:none;">
+        <p>Update your Google Sheet manually here:</p>
+        <a href="https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w" target="_blank">
+            Open Sheet
+        </a>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
