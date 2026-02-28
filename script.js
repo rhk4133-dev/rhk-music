@@ -1,93 +1,53 @@
-// ================================
-// DIVINE ESPORTS PRO LEADERBOARD
-// Owner: Raghav HK
-// ================================
+fetch("https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w/gviz/tq?tqx=out:csv")
+.then(response => response.text())
+.then(data => {
 
-const sheetURL = "https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w/gviz/tq?tqx=out:csv";
+    const table = document.getElementById("sheetTable");
+    if (!table) return;
 
-const table = document.getElementById("leaderboardTable");
+    const rows = data.trim().split("\n").map(row => row.split(","));
 
-if (table) {
+    const headers = rows[0];
+    const body = rows.slice(1);
 
-    // Show loading message
-    table.innerHTML = `
-        <tr>
-            <th colspan="5" style="padding:20px;">
-                🔄 Loading Leaderboard...
-            </th>
-        </tr>
-    `;
+    // Find Points column index
+    const pointsIndex = headers.findIndex(h => h.toLowerCase().includes("point"));
 
-    fetch(sheetURL)
-        .then(response => response.text())
-        .then(data => {
+    // Sort by Points descending
+    body.sort((a, b) => {
+        return parseInt(b[pointsIndex]) - parseInt(a[pointsIndex]);
+    });
 
-            const rows = data.trim().split("\n").map(row => row.split(","));
+    // Clear table
+    table.innerHTML = "";
 
-            if (rows.length <= 1) {
-                table.innerHTML = `
-                    <tr>
-                        <th>No Data Found</th>
-                    </tr>
-                `;
-                return;
-            }
+    // Create Header
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = "<th>Rank</th>";
+    headers.forEach(h => {
+        headerRow.innerHTML += `<th>${h.replace(/"/g, "")}</th>`;
+    });
+    table.appendChild(headerRow);
 
-            const headers = rows[0].map(h => h.replace(/"/g, "").trim());
-            const teams = rows.slice(1);
+    // Add Sorted Data
+    body.forEach((row, index) => {
 
-            // Sort by last column (Points)
-            teams.sort((a, b) => {
-                const pointsA = parseInt(a[a.length - 1]) || 0;
-                const pointsB = parseInt(b[b.length - 1]) || 0;
-                return pointsB - pointsA;
-            });
+        const tr = document.createElement("tr");
 
-            table.innerHTML = "";
+        // Rank Number
+        tr.innerHTML = `<td>${index + 1}</td>`;
 
-            // Create Header Row
-            let headerRow = "<tr><th>Rank</th>";
-
-            headers.forEach(header => {
-                headerRow += `<th>${header}</th>`;
-            });
-
-            headerRow += "</tr>";
-            table.innerHTML += headerRow;
-
-            // Create Team Rows
-            teams.forEach((team, index) => {
-
-                let rowClass = "";
-
-                if (index === 0) rowClass = "gold";
-                else if (index === 1) rowClass = "silver";
-                else if (index === 2) rowClass = "bronze";
-
-                let rowHTML = `<tr class="${rowClass}">`;
-
-                // Rank column
-                rowHTML += `<td>${index + 1}</td>`;
-
-                team.forEach(col => {
-                    rowHTML += `<td>${col.replace(/"/g, "").trim()}</td>`;
-                });
-
-                rowHTML += "</tr>";
-
-                table.innerHTML += rowHTML;
-            });
-
-        })
-        .catch(error => {
-            table.innerHTML = `
-                <tr>
-                    <th colspan="5" style="color:red; padding:20px;">
-                        ❌ Failed to load Google Sheet
-                    </th>
-                </tr>
-            `;
-            console.error("Sheet Load Error:", error);
+        row.forEach(cell => {
+            tr.innerHTML += `<td>${cell.replace(/"/g, "")}</td>`;
         });
 
-}
+        // Highlight Top 3
+        if (index === 0) tr.classList.add("gold");
+        if (index === 1) tr.classList.add("silver");
+        if (index === 2) tr.classList.add("bronze");
+
+        table.appendChild(tr);
+    });
+
+})
+.catch(error => console.log("Error loading sheet:", error));
