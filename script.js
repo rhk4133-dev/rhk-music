@@ -1,59 +1,81 @@
+document.addEventListener("DOMContentLoaded", function () {
 
-const sheetURL = "https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w/gviz/tq?tqx=out:csv";
+const subscribeBtn = document.getElementById("subscribeBtn");
+const subscribeSection = document.getElementById("subscribeSection");
+const registerSection = document.getElementById("registerSection");
+const verification = document.getElementById("verification");
+const bgMusic = document.getElementById("bgMusic");
+const slots = document.getElementById("slots");
+const players = document.getElementById("players");
+const countdown = document.getElementById("countdown");
+const musicToggle = document.getElementById("musicToggle");
+const sheetTable = document.getElementById("sheetTable");
 
-fetch(sheetURL)
-.then(res => res.text())
-.then(data => {
+let totalSlots = 50;
+let totalPlayers = 0;
 
-    const table = document.getElementById("leaderboardTable");
-    if(!table) return;
+if(slots){
+setInterval(()=>{
+if(totalSlots>10){
+totalSlots--;
+totalPlayers+=4;
+slots.textContent=totalSlots;
+players.textContent=totalPlayers;
+}
+},4000);
+}
 
-    const rows = data.trim().split("\n");
-    const headers = rows[0].split(",");
+if(countdown){
+const eventDate=new Date("March 5, 2026 18:00:00").getTime();
+setInterval(()=>{
+const now=new Date().getTime();
+const distance=eventDate-now;
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+countdown.textContent=days+"d "+hours+"h "+minutes+"m";
+},1000);
+}
 
-    let players = [];
+subscribeBtn?.addEventListener("click",function(){
+bgMusic.play().catch(()=>{});
+verification.innerHTML="Verifying subscription...";
+setTimeout(()=>{
+verification.innerHTML="Subscription Verified ✔";
+confetti({particleCount:150,spread:90,origin:{y:0.6}});
+setTimeout(()=>{
+subscribeSection.style.display="none";
+registerSection.classList.remove("hidden");
+},1500);
+},2000);
+});
 
-    for(let i=1; i<rows.length; i++){
-        const cols = rows[i].split(",");
-        players.push({
-            team: cols[0],
-            kills: parseInt(cols[1]),
-            points: parseInt(cols[2])
-        });
-    }
+musicToggle?.addEventListener("click",function(){
+if(bgMusic.paused){
+bgMusic.play();
+musicToggle.innerHTML="🔊";
+}else{
+bgMusic.pause();
+musicToggle.innerHTML="🔇";
+}
+});
 
-    // 🔥 Sort by points
-    players.sort((a,b)=> b.points - a.points);
+/* GOOGLE SHEET LIVE LOAD */
+if(sheetTable){
+fetch("https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w/gviz/tq?tqx=out:csv")
+.then(res=>res.text())
+.then(data=>{
+const rows=data.trim().split("\n");
+rows.forEach((row,index)=>{
+const tr=document.createElement("tr");
+row.split(",").forEach(col=>{
+const cell=document.createElement(index===0?"th":"td");
+cell.textContent=col.replace(/"/g,"");
+tr.appendChild(cell);
+});
+sheetTable.appendChild(tr);
+});
+});
+}
 
-    // Create Header Row
-    const headerRow = document.createElement("tr");
-    headerRow.innerHTML = `
-        <th>Rank</th>
-        <th>${headers[0]}</th>
-        <th>${headers[1]}</th>
-        <th>${headers[2]}</th>
-    `;
-    table.appendChild(headerRow);
-
-    // Add Rows
-    players.forEach((player,index)=>{
-
-        const tr = document.createElement("tr");
-
-        // 🥇 Top 3 Highlight
-        if(index === 0) tr.classList.add("gold");
-        else if(index === 1) tr.classList.add("silver");
-        else if(index === 2) tr.classList.add("bronze");
-
-        tr.innerHTML = `
-            <td>${index+1}</td>
-            <td>${player.team}</td>
-            <td>${player.kills}</td>
-            <td>${player.points}</td>
-        `;
-
-        table.appendChild(tr);
-    });
-
-})
-.catch(err => console.log("Error loading sheet:", err));
+});
