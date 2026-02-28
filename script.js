@@ -14,16 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalPlayers = 0;
     let clicked = false;
 
-    // 🔥 Realistic Slot Drop
+    // 🔥 Smart Slot Drop System
     setInterval(() => {
-        if (totalSlots > 15) {
-            let drop = Math.floor(Math.random() * 2);
-            totalSlots -= drop;
-            totalPlayers += drop * 4;
-            slots.textContent = totalSlots;
-            players.textContent = totalPlayers;
+
+        if (totalSlots > 10) {
+
+            let dropChance = Math.random();
+
+            if (dropChance > 0.6) {
+                let drop = Math.floor(Math.random() * 3);
+                totalSlots -= drop;
+                totalPlayers += drop * 4;
+
+                slots.textContent = totalSlots;
+                players.textContent = totalPlayers;
+
+                // Warning Glow when low slots
+                if (totalSlots <= 15) {
+                    slots.style.color = "#ff4d4d";
+                    slots.style.textShadow = "0 0 15px red";
+                }
+            }
         }
-    }, 4000);
+
+    }, 3000);
+
 
     // ⏳ Countdown Timer
     const eventDate = new Date("March 5, 2026 18:00:00").getTime();
@@ -39,13 +54,24 @@ document.addEventListener("DOMContentLoaded", function () {
         countdown.textContent = days + "d " + hours + "h " + minutes + "m";
     }, 1000);
 
-    // Subscribe Logic
+
+    // 👁 Tab Activity Detection
+    document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) {
+            verification.innerHTML = "Welcome back, Player 🎮";
+            setTimeout(() => verification.innerHTML = "", 2000);
+        }
+    });
+
+
+    // 🔐 Subscribe Logic
     subscribeBtn.addEventListener("click", function () {
 
         if (clicked) return;
         clicked = true;
 
         subscribeBtn.style.opacity = "0.6";
+        subscribeBtn.style.pointerEvents = "none";
 
         bgMusic.volume = 0;
         bgMusic.play().catch(() => {});
@@ -58,22 +84,23 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }, 200);
 
-        verification.innerHTML = "Verifying subscription...";
-
         let dots = 0;
+        verification.innerHTML = "Verifying subscription";
+
         let loading = setInterval(() => {
             dots = (dots + 1) % 4;
             verification.innerHTML = "Verifying subscription" + ".".repeat(dots);
-        }, 500);
+        }, 400);
 
         setTimeout(() => {
 
             clearInterval(loading);
+
             verification.innerHTML = "Subscription Verified ✔";
 
             confetti({
-                particleCount: 150,
-                spread: 90,
+                particleCount: 200,
+                spread: 100,
                 origin: { y: 0.6 }
             });
 
@@ -86,7 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    // Music Toggle
+
+    // 🔊 Music Toggle
     musicToggle.addEventListener("click", function () {
         if (bgMusic.paused) {
             bgMusic.play();
