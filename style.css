@@ -1,54 +1,18 @@
-body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#0f0f0f;
-    color:white;
-    text-align:center;
+body{
+margin:0;
+overflow:hidden;
+font-family:sans-serif;
 }
 
-header {
-    background:#111;
-    padding:15px;
+#controls{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
 }
 
-nav a {
-    color:white;
-    margin:10px;
-    text-decoration:none;
-    font-weight:bold;
+button{
+font-size:25px;
+padding:15px;
+margin:5px;
 }
-
-.hero {
-    padding:60px 20px;
-}
-
-button {
-    padding:10px 20px;
-    background:red;
-    border:none;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.card {
-    margin:40px auto;
-    padding:20px;
-    width:80%;
-    background:#1a1a1a;
-    border-radius:10px;
-}
-
-table {
-    width:100%;
-    border-collapse:collapse;
-}
-
-th, td {
-    padding:10px;
-    border:1px solid #333;
-}
-
-.gold { background:gold; color:black; }
-.silver { background:silver; color:black; }
-.bronze { background:#cd7f32; color:black; }
