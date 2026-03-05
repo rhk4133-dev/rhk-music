@@ -1,48 +1,99 @@
-// Join button
-function joinNow() {
-    alert("Entry Successful! Entry Fee ₹0");
+let scene = new THREE.Scene()
+
+let camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+)
+
+let renderer = new THREE.WebGLRenderer()
+renderer.setSize(window.innerWidth,window.innerHeight)
+
+document.body.appendChild(renderer.domElement)
+
+let light = new THREE.DirectionalLight(0xffffff,1)
+light.position.set(5,10,7)
+
+scene.add(light)
+
+let roadGeometry = new THREE.PlaneGeometry(50,200)
+let roadMaterial = new THREE.MeshStandardMaterial({color:0x333333})
+
+let road = new THREE.Mesh(roadGeometry,roadMaterial)
+road.rotation.x = -Math.PI/2
+
+scene.add(road)
+
+let truck
+
+let loader = new THREE.GLTFLoader()
+
+loader.load("truck.glb",function(gltf){
+
+truck = gltf.scene
+truck.scale.set(1,1,1)
+truck.position.y = 0.5
+
+scene.add(truck)
+
+})
+
+camera.position.set(0,5,10)
+camera.lookAt(0,0,0)
+
+let speed = 0.2
+
+function animate(){
+
+requestAnimationFrame(animate)
+
+if(truck){
+
+if(moveForward) truck.position.z -= speed
+if(moveBack) truck.position.z += speed
+if(moveLeft) truck.position.x -= speed
+if(moveRight) truck.position.x += speed
+
 }
 
-// Admin login
-function checkAdmin() {
-    const pass = document.getElementById("adminPass").value;
-    if(pass === "divine123") {
-        document.getElementById("adminContent").style.display = "block";
-    } else {
-        alert("Wrong Password");
-    }
+renderer.render(scene,camera)
+
 }
 
-// Load Google Sheet
-fetch("https://docs.google.com/spreadsheets/d/1r7OWpyEWbKJWLVGU19dW0Pv0sJJky4kAGGVxiMW_X2w/gviz/tq?tqx=out:csv")
-.then(res => res.text())
-.then(data => {
+animate()
 
-    const table = document.getElementById("leaderboardTable");
-    if(!table) return;
+let moveForward=false
+let moveBack=false
+let moveLeft=false
+let moveRight=false
 
-    const rows = data.trim().split("\n").map(row => row.split(","));
+document.addEventListener("keydown",e=>{
 
-    const header = rows.shift();
+if(e.key=="ArrowUp") moveForward=true
+if(e.key=="ArrowDown") moveBack=true
+if(e.key=="ArrowLeft") moveLeft=true
+if(e.key=="ArrowRight") moveRight=true
 
-    rows.sort((a,b) => parseInt(b[3]) - parseInt(a[3])); // Sort by Points column
+})
 
-    const thead = document.createElement("tr");
-    thead.innerHTML = "<th>Rank</th>" + header.map(h => `<th>${h}</th>`).join("");
-    table.appendChild(thead);
+document.addEventListener("keyup",e=>{
 
-    rows.forEach((row,index) => {
+if(e.key=="ArrowUp") moveForward=false
+if(e.key=="ArrowDown") moveBack=false
+if(e.key=="ArrowLeft") moveLeft=false
+if(e.key=="ArrowRight") moveRight=false
 
-        const tr = document.createElement("tr");
+})
 
-        if(index === 0) tr.classList.add("gold");
-        if(index === 1) tr.classList.add("silver");
-        if(index === 2) tr.classList.add("bronze");
+document.getElementById("forward").ontouchstart=()=>moveForward=true
+document.getElementById("forward").ontouchend=()=>moveForward=false
 
-        tr.innerHTML = `<td>${index+1}</td>` + 
-            row.map(col => `<td>${col.replace(/"/g,"")}</td>`).join("");
+document.getElementById("back").ontouchstart=()=>moveBack=true
+document.getElementById("back").ontouchend=()=>moveBack=false
 
-        table.appendChild(tr);
-    });
+document.getElementById("left").ontouchstart=()=>moveLeft=true
+document.getElementById("left").ontouchend=()=>moveLeft=false
 
-});
+document.getElementById("right").ontouchstart=()=>moveRight=true
+document.getElementById("right").ontouchend=()=>moveRight=false
