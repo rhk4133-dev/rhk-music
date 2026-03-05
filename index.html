@@ -1,33 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINE ESPORT</title>
+<title>Truck Simulator</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>DIVINE ESPORT</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="results.html">Results</a>
-        <a href="admin.html">Admin</a>
-    </nav>
-</header>
+<div id="controls">
+<button id="left">⬅</button>
+<button id="right">➡</button>
+<button id="forward">⬆</button>
+<button id="back">⬇</button>
+</div>
 
-<section class="hero">
-    <h2>Welcome to Divine Esport Tournament</h2>
-    <p>Entry Fee: ₹0 (FREE)</p>
-    <button onclick="joinNow()">Join Now</button>
-</section>
-
-<audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
