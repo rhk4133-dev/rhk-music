@@ -6,27 +6,45 @@ fetch(url)
 .then(res => res.json())
 .then(data => {
 
-let table = document.getElementById("table-body");
+let players = [];
 
-data.sort((a,b)=> b.Kills - a.Kills);
+data.forEach(row => {
 
-data.forEach((row,index)=>{
+let totalKills =
+Number(row.M1 || 0) +
+Number(row.M2 || 0) +
+Number(row.M3 || 0) +
+Number(row.M4 || 0) +
+Number(row.M5 || 0) +
+Number(row.M6 || 0);
 
-let tr = document.createElement("tr");
-
-if(index==0) tr.classList.add("rank1");
-if(index==1) tr.classList.add("rank2");
-if(index==2) tr.classList.add("rank3");
-
-tr.innerHTML = `
-<td>${index+1}</td>
-<td>${row.Team}</td>
-<td>${row.Player}</td>
-<td class="kill">${row.Kills}</td>
-`;
-
-table.appendChild(tr);
+players.push({
+player: row.Player,
+team: row.Team,
+kills: totalKills
+});
 
 });
+
+players.sort((a,b) => b.kills - a.kills);
+
+let html = "";
+
+players.forEach((p,i)=>{
+
+html += `
+<div class="playerCard">
+<div class="rank">${i+1}</div>
+<div class="playerInfo">
+<div class="playerName">${p.player}</div>
+<div class="teamName">${p.team}</div>
+</div>
+<div class="kills">⭐ ${p.kills}</div>
+</div>
+`;
+
+});
+
+document.getElementById("leaderboard").innerHTML = html;
 
 });
