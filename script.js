@@ -1,127 +1,47 @@
-const sheetID="1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc";
+const sheetURL = "https://opensheet.elk.sh/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/Sheet1";
 
-const url=`https://opensheet.elk.sh/${sheetID}/Sheet1`;
+let data = [];
 
-fetch(url)
+fetch(sheetURL)
+.then(res => res.json())
+.then(json => {
+data = json;
+loadMatch(1);
+});
 
-.then(res=>res.json())
+function loadMatch(match){
 
-.then(data=>{
+let teams = {};
 
-let players=[];
-let teams={};
-let totalKills=0;
+data.forEach(player => {
 
-data.forEach(r=>{
+let team = player.TEAM;
+let kills = parseInt(player["M"+match]) || 0;
 
-let m1=Number(r.M1||0);
-let m2=Number(r.M2||0);
-let m3=Number(r.M3||0);
-let m4=Number(r.M4||0);
-let m5=Number(r.M5||0);
-let m6=Number(r.M6||0);
+if(!teams[team]) teams[team] = 0;
 
-let total=m1+m2+m3+m4+m5+m6;
-
-totalKills+=total;
-
-players.push({
-
-team:r.Team,
-
-player:r.Player,
-
-m1,m2,m3,m4,m5,m6,total
+teams[team] += kills;
 
 });
 
-if(!teams[r.Team]) teams[r.Team]=0;
+let ranking = Object.entries(teams)
+.sort((a,b)=>b[1]-a[1]);
 
-teams[r.Team]+=total;
+let table = document.querySelector("#leaderboard tbody");
+table.innerHTML="";
 
-});
+ranking.forEach((team,i)=>{
 
-document.getElementById("totalKills").innerText=totalKills;
-
-players.sort((a,b)=>b.total-a.total);
-
-let pHTML="";
-
-players.forEach((p,i)=>{
-
-let rank="";
-
-if(i==0) rank="rank1";
-if(i==1) rank="rank2";
-if(i==2) rank="rank3";
-
-pHTML+=`
-
-<tr class="${rank}">
-
+let row = `
+<tr>
 <td>${i+1}</td>
-<td>${p.player}</td>
-<td>${p.team}</td>
-<td>${p.m1}</td>
-<td>${p.m2}</td>
-<td>${p.m3}</td>
-<td>${p.m4}</td>
-<td>${p.m5}</td>
-<td>${p.m6}</td>
-<td>${p.total}</td>
-
+<td>${team[0]}</td>
+<td>${team[1]}</td>
 </tr>
-
 `;
 
+table.innerHTML += row;
+
 });
-
-document.querySelector("#playerBoard tbody").innerHTML=pHTML;
-
-let teamArray=[];
-
-for(let t in teams){
-
-teamArray.push({team:t,kills:teams[t]});
 
 }
-
-teamArray.sort((a,b)=>b.kills-a.kills);
-
-document.getElementById("totalTeams").innerText=teamArray.length;
-
-let tHTML="";
-
-teamArray.forEach((t,i)=>{
-
-let rank="";
-
-if(i==0) rank="rank1";
-if(i==1) rank="rank2";
-if(i==2) rank="rank3";
-
-let crown=i==0?"👑 ":"";
-
-tHTML+=`
-
-<tr class="${rank}">
-
-<td>${i+1}</td>
-<td>${crown}${t.team}</td>
-<td>${t.kills}</td>
-
-</tr>
-
-`;
-
-});
-
-document.querySelector("#teamBoard tbody").innerHTML=tHTML;
-
-});
-
-setInterval(()=>{
-
-location.reload();
-
-},10000);
