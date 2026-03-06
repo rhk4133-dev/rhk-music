@@ -33,135 +33,89 @@ registerSection.classList.remove("hidden");
 
 
 
-/* ---------- TOURNAMENT DATA ---------- */
-
-let teams=[
-
-{
-name:"Team Alpha",
-players:[
-{name:"Alpha1",kills:3},
-{name:"Alpha2",kills:2},
-{name:"Alpha3",kills:1},
-{name:"Alpha4",kills:4}
-]
-},
-
-{
-name:"Team Beta",
-players:[
-{name:"Beta1",kills:5},
-{name:"Beta2",kills:0},
-{name:"Beta3",kills:2},
-{name:"Beta4",kills:1}
-]
-},
-
-{
-name:"Team Gamma",
-players:[
-{name:"Gamma1",kills:1},
-{name:"Gamma2",kills:3},
-{name:"Gamma3",kills:2},
-{name:"Gamma4",kills:2}
-]
-}
-
-];
+const sheetURL="https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/export?format=csv";
 
 
 
-function calculateLeaderboard(){
+async function loadLeaderboard(){
 
-let board=[];
+const response=await fetch(sheetURL);
+const csv=await response.text();
 
-teams.forEach(team=>{
+const rows=csv.split("\n").slice(1);
 
-let total=0;
+let teams=[];
+let mvp={name:"",kills:0};
 
-team.players.forEach(p=>{
-total+=p.kills;
-});
 
-board.push({
-team:team.name,
+
+rows.forEach(row=>{
+
+const cols=row.split(",");
+
+const team=cols[0];
+
+let p1=parseInt(cols[1])||0;
+let p2=parseInt(cols[2])||0;
+let p3=parseInt(cols[3])||0;
+let p4=parseInt(cols[4])||0;
+
+const total=p1+p2+p3+p4;
+
+teams.push({
+team:team,
 kills:total
 });
 
+const players=[p1,p2,p3,p4];
+
+players.forEach((k,i)=>{
+
+if(k>mvp.kills){
+
+mvp.kills=k;
+mvp.name=team+" Player "+(i+1);
+
+}
+
 });
 
-board.sort((a,b)=>b.kills-a.kills);
+});
 
-let body=document.getElementById("leaderboardBody");
-body.innerHTML="";
 
-board.forEach((team,index)=>{
+teams.sort((a,b)=>b.kills-a.kills);
 
-let row=`
+
+
+const table=document.getElementById("leaderboardBody");
+
+table.innerHTML="";
+
+teams.forEach((team,index)=>{
+
+table.innerHTML+=`
+
 <tr>
 <td>${index+1}</td>
 <td>${team.team}</td>
 <td>${team.kills}</td>
 </tr>
+
 `;
 
-body.innerHTML+=row;
-
 });
 
-}
-
-
-
-function calculateMVP(){
-
-let topPlayer={name:"",kills:0};
-
-teams.forEach(team=>{
-team.players.forEach(player=>{
-
-if(player.kills>topPlayer.kills){
-
-topPlayer.name=player.name;
-topPlayer.kills=player.kills;
-
-}
-
-});
-});
 
 document.getElementById("mvpPlayer").innerHTML=
-topPlayer.name+" - "+topPlayer.kills+" kills";
+mvp.name+" - "+mvp.kills+" kills";
+
 
 }
 
 
+loadLeaderboard();
 
-calculateLeaderboard();
-calculateMVP();
-
-
-
-/* ---------- LIVE MATCH UPDATE ---------- */
-
-setInterval(()=>{
-
-teams.forEach(team=>{
-
-team.players.forEach(player=>{
-
-let random=Math.floor(Math.random()*2);
-
-player.kills+=random;
-
-});
-
-});
-
-calculateLeaderboard();
-calculateMVP();
-
-},10000);
+setInterval(loadLeaderboard,5000);
 
 
 });
