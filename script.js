@@ -1,121 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
+const sheetURL =
+"https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/export?format=csv";
 
-const subscribeBtn = document.getElementById("subscribeBtn");
-const subscribeSection = document.getElementById("subscribeSection");
-const registerSection = document.getElementById("registerSection");
-const verification = document.getElementById("verification");
-const bgMusic = document.getElementById("bgMusic");
+async function loadTeams(){
 
-subscribeBtn.addEventListener("click", function () {
+const response = await fetch(sheetURL);
+const data = await response.text();
 
-bgMusic.play().catch(()=>{});
+const rows = data.split("\n").slice(1);
 
-verification.innerHTML="Verifying subscription...";
+const container = document.getElementById("teams");
+container.innerHTML = "";
 
-setTimeout(()=>{
+rows.forEach(row => {
 
-verification.innerHTML="Subscription Verified ✔";
+const cols = row.split(",");
 
-confetti({
-particleCount:100,
-spread:80,
-origin:{y:0.6}
-});
+const teamName = cols[0];
+const p1 = cols[1];
+const p2 = cols[2];
+const p3 = cols[3];
+const p4 = cols[4];
 
-setTimeout(()=>{
-subscribeSection.style.display="none";
-registerSection.classList.remove("hidden");
-},1500);
+const teamCard = `
+<div class="team">
+<h3>${teamName}</h3>
 
-},2000);
+<div class="players">
+🎮 ${p1}<br>
+🎮 ${p2}<br>
+🎮 ${p3}<br>
+🎮 ${p4}
+</div>
 
-});
-
-
-
-const sheetURL="https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/export?format=csv";
-
-
-
-async function loadLeaderboard(){
-
-const response=await fetch(sheetURL);
-const csv=await response.text();
-
-const rows=csv.split("\n").slice(1);
-
-let teams=[];
-let mvp={name:"",kills:0};
-
-
-
-rows.forEach(row=>{
-
-const cols=row.split(",");
-
-const team=cols[0];
-
-let p1=parseInt(cols[1])||0;
-let p2=parseInt(cols[2])||0;
-let p3=parseInt(cols[3])||0;
-let p4=parseInt(cols[4])||0;
-
-const total=p1+p2+p3+p4;
-
-teams.push({
-team:team,
-kills:total
-});
-
-const players=[p1,p2,p3,p4];
-
-players.forEach((k,i)=>{
-
-if(k>mvp.kills){
-
-mvp.kills=k;
-mvp.name=team+" Player "+(i+1);
-
-}
-
-});
-
-});
-
-
-teams.sort((a,b)=>b.kills-a.kills);
-
-
-
-const table=document.getElementById("leaderboardBody");
-
-table.innerHTML="";
-
-teams.forEach((team,index)=>{
-
-table.innerHTML+=`
-
-<tr>
-<td>${index+1}</td>
-<td>${team.team}</td>
-<td>${team.kills}</td>
-</tr>
-
+</div>
 `;
 
+container.innerHTML += teamCard;
+
 });
-
-
-document.getElementById("mvpPlayer").innerHTML=
-mvp.name+" - "+mvp.kills+" kills";
-
 
 }
 
-
-loadLeaderboard();
-
-setInterval(loadLeaderboard,5000);
-
-
-});
+loadTeams();
