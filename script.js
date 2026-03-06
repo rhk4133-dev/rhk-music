@@ -1,30 +1,38 @@
-const url = "https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/export?format=csv";
+const sheetURL = "https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/pub?output=csv";
 
 async function loadData(){
 
-const res = await fetch(url);
+const res = await fetch(sheetURL);
+
 const data = await res.text();
 
 const rows = data.split("\n").slice(1);
 
-let html="";
+let html = "";
 
-rows.forEach(r=>{
+rows.forEach(row=>{
 
-const c = r.split(",");
+const cols = row.split(",");
+
+if(cols[0]){
 
 html += `
+
 <tr>
-<td>${c[0]}</td>
-<td>${c[1]}</td>
-<td>${c[2]}</td>
-<td>${c[3]}</td>
-<td>${c[4]}</td>
-<td>${c[5]}</td>
-<td>${c[6]}</td>
-<td>${c[7]}</td>
+
+<td>${cols[0]}</td>
+
+<td>${cols[1]}</td>
+
+<td>${cols[2]}</td>
+
+<td>${cols[3]}</td>
+
 </tr>
+
 `;
+
+}
 
 });
 
@@ -33,4 +41,5 @@ document.getElementById("tableData").innerHTML = html;
 }
 
 loadData();
+
 setInterval(loadData,5000);
