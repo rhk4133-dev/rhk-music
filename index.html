@@ -1,126 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<title>DIVINE ESPORT | Free Fire Tournament</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>RHK Gaming Tournament</title>
 <link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script src="script.js" defer></script>
-
 </head>
 
 <body>
 
-<div class="background"></div>
+<h1>🔥 RHK GAMING FREE FIRE TOURNAMENT 🔥</h1>
+<p class="subtitle">Live Team & Player List</p>
 
-<div class="container">
+<div id="teams"></div>
 
-<h1 class="brand">DIVINE ESPORT</h1>
-<p class="tagline">Professional Free Fire Tournament Platform</p>
-
-
-<div class="card" id="subscribeSection">
-
-<h2>Unlock Tournament Registration</h2>
-
-<p class="instruction">
-Subscribe to our official YouTube channel
-to access tournament registration.
-</p>
-
-<a href="https://youtube.com/@divineesport-q9f"
-target="_blank"
-class="btn red"
-id="subscribeBtn">
-
-Subscribe on YouTube
-
-</a>
-
-<div id="verification" class="verification"></div>
-
-</div>
-
-
-
-<div class="card hidden" id="registerSection">
-
-<h2>Subscription Confirmed</h2>
-
-<p class="instruction">
-
-Your access has been unlocked.
-Proceed to complete your team registration.
-
-</p>
-
-<a href="https://forms.gle/1HebsCJwGdaJzVnRA"
-target="_blank"
-class="btn gold">
-
-Register Your Team
-
-</a>
-
-</div>
-
-
-
-<!-- LIVE LEADERBOARD -->
-
-<div class="card fade-in">
-
-<h2>Live Tournament Leaderboard</h2>
-
-<table class="leaderboard">
-
-<thead>
-<tr>
-<th>Rank</th>
-<th>Team</th>
-<th>Total Kills</th>
-</tr>
-</thead>
-
-<tbody id="leaderboardBody"></tbody>
-
-</table>
-
-</div>
-
-
-
-<!-- MVP -->
-
-<div class="card fade-in">
-
-<h2>Tournament MVP</h2>
-
-<p id="mvpPlayer">Calculating...</p>
-
-</div>
-
-
-
-<div class="dream-section">
-
-<p>
-"Excellence is not a goal.
-It is a standard."
-</p>
-
-<span>— Divine Esport Management</span>
-
-</div>
-
-</div>
-
-<audio id="bgMusic" src="music.mp3"></audio>
+<script src="script.js"></script>
 
 </body>
 </html>
