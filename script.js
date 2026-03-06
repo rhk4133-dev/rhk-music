@@ -1,99 +1,106 @@
-let scene = new THREE.Scene()
+document.addEventListener("DOMContentLoaded", function () {
 
-let camera = new THREE.PerspectiveCamera(
-75,
-window.innerWidth/window.innerHeight,
-0.1,
-1000
-)
+const subscribeBtn = document.getElementById("subscribeBtn");
+const subscribeSection = document.getElementById("subscribeSection");
+const registerSection = document.getElementById("registerSection");
+const verification = document.getElementById("verification");
+const bgMusic = document.getElementById("bgMusic");
 
-let renderer = new THREE.WebGLRenderer()
-renderer.setSize(window.innerWidth,window.innerHeight)
+subscribeBtn.addEventListener("click", function () {
 
-document.body.appendChild(renderer.domElement)
+bgMusic.play().catch(() => {});
 
-let light = new THREE.DirectionalLight(0xffffff,1)
-light.position.set(5,10,7)
+verification.innerHTML = "Verifying subscription...";
 
-scene.add(light)
+setTimeout(() => {
 
-let roadGeometry = new THREE.PlaneGeometry(50,200)
-let roadMaterial = new THREE.MeshStandardMaterial({color:0x333333})
+verification.innerHTML = "Subscription Verified ✔";
 
-let road = new THREE.Mesh(roadGeometry,roadMaterial)
-road.rotation.x = -Math.PI/2
+confetti({
+particleCount:100,
+spread:80,
+origin:{y:0.6}
+});
 
-scene.add(road)
+setTimeout(()=>{
 
-let truck
+subscribeSection.style.display="none";
+registerSection.classList.remove("hidden");
 
-let loader = new THREE.GLTFLoader()
+},1500);
 
-loader.load("truck.glb",function(gltf){
+},2000);
 
-truck = gltf.scene
-truck.scale.set(1,1,1)
-truck.position.y = 0.5
+});
 
-scene.add(truck)
+
+loadLeaderboard()
+
+setInterval(loadLeaderboard,5000)
 
 })
 
-camera.position.set(0,5,10)
-camera.lookAt(0,0,0)
 
-let speed = 0.2
+function toggleMusic(){
 
-function animate(){
+const music=document.getElementById("bgMusic")
 
-requestAnimationFrame(animate)
-
-if(truck){
-
-if(moveForward) truck.position.z -= speed
-if(moveBack) truck.position.z += speed
-if(moveLeft) truck.position.x -= speed
-if(moveRight) truck.position.x += speed
+if(music.paused){
+music.play()
+}else{
+music.pause()
+}
 
 }
 
-renderer.render(scene,camera)
+
+
+function loadLeaderboard(){
+
+fetch("data.json")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+data.sort((a,b)=>b.kills-a.kills)
+
+const body=document.getElementById("leaderboardBody")
+
+body.innerHTML=""
+
+let mvpPlayer=""
+let mvpKills=0
+
+data.forEach((team,index)=>{
+
+const row=document.createElement("tr")
+
+row.innerHTML=`
+<td>${index+1}</td>
+<td>${team.name}</td>
+<td>${team.kills}</td>
+`
+
+body.appendChild(row)
+
+team.players.forEach(player=>{
+
+if(player.kills>mvpKills){
+
+mvpKills=player.kills
+mvpPlayer=player.name
 
 }
 
-animate()
-
-let moveForward=false
-let moveBack=false
-let moveLeft=false
-let moveRight=false
-
-document.addEventListener("keydown",e=>{
-
-if(e.key=="ArrowUp") moveForward=true
-if(e.key=="ArrowDown") moveBack=true
-if(e.key=="ArrowLeft") moveLeft=true
-if(e.key=="ArrowRight") moveRight=true
+})
 
 })
 
-document.addEventListener("keyup",e=>{
 
-if(e.key=="ArrowUp") moveForward=false
-if(e.key=="ArrowDown") moveBack=false
-if(e.key=="ArrowLeft") moveLeft=false
-if(e.key=="ArrowRight") moveRight=false
+document.getElementById("mvpName").innerText=mvpPlayer
+document.getElementById("mvpKills").innerText="Kills: "+mvpKills
 
 })
 
-document.getElementById("forward").ontouchstart=()=>moveForward=true
-document.getElementById("forward").ontouchend=()=>moveForward=false
-
-document.getElementById("back").ontouchstart=()=>moveBack=true
-document.getElementById("back").ontouchend=()=>moveBack=false
-
-document.getElementById("left").ontouchstart=()=>moveLeft=true
-document.getElementById("left").ontouchend=()=>moveLeft=false
-
-document.getElementById("right").ontouchstart=()=>moveRight=true
-document.getElementById("right").ontouchend=()=>moveRight=false
+}
