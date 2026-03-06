@@ -3,48 +3,36 @@ const sheetID = "1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc";
 const url = `https://opensheet.elk.sh/${sheetID}/Sheet1`;
 
 fetch(url)
-.then(res => res.json())
-.then(data => {
+.then(res=>res.json())
+.then(data=>{
 
-let players = [];
+let teams=[];
 
-data.forEach(row => {
+data.forEach(row=>{
 
-let totalKills =
-Number(row.M1 || 0) +
-Number(row.M2 || 0) +
-Number(row.M3 || 0) +
-Number(row.M4 || 0) +
-Number(row.M5 || 0) +
-Number(row.M6 || 0);
-
-players.push({
-player: row.Player,
-team: row.Team,
-kills: totalKills
+teams.push({
+team:row["TEAM NAME"],
+kills:Number(row["TOTAL"])
 });
 
 });
 
-players.sort((a,b) => b.kills - a.kills);
+teams.sort((a,b)=>b.kills-a.kills);
 
-let html = "";
+let html="";
 
-players.forEach((p,i)=>{
+teams.forEach((t,i)=>{
 
-html += `
-<div class="playerCard">
-<div class="rank">${i+1}</div>
-<div class="playerInfo">
-<div class="playerName">${p.player}</div>
-<div class="teamName">${p.team}</div>
-</div>
-<div class="kills">⭐ ${p.kills}</div>
+html+=`
+<div class="teamCard">
+<div class="rank">#${i+1}</div>
+<div class="teamName">${t.team}</div>
+<div class="kills">🔥 ${t.kills}</div>
 </div>
 `;
 
 });
 
-document.getElementById("leaderboard").innerHTML = html;
+document.getElementById("leaderboard").innerHTML=html;
 
 });
