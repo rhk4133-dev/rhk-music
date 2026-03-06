@@ -1,24 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Truck Simulator</title>
+<title>DIVINE ESPORT | Free Fire Tournament</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script src="script.js" defer></script>
 </head>
 
 <body>
 
-<div id="controls">
-<button id="left">⬅</button>
-<button id="right">➡</button>
-<button id="forward">⬆</button>
-<button id="back">⬇</button>
+<div class="background"></div>
+
+<div class="container">
+
+<h1 class="brand">DIVINE ESPORT</h1>
+<p class="tagline">Professional Free Fire Tournament Platform</p>
+
+<!-- Subscribe -->
+<div class="card" id="subscribeSection">
+
+<h2>Unlock Tournament Registration</h2>
+
+<p class="instruction">
+Subscribe to our official YouTube channel
+to access tournament registration.
+</p>
+
+<a href="https://youtube.com/@divineesport-q9f"
+target="_blank"
+class="btn red"
+id="subscribeBtn">
+Subscribe on YouTube
+</a>
+
+<div id="verification" class="verification"></div>
+
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+<!-- Register -->
+<div class="card hidden" id="registerSection">
 
-<script src="script.js"></script>
+<h2>Subscription Confirmed</h2>
+
+<p class="instruction">
+Your access has been unlocked.
+Proceed to complete your team registration.
+</p>
+
+<a href="https://forms.gle/1HebsCJwGdaJzVnRA"
+target="_blank"
+class="btn gold">
+Register Your Team
+</a>
+
+</div>
+
+
+<!-- 🏆 LIVE LEADERBOARD -->
+<div class="card fade-in">
+
+<h2>Live Leaderboard</h2>
+
+<table id="leaderboard">
+
+<thead>
+<tr>
+<th>Rank</th>
+<th>Team</th>
+<th>Kills</th>
+</tr>
+</thead>
+
+<tbody id="leaderboardBody"></tbody>
+
+</table>
+
+</div>
+
+
+<!-- 🔥 MVP -->
+<div class="card fade-in">
+
+<h2>MVP Player</h2>
+
+<p id="mvpName">Loading...</p>
+<p id="mvpKills"></p>
+
+</div>
+
+
+<div class="dream-section">
+<p>
+"Excellence is not a goal.
+It is a standard."
+</p>
+
+<span>— Divine Esport Management</span>
+</div>
+
+</div>
+
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-btn">💬</a>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<audio id="bgMusic" src="music.mp3"></audio>
 
 </body>
 </html>
