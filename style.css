@@ -208,3 +208,26 @@ font-size:18px;
 color:gold;
 font-weight:600;
 }
+
+.leaderboard{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.leaderboard th,
+.leaderboard td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.leaderboard th{
+color:gold;
+}
+
+#mvpPlayer{
+font-size:18px;
+color:gold;
+font-weight:600;
+}
