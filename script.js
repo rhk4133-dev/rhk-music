@@ -1,44 +1,36 @@
-const sheetURL =
-"https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/export?format=csv";
+const url = "https://docs.google.com/spreadsheets/d/1M75opM2LF3IDIqJE-_YTZsxpPFAcypdQxJIGJ3lUNFc/export?format=csv";
 
-async function loadTeams(){
+async function loadData(){
 
-const response = await fetch(sheetURL);
-const data = await response.text();
+const res = await fetch(url);
+const data = await res.text();
 
 const rows = data.split("\n").slice(1);
 
-const container = document.getElementById("teams");
-container.innerHTML = "";
+let html="";
 
-rows.forEach(row => {
+rows.forEach(r=>{
 
-const cols = row.split(",");
+const c = r.split(",");
 
-const teamName = cols[0];
-const p1 = cols[1];
-const p2 = cols[2];
-const p3 = cols[3];
-const p4 = cols[4];
-
-const teamCard = `
-<div class="team">
-<h3>${teamName}</h3>
-
-<div class="players">
-🎮 ${p1}<br>
-🎮 ${p2}<br>
-🎮 ${p3}<br>
-🎮 ${p4}
-</div>
-
-</div>
+html += `
+<tr>
+<td>${c[0]}</td>
+<td>${c[1]}</td>
+<td>${c[2]}</td>
+<td>${c[3]}</td>
+<td>${c[4]}</td>
+<td>${c[5]}</td>
+<td>${c[6]}</td>
+<td>${c[7]}</td>
+</tr>
 `;
-
-container.innerHTML += teamCard;
 
 });
 
+document.getElementById("tableData").innerHTML = html;
+
 }
 
-loadTeams();
+loadData();
+setInterval(loadData,5000);
