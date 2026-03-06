@@ -8,13 +8,13 @@ const bgMusic = document.getElementById("bgMusic");
 
 subscribeBtn.addEventListener("click", function () {
 
-bgMusic.play().catch(() => {});
+bgMusic.play().catch(()=>{});
 
-verification.innerHTML = "Verifying subscription...";
+verification.innerHTML="Verifying subscription...";
 
-setTimeout(() => {
+setTimeout(()=>{
 
-verification.innerHTML = "Subscription Verified ✔";
+verification.innerHTML="Subscription Verified ✔";
 
 confetti({
 particleCount:100,
@@ -23,10 +23,8 @@ origin:{y:0.6}
 });
 
 setTimeout(()=>{
-
 subscribeSection.style.display="none";
 registerSection.classList.remove("hidden");
-
 },1500);
 
 },2000);
@@ -34,73 +32,136 @@ registerSection.classList.remove("hidden");
 });
 
 
-loadLeaderboard()
 
-setInterval(loadLeaderboard,5000)
+/* ---------- TOURNAMENT DATA ---------- */
 
-})
+let teams=[
 
+{
+name:"Team Alpha",
+players:[
+{name:"Alpha1",kills:3},
+{name:"Alpha2",kills:2},
+{name:"Alpha3",kills:1},
+{name:"Alpha4",kills:4}
+]
+},
 
-function toggleMusic(){
+{
+name:"Team Beta",
+players:[
+{name:"Beta1",kills:5},
+{name:"Beta2",kills:0},
+{name:"Beta3",kills:2},
+{name:"Beta4",kills:1}
+]
+},
 
-const music=document.getElementById("bgMusic")
-
-if(music.paused){
-music.play()
-}else{
-music.pause()
+{
+name:"Team Gamma",
+players:[
+{name:"Gamma1",kills:1},
+{name:"Gamma2",kills:3},
+{name:"Gamma3",kills:2},
+{name:"Gamma4",kills:2}
+]
 }
 
-}
+];
 
 
 
-function loadLeaderboard(){
+function calculateLeaderboard(){
 
-fetch("data.json")
+let board=[];
 
-.then(res=>res.json())
+teams.forEach(team=>{
 
-.then(data=>{
+let total=0;
 
-data.sort((a,b)=>b.kills-a.kills)
+team.players.forEach(p=>{
+total+=p.kills;
+});
 
-const body=document.getElementById("leaderboardBody")
+board.push({
+team:team.name,
+kills:total
+});
 
-body.innerHTML=""
+});
 
-let mvpPlayer=""
-let mvpKills=0
+board.sort((a,b)=>b.kills-a.kills);
 
-data.forEach((team,index)=>{
+let body=document.getElementById("leaderboardBody");
+body.innerHTML="";
 
-const row=document.createElement("tr")
+board.forEach((team,index)=>{
 
-row.innerHTML=`
+let row=`
+<tr>
 <td>${index+1}</td>
-<td>${team.name}</td>
+<td>${team.team}</td>
 <td>${team.kills}</td>
-`
+</tr>
+`;
 
-body.appendChild(row)
+body.innerHTML+=row;
+
+});
+
+}
+
+
+
+function calculateMVP(){
+
+let topPlayer={name:"",kills:0};
+
+teams.forEach(team=>{
+team.players.forEach(player=>{
+
+if(player.kills>topPlayer.kills){
+
+topPlayer.name=player.name;
+topPlayer.kills=player.kills;
+
+}
+
+});
+});
+
+document.getElementById("mvpPlayer").innerHTML=
+topPlayer.name+" - "+topPlayer.kills+" kills";
+
+}
+
+
+
+calculateLeaderboard();
+calculateMVP();
+
+
+
+/* ---------- LIVE MATCH UPDATE ---------- */
+
+setInterval(()=>{
+
+teams.forEach(team=>{
 
 team.players.forEach(player=>{
 
-if(player.kills>mvpKills){
+let random=Math.floor(Math.random()*2);
 
-mvpKills=player.kills
-mvpPlayer=player.name
+player.kills+=random;
 
-}
+});
 
-})
+});
 
-})
+calculateLeaderboard();
+calculateMVP();
+
+},10000);
 
 
-document.getElementById("mvpName").innerText=mvpPlayer
-document.getElementById("mvpKills").innerText="Kills: "+mvpKills
-
-})
-
-}
+});
