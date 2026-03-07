@@ -4,33 +4,41 @@ background:#0b0b0b;
 color:white;
 font-family:Arial;
 text-align:center;
+margin:0;
 
 }
 
 .title{
 
-font-size:28px;
-margin-top:20px;
+font-size:26px;
+margin:20px;
 
 }
 
-.mvp{
+
+/* MVP CARD */
+
+.mvp-card{
 
 background:#1a1a1a;
 padding:20px;
-margin:20px auto;
 width:90%;
 max-width:350px;
-border-radius:10px;
-box-shadow:0 0 10px red;
+margin:auto;
+border-radius:12px;
+box-shadow:0 0 15px red;
 
 }
+
+
+/* LEADERBOARD */
 
 table{
 
 width:90%;
 margin:auto;
 border-collapse:collapse;
+margin-top:15px;
 
 }
 
@@ -48,7 +56,10 @@ padding:10px;
 
 }
 
-.matches{
+
+/* MATCH BUTTONS */
+
+.match-buttons{
 
 margin:20px;
 
@@ -57,11 +68,12 @@ margin:20px;
 button{
 
 background:#ff4444;
-color:white;
 border:none;
+color:white;
 padding:10px 15px;
 margin:5px;
 border-radius:6px;
+font-size:14px;
 cursor:pointer;
 
 }
@@ -72,18 +84,66 @@ background:#ff2222;
 
 }
 
-img{
+
+/* MATCH IMAGE */
+
+.match-image img{
 
 width:95%;
+max-width:900px;
 margin-top:20px;
 border-radius:10px;
 
 }
 
-#updateText{
 
-margin-top:10px;
-font-style:italic;
-color:#aaa;
+/* TEAM GRID */
+
+.teams{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:15px;
+padding:20px;
+
+}
+
+.team{
+
+background:#1a1a1a;
+padding:10px;
+border-radius:8px;
+
+}
+
+.team img{
+
+width:70px;
+height:70px;
+
+}
+
+.team p{
+
+font-size:12px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.title{
+
+font-size:22px;
+
+}
+
+button{
+
+font-size:12px;
+
+}
 
 }
