@@ -1,66 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Divine Esports Tournament</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
 <h1 class="title">🏆 Divine Esports Tournament</h1>
 
-<!-- MVP CARD -->
+<!-- MVP Card -->
 <div class="mvp-card">
-<h2>🏆 MVP Player <span id="mvpCrown">👑</span></h2>
-<p id="mvpName"></p>
-<p id="mvpTeam"></p>
-<p id="mvpKills"></p>
+  <div class="crown">👑</div>
+  <h2>MVP Player</h2>
+  <p id="mvpName"></p>
+  <p id="mvpTeam"></p>
+  <p id="mvpKills"></p>
 </div>
 
-<!-- LEADERBOARD -->
+<!-- Leaderboard -->
 <h2>📊 Leaderboard</h2>
 <table id="leaderboard">
-<tr>
-<th>Team</th>
-<th>Total Kills</th>
-<th>Medal</th>
-</tr>
+  <tr>
+    <th>Rank</th>
+    <th>Team</th>
+    <th>Total Kills</th>
+  </tr>
 </table>
 <p id="updateText"></p>
 
-<!-- MATCH PROGRESS -->
-<div class="match-progress">
-<div class="progress-bar" id="progressBar"></div>
+<!-- Match Progress Bar -->
+<div class="progress-bar">
+  <div class="progress" id="progress"></div>
+  <div class="progress-labels">
+    <span>Match 1</span>
+    <span>Match 2</span>
+    <span>Match 3</span>
+    <span>Match 4</span>
+    <span>Match 5</span>
+    <span>Match 6</span>
+  </div>
 </div>
 
+<!-- Match Buttons -->
 <h2>🎮 Match Results</h2>
 <div class="match-buttons">
-<button onclick="showMatch(1)">Match 1</button>
-<button onclick="showMatch(2)">Match 2</button>
-<button onclick="showMatch(3)">Match 3</button>
-<button onclick="showMatch(4)">Match 4</button>
-<button onclick="showMatch(5)">Match 5</button>
-<button onclick="showMatch(6)">Match 6</button>
+  <button onclick="showMatch(1)">Match 1</button>
+  <button onclick="showMatch(2)">Match 2</button>
+  <button onclick="showMatch(3)">Match 3</button>
+  <button onclick="showMatch(4)">Match 4</button>
+  <button onclick="showMatch(5)">Match 5</button>
+  <button onclick="showMatch(6)">Match 6</button>
 </div>
 
 <div class="match-image">
-<img id="matchImg" src="match1.jpg">
+  <img id="matchImg" src="match1.png" alt="Match Result">
 </div>
 
-<h2>👥 Participants</h2>
+<!-- Teams Grid -->
+<h2>👥 Teams</h2>
 <div class="teams">
-<div class="team"><img src="team1.jpg"><p>RHK GAMING</p></div>
-<div class="team"><img src="team2.jpg"><p>GAJAPADE</p></div>
-<div class="team"><img src="team3.jpg"><p>HIRIYUR</p></div>
-<div class="team"><img src="team4.jpg"><p>DON 9 9 9</p></div>
-<div class="team"><img src="team5.jpg"><p>CHIKKAMAGALURU</p></div>
-<div class="team"><img src="team6.jpg"><p>TEAM NARACHI</p></div>
+  <div class="team"><img src="team1.png"><p>RHK GAMING</p></div>
+  <div class="team"><img src="team2.png"><p>GAJAPADE</p></div>
+  <div class="team"><img src="team3.png"><p>HIRIYUR</p></div>
+  <div class="team"><img src="team4.png"><p>DON 9 9 9</p></div>
+  <div class="team"><img src="team5.png"><p>CHIKKAMAGALURU</p></div>
+  <div class="team"><img src="team6.png"><p>TEAM NARACHI</p></div>
 </div>
 
 <script src="script.js"></script>
 </body>
+
 </html>
