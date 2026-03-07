@@ -1,106 +1,103 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+<title>DIVINE ESPORTS TOURNAMENT</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
-<title>Divine Esports Tournament</title>
+body{
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
 
-<link rel="stylesheet" href="style.css">
+h1{
+font-size:50px;
+margin-top:40px;
+letter-spacing:3px;
+animation: glow 2s infinite alternate;
+}
 
+@keyframes glow{
+from{color:#00ffff;}
+to{color:#ff00ff;}
+}
+
+#message{
+font-size:24px;
+margin-top:20px;
+opacity:0;
+transition:1s;
+}
+
+.teams{
+margin-top:60px;
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.team{
+width:120px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.dance{
+animation: beat 0.6s infinite;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+</style>
 </head>
 
-<body>
+<body onclick="startShow()">
 
-<h1 class="title">🏆 Divine Esports Tournament</h1>
+<h1>DIVINE ESPORTS TOURNAMENT</h1>
 
-
-<div class="mvp-card">
-
-<h2>🏆 MVP PLAYER</h2>
-
-<p id="mvpName"></p>
-<p id="mvpTeam"></p>
-<p id="mvpKills"></p>
-
-</div>
-
-
-<h2>📊 Leaderboard</h2>
-
-<table id="leaderboard">
-
-<tr>
-<th>Team</th>
-<th>Total Kills</th>
-</tr>
-
-</table>
-
-<p id="updateText"></p>
-
-
-<h2>🎮 Match Results</h2>
-
-<div class="match-buttons">
-
-<button onclick="showMatch(1)">Match 1</button>
-<button onclick="showMatch(2)">Match 2</button>
-<button onclick="showMatch(3)">Match 3</button>
-<button onclick="showMatch(4)">Match 4</button>
-<button onclick="showMatch(5)">Match 5</button>
-<button onclick="showMatch(6)">Match 6</button>
-
-</div>
-
-
-<div class="match-image">
-
-<img id="matchImg" src="match1.png">
-
-</div>
-
-
-<h2>👥 Participants</h2>
+<div id="message">Welcome Legends 🔥</div>
 
 <div class="teams">
-
-<div class="team">
-<img src="team1.png">
-<p>RHK GAMING</p>
+<img src="team1.png" class="team">
+<img src="team2.png" class="team">
+<img src="team3.png" class="team">
+<img src="team4.png" class="team">
 </div>
 
-<div class="team">
-<img src="team2.png">
-<p>GAJAPADE</p>
-</div>
+<audio id="music">
+<source src="music.mp3" type="audio/mp3">
+</audio>
 
-<div class="team">
-<img src="team3.png">
-<p>HIRIYUR</p>
-</div>
+<script>
 
-<div class="team">
-<img src="team4.png">
-<p>DON 9 9 9</p>
-</div>
+let started=false;
 
-<div class="team">
-<img src="team5.png">
-<p>CHIKKAMAGALURU</p>
-</div>
+function startShow(){
 
-<div class="team">
-<img src="team6.png">
-<p>TEAM NARACHI</p>
-</div>
+if(started) return;
 
-</div>
+started=true;
 
+document.getElementById("music").play();
 
-<script src="script.js"></script>
+document.getElementById("message").style.opacity="1";
+
+let teams=document.querySelectorAll(".team");
+
+teams.forEach(t=>{
+t.classList.add("dance");
+});
+
+}
+
+</script>
 
 </body>
-
 </html>
