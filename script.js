@@ -1,5 +1,3 @@
-// match switch
-
 function showMatch(num){
 
 document.getElementById("matchImg").src="match"+num+".png";
@@ -7,19 +5,19 @@ document.getElementById("matchImg").src="match"+num+".png";
 }
 
 
-// player data
+/* PLAYER DATA (edit after matches) */
 
 let players=[
 
-{name:"Shadow",team:"Alpha",kills:12},
-{name:"Blaze",team:"Dragon",kills:9},
-{name:"Sniper",team:"Alpha",kills:6},
-{name:"Ghost",team:"Tiger",kills:8}
+{name:"Player1",team:"RHK GAMING",kills:12},
+{name:"Player2",team:"GAJAPADE",kills:9},
+{name:"Player3",team:"HIRIYUR",kills:7},
+{name:"Player4",team:"DON 9 9 9",kills:8}
 
 ];
 
 
-// calculate MVP
+/* MVP calculation */
 
 let mvp=players[0];
 
@@ -38,30 +36,30 @@ document.getElementById("mvpTeam").innerText="Team: "+mvp.team;
 document.getElementById("mvpKills").innerText="Kills: "+mvp.kills;
 
 
-// team ranking
+/* TEAM TOTALS */
 
-let teams={};
+let teamTotals={};
 
 players.forEach(p=>{
 
-if(!teams[p.team]){
+if(!teamTotals[p.team]){
 
-teams[p.team]=0;
+teamTotals[p.team]=0;
 
 }
 
-teams[p.team]+=p.kills;
+teamTotals[p.team]+=p.kills;
 
 });
 
 
 let table=document.getElementById("leaderboard");
 
-for(let team in teams){
+for(let team in teamTotals){
 
 let row=table.insertRow();
 
 row.insertCell(0).innerText=team;
-row.insertCell(1).innerText=teams[team];
+row.insertCell(1).innerText=teamTotals[team];
 
 }
