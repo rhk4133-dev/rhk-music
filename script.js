@@ -1,19 +1,20 @@
-let started=false;
+let started = false;
 
-function startShow(){
+document.body.addEventListener("click", function(){
 
-if(started) return;
+if(!started){
 
-started=true;
+let music = document.getElementById("music");
+music.play();
 
-document.getElementById("music").play();
-
-document.getElementById("message").style.opacity="1";
-
-let teams=document.querySelectorAll(".team");
+let teams = document.querySelectorAll(".team");
 
 teams.forEach(function(team){
-team.classList.add("dance");
+team.classList.add("animate");
 });
 
+started = true;
+
 }
+
+});
