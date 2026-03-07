@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>DIVINE ESPORTS TOURNAMENT</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+background:black;
+color:white;
+text-align:center;
+font-family:Arial;
+overflow:hidden;
+}
+
+h1{
+font-size:50px;
+margin-top:40px;
+color:gold;
+}
+
+.teams{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:80px;
+}
+
+.team{
+width:120px;
+animation:beat 0.6s infinite;
+animation-play-state: paused;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+.text{
+font-size:30px;
+margin-top:60px;
+opacity:0;
+transition:2s;
+}
+
+</style>
 
 </head>
 
 <body onclick="startShow()">
 
 <h1>DIVINE ESPORTS TOURNAMENT</h1>
-
-<p id="message">Welcome Legends 🔥</p>
 
 <div class="teams">
 
@@ -23,11 +62,30 @@
 
 </div>
 
+<div class="text" id="msg">
+WELCOME TO THE BATTLE OF LEGENDS
+</div>
+
 <audio id="music">
 <source src="music.mp3" type="audio/mp3">
 </audio>
 
-<script src="script.js"></script>
+<script>
+
+function startShow(){
+
+document.getElementById("music").play();
+
+let teams = document.querySelectorAll(".team");
+teams.forEach(t=>{
+t.style.animationPlayState="running";
+});
+
+document.getElementById("msg").style.opacity="1";
+
+}
+
+</script>
 
 </body>
 </html>
