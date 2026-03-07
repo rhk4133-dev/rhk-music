@@ -2,63 +2,42 @@ body{
 
 margin:0;
 font-family:Arial;
-background:#0f0f0f;
+background:#0b0b0b;
 color:white;
 text-align:center;
 
 }
 
+.container{
 
-/* intro */
-
-#intro{
-
-position:fixed;
-width:100%;
-height:100vh;
-background:black;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-animation:fade 4s forwards;
+padding:20px;
 
 }
-
-@keyframes fade{
-
-80%{opacity:1}
-100%{opacity:0;visibility:hidden}
-
-}
-
-
-/* title */
 
 .title{
 
 font-size:28px;
-margin:20px;
+margin-bottom:20px;
 
 }
 
 
-/* mvp card */
+/* MVP card */
 
 .mvp-card{
 
-background:#1e1e1e;
-margin:auto;
+background:#1a1a1a;
+border-radius:12px;
 padding:20px;
+margin:auto;
 width:90%;
 max-width:350px;
-border-radius:12px;
-box-shadow:0 0 10px #ff4444;
+box-shadow:0 0 15px red;
 
 }
 
 
-/* table */
+/* leaderboard */
 
 table{
 
@@ -69,21 +48,22 @@ border-collapse:collapse;
 
 }
 
-th,td{
+th{
+
+background:#ff4444;
+padding:10px;
+
+}
+
+td{
 
 border:1px solid #444;
 padding:10px;
 
 }
 
-th{
 
-background:#ff4444;
-
-}
-
-
-/* buttons */
+/* match buttons */
 
 .match-buttons{
 
@@ -93,13 +73,14 @@ margin:20px;
 
 button{
 
-padding:10px 16px;
-margin:4px;
-border:none;
-border-radius:6px;
 background:#ff4444;
+border:none;
 color:white;
+padding:10px 15px;
+margin:5px;
+border-radius:6px;
 font-size:14px;
+cursor:pointer;
 
 }
 
@@ -124,7 +105,7 @@ border-radius:10px;
 
 /* mobile */
 
-@media (max-width:600px){
+@media(max-width:600px){
 
 .title{
 
@@ -134,7 +115,7 @@ font-size:22px;
 
 button{
 
-font-size:13px;
+font-size:12px;
 padding:8px 12px;
 
 }
