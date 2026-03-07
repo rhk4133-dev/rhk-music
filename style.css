@@ -1,0 +1,127 @@
+body{
+
+margin:0;
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+text-align:center;
+
+}
+
+
+/* INTRO SCREEN */
+
+#intro{
+
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+animation:fadeOut 3s forwards;
+animation-delay:2s;
+
+}
+
+#intro h1{
+
+font-size:60px;
+color:#ff4444;
+
+}
+
+#intro p{
+
+font-size:20px;
+
+}
+
+@keyframes fadeOut{
+
+to{
+
+opacity:0;
+visibility:hidden;
+
+}
+
+}
+
+
+/* MAIN PAGE */
+
+#main{
+
+padding:20px;
+
+}
+
+.title{
+
+font-size:40px;
+margin-bottom:20px;
+
+}
+
+
+/* MVP CARD */
+
+.mvp-card{
+
+background:#1e1e1e;
+padding:20px;
+margin:auto;
+width:300px;
+border-radius:12px;
+box-shadow:0 0 10px #ff4444;
+
+}
+
+.mvp-card h2{
+
+color:#ff4444;
+
+}
+
+
+/* MATCH BUTTONS */
+
+.match-buttons{
+
+margin:30px;
+
+}
+
+.match-buttons button{
+
+padding:12px 20px;
+margin:5px;
+font-size:16px;
+border:none;
+background:#ff4444;
+color:white;
+border-radius:6px;
+cursor:pointer;
+
+}
+
+.match-buttons button:hover{
+
+background:#ff2222;
+
+}
+
+
+/* MATCH IMAGE */
+
+.match-result img{
+
+width:90%;
+max-width:900px;
+margin-top:20px;
+border-radius:10px;
+
+}
