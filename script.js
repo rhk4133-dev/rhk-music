@@ -5,61 +5,88 @@ document.getElementById("matchImg").src="match"+num+".png";
 }
 
 
-/* PLAYER DATA (edit after matches) */
+/* MATCH DATA */
+/* update after every match */
 
-let players=[
+const matches=[
 
-{name:"Player1",team:"RHK GAMING",kills:12},
-{name:"Player2",team:"GAJAPADE",kills:9},
-{name:"Player3",team:"HIRIYUR",kills:7},
-{name:"Player4",team:"DON 9 9 9",kills:8}
+{
+"RHK GAMING":10,
+"GAJAPADE":6,
+"HIRIYUR":4,
+"DON 9 9 9":5
+},
+
+{
+"RHK GAMING":7,
+"GAJAPADE":8,
+"HIRIYUR":6,
+"DON 9 9 9":3
+}
 
 ];
 
 
-/* MVP calculation */
+/* CALCULATE TOTAL KILLS */
 
-let mvp=players[0];
+let totals={};
 
-players.forEach(p=>{
+matches.forEach(match=>{
 
-if(p.kills>mvp.kills){
+for(let team in match){
 
-mvp=p;
+if(!totals[team]){
+
+totals[team]=0;
+
+}
+
+totals[team]+=match[team];
 
 }
 
 });
 
-document.getElementById("mvpName").innerText="Player: "+mvp.name;
-document.getElementById("mvpTeam").innerText="Team: "+mvp.team;
-document.getElementById("mvpKills").innerText="Kills: "+mvp.kills;
 
-
-/* TEAM TOTALS */
-
-let teamTotals={};
-
-players.forEach(p=>{
-
-if(!teamTotals[p.team]){
-
-teamTotals[p.team]=0;
-
-}
-
-teamTotals[p.team]+=p.kills;
-
-});
-
+/* SHOW LEADERBOARD */
 
 let table=document.getElementById("leaderboard");
 
-for(let team in teamTotals){
+for(let team in totals){
 
 let row=table.insertRow();
 
 row.insertCell(0).innerText=team;
-row.insertCell(1).innerText=teamTotals[team];
+row.insertCell(1).innerText=totals[team];
+
+}
+
+
+/* MVP */
+
+let topPlayer={
+name:"Shadow",
+team:"RHK GAMING",
+kills:14
+};
+
+document.getElementById("mvpName").innerText="Player: "+topPlayer.name;
+document.getElementById("mvpTeam").innerText="Team: "+topPlayer.team;
+document.getElementById("mvpKills").innerText="Kills: "+topPlayer.kills;
+
+
+/* UPDATE MESSAGE */
+
+let nextMatch=matches.length+1;
+
+if(nextMatch<=6){
+
+document.getElementById("updateText").innerText=
+"Updated leaderboard will publish after Match "+nextMatch;
+
+}else{
+
+document.getElementById("updateText").innerText=
+"Final leaderboard";
 
 }
