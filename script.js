@@ -5,8 +5,7 @@ document.getElementById("matchImg").src="match"+num+".png";
 }
 
 
-/* MATCH DATA */
-/* update after every match */
+/* MATCH DATA (UPDATE AFTER EVERY MATCH) */
 
 const matches=[
 
@@ -14,20 +13,54 @@ const matches=[
 "RHK GAMING":10,
 "GAJAPADE":6,
 "HIRIYUR":4,
-"DON 9 9 9":5
+"DON 9 9 9":5,
+"CHIKKAMAGALURU":3,
+"TEAM NARACHI":2
 },
 
 {
 "RHK GAMING":7,
 "GAJAPADE":8,
 "HIRIYUR":6,
-"DON 9 9 9":3
+"DON 9 9 9":3,
+"CHIKKAMAGALURU":4,
+"TEAM NARACHI":5
 }
 
 ];
 
 
-/* CALCULATE TOTAL KILLS */
+/* PLAYER DATA FOR MVP */
+
+const players=[
+
+{name:"Shadow",team:"RHK GAMING",kills:12},
+{name:"Blaze",team:"GAJAPADE",kills:9},
+{name:"Ghost",team:"HIRIYUR",kills:7}
+
+];
+
+
+/* MVP CALCULATION */
+
+let mvp=players[0];
+
+players.forEach(p=>{
+
+if(p.kills>mvp.kills){
+
+mvp=p;
+
+}
+
+});
+
+document.getElementById("mvpName").innerText="Player: "+mvp.name;
+document.getElementById("mvpTeam").innerText="Team: "+mvp.team;
+document.getElementById("mvpKills").innerText="Kills: "+mvp.kills;
+
+
+/* TEAM TOTALS */
 
 let totals={};
 
@@ -48,8 +81,6 @@ totals[team]+=match[team];
 });
 
 
-/* SHOW LEADERBOARD */
-
 let table=document.getElementById("leaderboard");
 
 for(let team in totals){
@@ -60,19 +91,6 @@ row.insertCell(0).innerText=team;
 row.insertCell(1).innerText=totals[team];
 
 }
-
-
-/* MVP */
-
-let topPlayer={
-name:"Shadow",
-team:"RHK GAMING",
-kills:14
-};
-
-document.getElementById("mvpName").innerText="Player: "+topPlayer.name;
-document.getElementById("mvpTeam").innerText="Team: "+topPlayer.team;
-document.getElementById("mvpKills").innerText="Kills: "+topPlayer.kills;
 
 
 /* UPDATE MESSAGE */
@@ -87,6 +105,6 @@ document.getElementById("updateText").innerText=
 }else{
 
 document.getElementById("updateText").innerText=
-"Final leaderboard";
+"Final leaderboard published";
 
 }
