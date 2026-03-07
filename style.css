@@ -1,51 +1,41 @@
-body{
-background:black;
-color:white;
-text-align:center;
-font-family:Arial;
-overflow:hidden;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.title{
-font-size:50px;
-color:gold;
-margin-top:30px;
+body {
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.subtitle{
-color:#aaa;
+.container {
+  text-align: center;
 }
 
-.teams{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:60px;
+/* Dancing Text */
+.welcome-text {
+  font-size: 8vw; /* responsive for mobile */
+  animation: dance 0.6s infinite alternate;
+  text-shadow: 0 0 10px white, 0 0 20px #ff0000, 0 0 30px #ff0000;
 }
 
-.team{
-width:120px;
-transition:0.2s;
-}
-
-.team.animate{
-animation:beat 0.6s infinite;
-}
-
-.message{
-margin-top:80px;
-font-size:28px;
-letter-spacing:3px;
-animation:glow 1s infinite alternate;
-}
-
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.25);}
-100%{transform:scale(1);}
-}
-
-@keyframes glow{
-0%{text-shadow:0 0 10px red;}
-100%{text-shadow:0 0 30px yellow;}
+/* Dance keyframes */
+@keyframes dance {
+  0% {
+    transform: scale(1) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
 }
