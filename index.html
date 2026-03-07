@@ -10,129 +10,55 @@
 
 <body>
 
-<!-- Entrance Instruction Screen -->
-<div id="entryScreen" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-color:red;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-z-index:9999;
-">
-
-<h2>DIVINE ESPORTS TOURNAMENT</h2>
-
-<p>⚠️ Tournament Entry Instructions</p>
-
-<p>
-Entry fee payment and cash details contact<br>
-<b>DIVINE ESPORTS TOURNAMENT LEADER</b>
-</p>
-
-<p>After payment send screenshot to admin</p>
-
-<button onclick="enterSite()" style="
-padding:10px 20px;
-background:#ff4444;
-border:none;
-color:white;
-border-radius:6px;
-margin-top:20px;
-cursor:pointer;
-">
-Enter Tournament
-</button>
-
-</div>
-
 <h1 class="title">🏆 Divine Esports Tournament</h1>
 
-<!-- MVP Card -->
-<div class="mvp-card">
-  <div class="crown">👑</div>
-  <h2>MVP Player</h2>
-  <p id="mvpName">Player: TN THE_CM✓</p>
-  <p id="mvpTeam">Team: THE BISON</p>
-  <p id="mvpKills">Kills: 15</p>
-</div>
-
-<!-- Leaderboard -->
-<h2>📊 Leaderboard</h2>
-
-<table id="leaderboard">
-<tr>
-<th>Rank</th>
-<th>Team</th>
-<th>Total Kills</th>
-</tr>
-</table>
-
-<p id="updateText">Updated leaderboard will publish after Match 5</p>
-
-<!-- Match Progress -->
+<!-- Match Progress Bar -->
 <div class="progress-bar">
-<div class="progress" id="progress" style="width:83.33%;"></div>
-
-<div class="progress-labels">
-<span>Match 1</span>
-<span>Match 2</span>
-<span>Match 3</span>
-<span>Match 4</span>
-<span>Match 5</span>
-<span>Match 6</span>
-</div>
+  <div class="progress" id="progress" style="width:25%;"></div>
+  <div class="progress-labels">
+    <span>Match 1</span>
+    <span>Match 2</span>
+    <span>Match 3</span>
+    <span>Match 4</span>
+  </div>
 </div>
 
 <!-- Match Buttons -->
 <h2>🎮 Match Results</h2>
-
 <div class="match-buttons">
-<button onclick="showMatch(1)">Match 1</button>
-<button onclick="showMatch(2)">Match 2</button>
-<button onclick="showMatch(3)">Match 3</button>
-<button onclick="showMatch(4)">Match 4</button>
-<button onclick="showMatch(5)">Match 5</button>
-<button onclick="showMatch(6)">Match 6</button>
+  <button onclick="showMatch(1)">Match 1</button>
+  <button onclick="showMatch(2)">Match 2</button>
+  <button onclick="showMatch(3)">Match 3</button>
+  <button onclick="showMatch(4)">Match 4</button>
 </div>
 
+<!-- Match Image -->
 <div class="match-image">
-<img id="matchImg" src="match5.png" alt="Match Result">
+  <img id="matchImg" src="match1.jpg" alt="Match Result">
 </div>
 
-<!-- Teams -->
+<!-- Teams Grid -->
 <h2>👥 Teams</h2>
-
 <div class="teams">
-
-<div class="team"><img src="team1.png"><p>Team 1</p></div>
-<div class="team"><img src="team2.png"><p>Team 2</p></div>
-<div class="team"><img src="team3.png"><p>Team 3</p></div>
-<div class="team"><img src="team4.png"><p>Team 4</p></div>
-<div class="team"><img src="team5.png"><p>Team 5</p></div>
-<div class="team"><img src="team6.png"><p>Team 6</p></div>
-<div class="team"><img src="team7.png"><p>Team 7</p></div>
-<div class="team"><img src="team8.png"><p>Team 8</p></div>
-<div class="team"><img src="team9.png"><p>Team 9</p></div>
-<div class="team"><img src="team10.png"><p>Team 10</p></div>
-<div class="team"><img src="team11.png"><p>Team 11</p></div>
-<div class="team"><img src="team12.png"><p>Team 12</p></div>
-
+  <div class="team"><img src="team1.png"><p>Team 1</p></div>
+  <div class="team"><img src="team2.png"><p>Team 2</p></div>
+  <div class="team"><img src="team3.png"><p>Team 3</p></div>
+  <div class="team"><img src="team4.png"><p>Team 4</p></div>
+  <div class="team"><img src="team5.png"><p>Team 5</p></div>
+  <div class="team"><img src="team6.png"><p>Team 6</p></div>
 </div>
+
+<!-- Leaderboard -->
+<h2>📊 Leaderboard</h2>
+<table id="leaderboard">
+  <tr>
+    <th>Rank</th>
+    <th>Team</th>
+    <th>Total Kills</th>
+  </tr>
+</table>
+<p id="updateText">Updated leaderboard will publish after Match 4</p>
 
 <script src="script.js"></script>
-
-<script>
-function enterSite(){
-document.getElementById("entryScreen").style.display="none";
-}
-</script>
-
 </body>
 </html>
