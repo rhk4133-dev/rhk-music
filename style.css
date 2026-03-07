@@ -4,7 +4,7 @@ body{
   font-family:Arial;
   text-align:center;
   margin:0;
-} 
+}
 
 .title{
   font-size:26px;
@@ -104,7 +104,7 @@ button:hover{
 /* Teams Grid */
 .teams{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
   gap:15px;
   padding:20px;
 }
