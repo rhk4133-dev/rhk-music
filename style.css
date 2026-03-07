@@ -1,25 +1,16 @@
 body{
-
+margin:0;
+font-family:Arial;
 background:#0b0b0b;
 color:white;
-font-family:Arial;
 text-align:center;
-margin:0;
-
 }
 
-.title{
-
-font-size:26px;
-margin:20px;
-
-}
-
+/* Title */
+.title{font-size:26px;margin:20px;}
 
 /* MVP CARD */
-
 .mvp-card{
-
 background:#1a1a1a;
 padding:20px;
 width:90%;
@@ -27,46 +18,47 @@ max-width:350px;
 margin:auto;
 border-radius:12px;
 box-shadow:0 0 15px red;
-
+position:relative;
+animation:fadeIn 1s ease-in;
 }
 
+#mvpCrown{
+animation:spin 2s linear infinite;
+display:inline-block;
+}
 
-/* LEADERBOARD */
-
+/* Leaderboard */
 table{
-
 width:90%;
 margin:auto;
 border-collapse:collapse;
 margin-top:15px;
-
+animation:fadeIn 1s ease-in;
 }
 
-th{
+th{background:#ff4444;padding:10px;}
+td{border:1px solid #444;padding:10px;}
 
+/* MATCH PROGRESS */
+.match-progress{
+width:90%;
+background:#222;
+height:12px;
+margin:20px auto;
+border-radius:6px;
+}
+
+.progress-bar{
+height:12px;
 background:#ff4444;
-padding:10px;
-
+width:16.66%; /* Match 1 initially */
+border-radius:6px;
+transition:width 0.5s ease-in-out;
 }
-
-td{
-
-border:1px solid #444;
-padding:10px;
-
-}
-
 
 /* MATCH BUTTONS */
-
-.match-buttons{
-
-margin:20px;
-
-}
-
+.match-buttons{margin:20px;}
 button{
-
 background:#ff4444;
 border:none;
 color:white;
@@ -75,75 +67,50 @@ margin:5px;
 border-radius:6px;
 font-size:14px;
 cursor:pointer;
-
+transition:all 0.3s ease;
 }
-
-button:hover{
-
-background:#ff2222;
-
-}
-
+button:hover{background:#ff2222;transform:scale(1.05);}
 
 /* MATCH IMAGE */
-
 .match-image img{
-
 width:95%;
 max-width:900px;
 margin-top:20px;
 border-radius:10px;
-
+transition:opacity 0.5s ease;
+opacity:1;
 }
 
-
 /* TEAM GRID */
-
 .teams{
-
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
 gap:15px;
 padding:20px;
-
 }
-
 .team{
-
 background:#1a1a1a;
 padding:10px;
 border-radius:8px;
-
 }
-
 .team img{
-
 width:70px;
 height:70px;
-
+border-radius:50%;
 }
-
-.team p{
-
-font-size:12px;
-
-}
-
+.team p{font-size:12px;}
 
 /* MOBILE */
-
 @media(max-width:600px){
-
-.title{
-
-font-size:22px;
-
+.title{font-size:22px;}
+button{font-size:12px;}
 }
 
-button{
-
-font-size:12px;
-
+/* Animations */
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
 }
-
+@keyframes fadeIn{
+from{opacity:0;}to{opacity:1;}
 }
