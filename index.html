@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DIVINE ESPORTS TOURNAMENT</title>
-<link rel="stylesheet" href="style.css">
+<title>Welcome</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+  color:white;
+  text-align:center;
+  font-family:Arial;
+}
+
+.welcome{
+  font-size:8vw; /* makes it responsive for phone */
+  animation:dance 0.6s infinite alternate;
+}
+
+@keyframes dance{
+  from{
+    transform:scale(1) rotate(-2deg);
+  }
+  to{
+    transform:scale(1.1) rotate(2deg);
+  }
+}
+</style>
 </head>
 
 <body>
 
-<h1 class="title">DIVINE ESPORTS TOURNAMENT</h1>
-<p class="subtitle">Click anywhere to start the hype!</p>
+<h1 class="welcome">WELCOME THE LEGEND</h1>
 
-<div class="teams">
-
-<img src="team1.png" class="team">
-<img src="team2.png" class="team">
-<img src="team3.png" class="team">
-<img src="team4.png" class="team">
-
-</div>
-
-<div class="message">
-WELCOME TO THE BATTLE ARENA
-</div>
-
-<audio id="music">
-<source src="music.mp3" type="audio/mp3">
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
 </audio>
-
-<script src="script.js"></script>
 
 </body>
 </html>
