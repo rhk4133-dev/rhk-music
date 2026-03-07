@@ -1,24 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Free Fire Tournament</title>
+<title>Divine Esports Tournament</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
-<body style="text-align:center; font-family:Arial;">
+<body>
 
-<h1>Free Fire Tournament</h1>
+<!-- INTRO ANIMATION -->
 
-<br>
+<div id="intro">
 
-<a href="checkin.html">
-<button style="padding:15px; font-size:18px;">Team Check-in</button>
-</a>
+<h1>DIVINE ESPORTS</h1>
+<p>Tournament Live Updates</p>
 
-<br><br>
+</div>
 
-<a href="leaderboard.html">
-<button style="padding:15px; font-size:18px;">Leaderboard</button>
-</a>
+<!-- MAIN CONTENT -->
+
+<div id="main">
+
+<h1 class="title">TOURNAMENT LIVE UPDATES</h1>
+
+<div class="mvp-card">
+
+<h2>MVP PLAYER</h2>
+
+<p id="playerName">Player: Shadow</p>
+<p id="teamName">Team: Alpha</p>
+<p id="playerKills">Kills: 12</p>
+
+</div>
+
+
+<div class="match-buttons">
+
+<button onclick="showMatch(1)">Match 1</button>
+<button onclick="showMatch(2)">Match 2</button>
+<button onclick="showMatch(3)">Match 3</button>
+<button onclick="showMatch(4)">Match 4</button>
+<button onclick="showMatch(5)">Match 5</button>
+<button onclick="showMatch(6)">Match 6</button>
+
+</div>
+
+
+<div class="match-result">
+
+<img id="matchImage" src="match1.png">
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
