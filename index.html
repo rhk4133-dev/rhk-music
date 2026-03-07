@@ -1,45 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome</title>
-
-<style>
-body{
-  margin:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:black;
-  color:white;
-  text-align:center;
-  font-family:Arial;
-}
-
-.welcome{
-  font-size:8vw; /* makes it responsive for phone */
-  animation:dance 0.6s infinite alternate;
-}
-
-@keyframes dance{
-  from{
-    transform:scale(1) rotate(-2deg);
-  }
-  to{
-    transform:scale(1.1) rotate(2deg);
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Legend</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1 class="welcome">WELCOME THE LEGEND</h1>
+  <div class="container">
+    <h1 class="welcome-text">WELCOME THE LEGEND</h1>
+  </div>
 
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mp3">
-</audio>
+  <!-- Add your music file here -->
+  <audio id="bg-music" autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+  </audio>
 
+  <script src="script.js"></script>
 </body>
 </html>
