@@ -1,24 +1,19 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Divine Esports Tournament</title>
-
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="container">
-
 <h1 class="title">🏆 Tournament Leaderboard</h1>
 
-<div class="mvp-card">
+<div class="mvp">
 
 <h2>🏆 MVP Player</h2>
 
@@ -27,6 +22,7 @@
 <p id="mvpKills"></p>
 
 </div>
+
 
 <h2>📊 Leaderboard</h2>
 
@@ -39,10 +35,12 @@
 
 </table>
 
+<p id="updateText"></p>
+
 
 <h2>🎮 Match Results</h2>
 
-<div class="match-buttons">
+<div class="matches">
 
 <button onclick="showMatch(1)">Match 1</button>
 <button onclick="showMatch(2)">Match 2</button>
@@ -54,13 +52,7 @@
 </div>
 
 
-<div class="match-image">
-
 <img id="matchImg" src="match1.png">
-
-</div>
-
-</div>
 
 <script src="script.js"></script>
 
