@@ -1,20 +1,9 @@
-let started = false;
+// Optional: Add more shake with music beat (basic effect)
+const text = document.querySelector('.welcome-text');
+const audio = document.getElementById('bg-music');
 
-document.body.addEventListener("click", function(){
-
-if(!started){
-
-let music = document.getElementById("music");
-music.play();
-
-let teams = document.querySelectorAll(".team");
-
-teams.forEach(function(team){
-team.classList.add("animate");
-});
-
-started = true;
-
-}
-
+audio.addEventListener('play', () => {
+  setInterval(() => {
+    text.style.transform = `scale(${1 + Math.random()*0.1}) rotate(${Math.random()*4 - 2}deg)`;
+  }, 300);
 });
