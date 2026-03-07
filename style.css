@@ -1,0 +1,49 @@
+body{
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+h1{
+font-size:50px;
+margin-top:40px;
+letter-spacing:3px;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{color:#00ffff;}
+to{color:#ff00ff;}
+}
+
+#message{
+font-size:24px;
+margin-top:20px;
+opacity:0;
+transition:1s;
+}
+
+.teams{
+margin-top:60px;
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.team{
+width:120px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.dance{
+animation: beat 0.6s infinite;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
