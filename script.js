@@ -1,18 +1,67 @@
-// Intro animation control
+// match switch
 
-setTimeout(function(){
+function showMatch(num){
 
-document.getElementById("intro").style.display="none";
+document.getElementById("matchImg").src="match"+num+".png";
 
-},5000);
+}
 
 
-// Match image switch
+// player data
 
-function showMatch(match){
+let players=[
 
-let img=document.getElementById("matchImage");
+{name:"Shadow",team:"Alpha",kills:12},
+{name:"Blaze",team:"Dragon",kills:9},
+{name:"Sniper",team:"Alpha",kills:6},
+{name:"Ghost",team:"Tiger",kills:8}
 
-img.src="match"+match+".png";
+];
+
+
+// calculate MVP
+
+let mvp=players[0];
+
+players.forEach(p=>{
+
+if(p.kills>mvp.kills){
+
+mvp=p;
+
+}
+
+});
+
+document.getElementById("mvpName").innerText="Player: "+mvp.name;
+document.getElementById("mvpTeam").innerText="Team: "+mvp.team;
+document.getElementById("mvpKills").innerText="Kills: "+mvp.kills;
+
+
+// team ranking
+
+let teams={};
+
+players.forEach(p=>{
+
+if(!teams[p.team]){
+
+teams[p.team]=0;
+
+}
+
+teams[p.team]+=p.kills;
+
+});
+
+
+let table=document.getElementById("leaderboard");
+
+for(let team in teams){
+
+let row=table.insertRow();
+
+row.insertCell(0).innerText=team;
+row.insertCell(1).innerText=teams[team];
 
 }
