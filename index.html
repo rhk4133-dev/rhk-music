@@ -1,103 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>DIVINE ESPORTS TOURNAMENT</title>
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-body{
-background:black;
-color:white;
-font-family:Arial;
-text-align:center;
-overflow:hidden;
-}
-
-h1{
-font-size:50px;
-margin-top:40px;
-letter-spacing:3px;
-animation: glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{color:#00ffff;}
-to{color:#ff00ff;}
-}
-
-#message{
-font-size:24px;
-margin-top:20px;
-opacity:0;
-transition:1s;
-}
-
-.teams{
-margin-top:60px;
-display:flex;
-justify-content:center;
-gap:40px;
-}
-
-.team{
-width:120px;
-border-radius:15px;
-transition:0.3s;
-}
-
-.dance{
-animation: beat 0.6s infinite;
-}
-
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.2);}
-100%{transform:scale(1);}
-}
-
-</style>
 </head>
 
 <body onclick="startShow()">
 
 <h1>DIVINE ESPORTS TOURNAMENT</h1>
 
-<div id="message">Welcome Legends 🔥</div>
+<p id="message">Welcome Legends 🔥</p>
 
 <div class="teams">
+
 <img src="team1.png" class="team">
 <img src="team2.png" class="team">
 <img src="team3.png" class="team">
 <img src="team4.png" class="team">
+
 </div>
 
 <audio id="music">
 <source src="music.mp3" type="audio/mp3">
 </audio>
 
-<script>
-
-let started=false;
-
-function startShow(){
-
-if(started) return;
-
-started=true;
-
-document.getElementById("music").play();
-
-document.getElementById("message").style.opacity="1";
-
-let teams=document.querySelectorAll(".team");
-
-teams.forEach(t=>{
-t.classList.add("dance");
-});
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
