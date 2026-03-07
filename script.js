@@ -101,3 +101,13 @@ nextMatch<=6
 ?"Updated leaderboard will publish after Match "+nextMatch
 
 :"Final leaderboard published"
+
+
+
+// Close entrance popup
+
+function closeEntry(){
+
+document.getElementById("entryPopup").style.display="none"
+
+}
