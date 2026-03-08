@@ -87,7 +87,7 @@ button:hover{
   padding:10px;
   border-radius:10px;
   box-shadow:0 0 15px #ff00ff inset;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .team:hover{
   transform:scale(1.05);
@@ -113,6 +113,7 @@ table{
   border-radius:10px;
   overflow:hidden;
   box-shadow:0 0 20px #00ffe7;
+  transition:opacity 0.6s;
 }
 th{
   background:#ff00ff;
