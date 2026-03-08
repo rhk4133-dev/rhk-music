@@ -1,16 +1,17 @@
 body{
-  background:#0a0a0a;
+  background:#0f172a;
   color:white;
-  font-family: 'Orbitron', sans-serif;
+  font-family:'Orbitron', sans-serif;
   text-align:center;
   margin:0;
 }
 
+/* Title */
 .title{
   font-size:28px;
   margin:20px;
-  color:#00ffe7;
-  text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7, 0 0 30px #ff00ff;
+  color:#e2e8f0;
+  text-shadow:0 3px 12px rgba(0,0,0,0.4);
 }
 
 /* Progress bar */
@@ -19,49 +20,49 @@ body{
   max-width:600px;
   margin:20px auto;
   height:12px;
-  background:#111;
+  background:rgba(255,255,255,0.08);
   border-radius:6px;
   position:relative;
-  box-shadow:0 0 20px #ff00ff inset;
+  backdrop-filter:blur(8px);
 }
+
 .progress{
   height:100%;
-  background: linear-gradient(90deg,#00ffe7,#ff00ff);
-  width:25%;
+  background:linear-gradient(90deg,#38bdf8,#60a5fa);
+  width:0%;
   border-radius:6px;
   transition:width 0.6s ease;
-  box-shadow:0 0 10px #00ffe7,0 0 20px #ff00ff;
 }
+
 .progress-labels{
   display:flex;
   justify-content:space-between;
   margin-top:5px;
   font-size:13px;
-  color:#00ffe7;
-  text-shadow:0 0 5px #ff00ff;
+  color:#cbd5f5;
 }
 
 /* Match buttons */
 .match-buttons{
   margin:20px;
 }
+
 button{
-  background:#1a1a1a;
-  border:2px solid #ff00ff;
-  color:#ff00ff;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#e5e7eb;
   padding:10px 15px;
   margin:5px;
-  border-radius:6px;
+  border-radius:8px;
   font-size:14px;
   cursor:pointer;
-  transition: all 0.3s;
-  text-shadow:0 0 3px #00ffe7;
+  transition:all 0.3s;
+  backdrop-filter:blur(10px);
 }
+
 button:hover{
-  background:#ff00ff;
-  color:#000;
+  background:rgba(255,255,255,0.18);
   transform:scale(1.05);
-  box-shadow:0 0 15px #ff00ff,0 0 25px #00ffe7;
 }
 
 /* Match Image */
@@ -72,7 +73,7 @@ button:hover{
   border-radius:12px;
   transition:opacity 0.5s, transform 0.5s;
   opacity:1;
-  box-shadow:0 0 20px #00ffe7,0 0 40px #ff00ff;
+  box-shadow:0 12px 35px rgba(0,0,0,0.5);
 }
 
 /* Teams Grid */
@@ -82,25 +83,27 @@ button:hover{
   gap:15px;
   padding:20px;
 }
+
 .team{
-  background:#111;
+  background:rgba(255,255,255,0.08);
   padding:10px;
-  border-radius:10px;
-  box-shadow:0 0 15px #ff00ff inset;
+  border-radius:12px;
+  backdrop-filter:blur(10px);
   transition: transform 0.3s;
 }
+
 .team:hover{
   transform:scale(1.05);
-  box-shadow:0 0 25px #00ffe7 inset;
 }
+
 .team img{
   width:70px;
   height:70px;
 }
+
 .team p{
   font-size:12px;
-  color:#00ffe7;
-  text-shadow:0 0 3px #ff00ff;
+  color:#e5e7eb;
 }
 
 /* Leaderboard */
@@ -109,27 +112,28 @@ table{
   margin:auto;
   border-collapse:collapse;
   margin-top:20px;
-  background:#111;
-  border-radius:10px;
+  background:rgba(255,255,255,0.08);
+  border-radius:12px;
   overflow:hidden;
-  box-shadow:0 0 20px #00ffe7;
+  backdrop-filter:blur(10px);
 }
+
 th{
-  background:#ff00ff;
-  color:#000;
+  background:rgba(255,255,255,0.18);
+  color:#f1f5f9;
   padding:12px;
   font-size:14px;
-  text-shadow:0 0 5px #00ffe7;
 }
+
 td{
-  border-bottom:1px solid #444;
+  border-bottom:1px solid rgba(255,255,255,0.1);
   padding:12px;
   font-size:13px;
-  color:#00ffe7;
-  text-shadow:0 0 2px #ff00ff;
+  color:#e5e7eb;
 }
+
 tr:nth-child(even){
-  background:rgba(255,0,255,0.1);
+  background:rgba(255,255,255,0.05);
 }
 
 /* Mobile */
