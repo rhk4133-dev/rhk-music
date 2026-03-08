@@ -8,31 +8,26 @@
 </head>
 <body>
 
-<!-- Entrance / Welcome Page -->
 <div class="welcome-screen" id="welcomeScreen">
   <h1>🎮 Welcome to Divine Esports Tournament</h1>
-  <p>Today we reveal the results of our epic matches!</p>
+  <p>Today we reveal the epic results of our matches!</p>
   <button onclick="enterTournament()">View Match Results</button>
 </div>
 
-<!-- Main Tournament Page -->
 <div id="mainPage" style="display:none;">
   <h1 class="title">🏆 Divine Esports Tournament Results</h1>
 
-  <!-- Match Progress / Instructions -->
   <div class="match-instructions">
-    <button onclick="showMatch(1)">➡ Press here to see Match 1 Results</button>
-    <button onclick="showMatch(2)">➡ Press here to see Match 2 Results</button>
-    <button onclick="showMatch(3)">➡ Press here to see Match 3 Results</button>
-    <button onclick="showMatch(4)">➡ Press here to see Match 4 Results</button>
+    <button onclick="showMatch(1)">➡ Click to see Match 1 Results</button>
+    <button onclick="showMatch(2)">➡ Click to see Match 2 Results</button>
+    <button onclick="showMatch(3)">➡ Click to see Match 3 Results</button>
+    <button onclick="showMatch(4)">➡ Click to see Match 4 Results</button>
   </div>
 
-  <!-- Match Image -->
   <div class="match-image">
     <img id="matchImg" src="match1.jpg" alt="Match Result">
   </div>
 
-  <!-- Leaderboard -->
   <h2>📊 Leaderboard</h2>
   <div class="leaderboard-container">
     <table id="leaderboard">
@@ -45,7 +40,6 @@
   </div>
   <p id="updateText">Leaderboard updates based on match results</p>
 
-  <!-- Teams -->
   <h2>👥 Teams</h2>
   <div class="teams">
     <div class="team"><img src="team1.png"><p>Team 1</p></div>
