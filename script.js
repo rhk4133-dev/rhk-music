@@ -41,7 +41,7 @@ function updateLeaderboard(){
                 let rank=i==0?"🥇":i==1?"🥈":i==2?"🥉":i+1;
                 r.insertCell(0).innerText=rank;
                 r.insertCell(1).innerText=cells[0];
-                r.insertCell(2).innerText=cells[1];
+                r.insertCell(2).innerText=cells[1]; // Total Kills
             }
         });
     })
