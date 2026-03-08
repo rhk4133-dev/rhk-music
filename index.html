@@ -8,60 +8,59 @@
 </head>
 <body>
 
-<h1 class="title">🏆 Divine Esports Tournament</h1>
+<!-- Entrance / Welcome Page -->
+<div class="welcome-screen" id="welcomeScreen">
+  <h1>🎮 Welcome to Divine Esports Tournament</h1>
+  <p>Today we reveal the results of our epic matches!</p>
+  <button onclick="enterTournament()">View Match Results</button>
+</div>
 
-<!-- Match Progress Bar -->
-<div class="progress-bar">
-  <div class="progress" id="progress" style="width:25%;"></div>
-  <div class="progress-labels">
-    <span>Match 1</span>
-    <span>Match 2</span>
-    <span>Match 3</span>
-    <span>Match 4</span>
+<!-- Main Tournament Page -->
+<div id="mainPage" style="display:none;">
+  <h1 class="title">🏆 Divine Esports Tournament Results</h1>
+
+  <!-- Match Progress / Instructions -->
+  <div class="match-instructions">
+    <button onclick="showMatch(1)">➡ Press here to see Match 1 Results</button>
+    <button onclick="showMatch(2)">➡ Press here to see Match 2 Results</button>
+    <button onclick="showMatch(3)">➡ Press here to see Match 3 Results</button>
+    <button onclick="showMatch(4)">➡ Press here to see Match 4 Results</button>
   </div>
-</div>
 
-<!-- Match Buttons -->
-<div class="match-buttons">
-  <button onclick="showMatch(1)">Match 1</button>
-  <button onclick="showMatch(2)">Match 2</button>
-  <button onclick="showMatch(3)">Match 3</button>
-  <button onclick="showMatch(4)">Match 4</button>
-</div>
+  <!-- Match Image -->
+  <div class="match-image">
+    <img id="matchImg" src="match1.jpg" alt="Match Result">
+  </div>
 
-<!-- Match Image -->
-<div class="match-image">
-  <img id="matchImg" src="match1.jpg" alt="Match Result">
-</div>
+  <!-- Leaderboard -->
+  <h2>📊 Leaderboard</h2>
+  <div class="leaderboard-container">
+    <table id="leaderboard">
+      <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Total Kills</th>
+      </tr>
+    </table>
+  </div>
+  <p id="updateText">Leaderboard updates based on match results</p>
 
-<!-- Leaderboard -->
-<h2>📊 Leaderboard</h2>
-<div class="leaderboard-container">
-  <table id="leaderboard">
-    <tr>
-      <th>Rank</th>
-      <th>Team</th>
-      <th>Total Kills</th>
-    </tr>
-  </table>
-</div>
-<p id="updateText">Updated leaderboard will publish after Match 2</p>
-
-<!-- Teams Grid (12 teams) -->
-<h2>👥 Teams</h2>
-<div class="teams">
-  <div class="team"><img src="team1.png"><p>Team 1</p></div>
-  <div class="team"><img src="team2.png"><p>Team 2</p></div>
-  <div class="team"><img src="team3.png"><p>Team 3</p></div>
-  <div class="team"><img src="team4.png"><p>Team 4</p></div>
-  <div class="team"><img src="team5.png"><p>Team 5</p></div>
-  <div class="team"><img src="team6.png"><p>Team 6</p></div>
-  <div class="team"><img src="team7.png"><p>Team 7</p></div>
-  <div class="team"><img src="team8.png"><p>Team 8</p></div>
-  <div class="team"><img src="team9.png"><p>Team 9</p></div>
-  <div class="team"><img src="team10.png"><p>Team 10</p></div>
-  <div class="team"><img src="team11.png"><p>Team 11</p></div>
-  <div class="team"><img src="team12.png"><p>Team 12</p></div>
+  <!-- Teams -->
+  <h2>👥 Teams</h2>
+  <div class="teams">
+    <div class="team"><img src="team1.png"><p>Team 1</p></div>
+    <div class="team"><img src="team2.png"><p>Team 2</p></div>
+    <div class="team"><img src="team3.png"><p>Team 3</p></div>
+    <div class="team"><img src="team4.png"><p>Team 4</p></div>
+    <div class="team"><img src="team5.png"><p>Team 5</p></div>
+    <div class="team"><img src="team6.png"><p>Team 6</p></div>
+    <div class="team"><img src="team7.png"><p>Team 7</p></div>
+    <div class="team"><img src="team8.png"><p>Team 8</p></div>
+    <div class="team"><img src="team9.png"><p>Team 9</p></div>
+    <div class="team"><img src="team10.png"><p>Team 10</p></div>
+    <div class="team"><img src="team11.png"><p>Team 11</p></div>
+    <div class="team"><img src="team12.png"><p>Team 12</p></div>
+  </div>
 </div>
 
 <script src="script.js"></script>
