@@ -1,10 +1,10 @@
-// Entrance Page
+// Entrance
 function enterTournament(){
     document.getElementById("welcomeScreen").style.display="none";
     document.getElementById("mainPage").style.display="block";
 }
 
-// Match Switching
+// Match switching
 function showMatch(num){
     let img=document.getElementById("matchImg");
     img.style.opacity=0;
@@ -14,9 +14,8 @@ function showMatch(num){
     },300);
 
     const updateText=document.getElementById("updateText");
-    updateText.innerText = num<4 ? `Updated leaderboard will publish after Match ${num}` : "Final leaderboard published";
+    updateText.innerText = num<4 ? `Leaderboard updates after Match ${num}` : "Final Leaderboard published";
 
-    // Reload leaderboard
     updateLeaderboard();
 }
 
@@ -31,11 +30,8 @@ function updateLeaderboard(){
     .then(res=>res.text())
     .then(data=>{
         const rows=data.split("\n").slice(1);
-
-        // Clear previous
         while(table.rows.length>1) table.deleteRow(1);
 
-        // Sort rows by kills descending
         let teams=[];
         rows.forEach(row=>{
             const cells=row.split(",");
@@ -43,6 +39,7 @@ function updateLeaderboard(){
                 teams.push({name:cells[0], kills:parseInt(cells[1])||0});
             }
         });
+        // Sort by kills descending
         teams.sort((a,b)=>b.kills-a.kills);
 
         teams.forEach((team,i)=>{
