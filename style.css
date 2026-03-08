@@ -1,5 +1,5 @@
 body{
-  background:#0a0a0a;
+  background: linear-gradient(120deg, #0a0a0a 0%, #111111 100%);
   color:white;
   font-family: 'Orbitron', sans-serif;
   text-align:center;
@@ -23,6 +23,7 @@ body{
   border-radius:6px;
   position:relative;
   box-shadow:0 0 20px #ff00ff inset;
+  overflow:hidden;
 }
 .progress{
   height:100%;
@@ -31,6 +32,11 @@ body{
   border-radius:6px;
   transition:width 0.6s ease;
   box-shadow:0 0 10px #00ffe7,0 0 20px #ff00ff;
+  animation: moveGradient 2s linear infinite;
+}
+@keyframes moveGradient{
+  0%{background-position:0%}
+  100%{background-position:100%}
 }
 .progress-labels{
   display:flex;
@@ -44,6 +50,9 @@ body{
 /* Match buttons */
 .match-buttons{
   margin:20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 button{
   background:#1a1a1a;
@@ -104,6 +113,9 @@ button:hover{
 }
 
 /* Leaderboard */
+.leaderboard-container{
+  overflow-x:auto;
+}
 table{
   width:90%;
   margin:auto;
@@ -137,4 +149,6 @@ tr:nth-child(even){
 @media(max-width:600px){
   .title{font-size:24px;}
   button{font-size:12px;padding:8px 12px;}
+  .teams{grid-template-columns:repeat(2,1fr);}
+  table{font-size:12px;}
 }
