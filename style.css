@@ -1,5 +1,5 @@
 body{
-  background:#0a0a0a;
+  background:#0b0c10;
   color:white;
   font-family: 'Orbitron', sans-serif;
   text-align:center;
@@ -9,8 +9,8 @@ body{
 .title{
   font-size:28px;
   margin:20px;
-  color:#00ffe7;
-  text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7, 0 0 30px #ff00ff;
+  color:#7afcff;
+  text-shadow: 0 0 5px #7afcff, 0 0 15px #88fffb, 0 0 25px #a0eaff;
 }
 
 /* Progress bar */
@@ -19,26 +19,26 @@ body{
   max-width:600px;
   margin:20px auto;
   height:12px;
-  background:#111;
+  background:rgba(255,255,255,0.05);
   border-radius:6px;
   position:relative;
-  box-shadow:0 0 20px #ff00ff inset;
+  box-shadow:0 0 20px rgba(0,255,255,0.2) inset;
 }
 .progress{
   height:100%;
-  background: linear-gradient(90deg,#00ffe7,#ff00ff);
-  width:25%;
+  background: linear-gradient(90deg, #7afcff, #88fffb, #a0eaff);
+  width:0%;
   border-radius:6px;
   transition:width 0.6s ease;
-  box-shadow:0 0 10px #00ffe7,0 0 20px #ff00ff;
+  box-shadow:0 0 15px rgba(122,255,255,0.5),0 0 25px rgba(160,234,255,0.5);
 }
 .progress-labels{
   display:flex;
   justify-content:space-between;
   margin-top:5px;
   font-size:13px;
-  color:#00ffe7;
-  text-shadow:0 0 5px #ff00ff;
+  color:#7afcff;
+  text-shadow:0 0 3px rgba(160,234,255,0.7);
 }
 
 /* Match buttons */
@@ -46,22 +46,22 @@ body{
   margin:20px;
 }
 button{
-  background:#1a1a1a;
-  border:2px solid #ff00ff;
-  color:#ff00ff;
+  background:rgba(255,255,255,0.05);
+  border:2px solid #88fffb;
+  color:#88fffb;
   padding:10px 15px;
   margin:5px;
   border-radius:6px;
   font-size:14px;
   cursor:pointer;
   transition: all 0.3s;
-  text-shadow:0 0 3px #00ffe7;
+  text-shadow:0 0 2px rgba(122,255,255,0.7);
 }
 button:hover{
-  background:#ff00ff;
-  color:#000;
+  background:rgba(136,255,251,0.3);
+  color:#0b0c10;
   transform:scale(1.05);
-  box-shadow:0 0 15px #ff00ff,0 0 25px #00ffe7;
+  box-shadow:0 0 15px #7afcff,0 0 25px #88fffb;
 }
 
 /* Match Image */
@@ -72,7 +72,7 @@ button:hover{
   border-radius:12px;
   transition:opacity 0.5s, transform 0.5s;
   opacity:1;
-  box-shadow:0 0 20px #00ffe7,0 0 40px #ff00ff;
+  box-shadow:0 0 15px #7afcff,0 0 30px #88fffb;
 }
 
 /* Teams Grid */
@@ -83,15 +83,15 @@ button:hover{
   padding:20px;
 }
 .team{
-  background:#111;
+  background:rgba(255,255,255,0.05);
   padding:10px;
   border-radius:10px;
-  box-shadow:0 0 15px #ff00ff inset;
+  box-shadow:0 0 15px #88fffb inset;
   transition: transform 0.3s;
 }
 .team:hover{
   transform:scale(1.05);
-  box-shadow:0 0 25px #00ffe7 inset;
+  box-shadow:0 0 25px #7afcff inset;
 }
 .team img{
   width:70px;
@@ -99,8 +99,8 @@ button:hover{
 }
 .team p{
   font-size:12px;
-  color:#00ffe7;
-  text-shadow:0 0 3px #ff00ff;
+  color:#7afcff;
+  text-shadow:0 0 2px #88fffb;
 }
 
 /* Leaderboard */
@@ -109,27 +109,27 @@ table{
   margin:auto;
   border-collapse:collapse;
   margin-top:20px;
-  background:#111;
+  background:rgba(255,255,255,0.05);
   border-radius:10px;
   overflow:hidden;
-  box-shadow:0 0 20px #00ffe7;
+  box-shadow:0 0 20px #7afcff;
 }
 th{
-  background:#ff00ff;
-  color:#000;
+  background:rgba(136,255,251,0.5);
+  color:#0b0c10;
   padding:12px;
   font-size:14px;
-  text-shadow:0 0 5px #00ffe7;
+  text-shadow:0 0 3px #7afcff;
 }
 td{
-  border-bottom:1px solid #444;
+  border-bottom:1px solid rgba(122,255,255,0.2);
   padding:12px;
   font-size:13px;
-  color:#00ffe7;
-  text-shadow:0 0 2px #ff00ff;
+  color:#7afcff;
+  text-shadow:0 0 2px rgba(136,255,251,0.7);
 }
 tr:nth-child(even){
-  background:rgba(255,0,255,0.1);
+  background:rgba(122,255,255,0.05);
 }
 
 /* Mobile */
