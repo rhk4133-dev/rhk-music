@@ -10,11 +10,9 @@ function showMatch(num){
     let progress=document.getElementById("progress");
     progress.style.width=(num/4*100)+"%";
 
-    // Update leaderboard text dynamically
     const updateText=document.getElementById("updateText");
     updateText.innerText = num<4 ? `Updated leaderboard will publish after Match ${num+1}` : "Final leaderboard published";
 
-    // Reload leaderboard after each match
     updateLeaderboard();
 }
 
@@ -30,7 +28,6 @@ function updateLeaderboard(){
     .then(data=>{
         const rows=data.split("\n").slice(1);
 
-        // Remove previous rows
         while(table.rows.length>1){
             table.deleteRow(1);
         }
