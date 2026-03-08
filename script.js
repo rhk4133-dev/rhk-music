@@ -1,6 +1,10 @@
 // Match switching
 function showMatch(num){
     let img = document.getElementById("matchImg");
+
+    // Show image if hidden
+    if(img.style.display==="none") img.style.display="block";
+
     img.style.opacity=0;
     setTimeout(()=>{
         img.src="match"+num+".jpg";
